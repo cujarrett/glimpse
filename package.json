@@ -1,0 +1,29 @@
+{
+  "name": "glimpse",
+  "version": "0.1.0",
+  "private": true,
+  "description": "React JS web app to show GitHub user metrics on beautiful graphs using D3",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matt-jarrett/glimpse.git"
+  },
+  "keywords": [
+    "React",
+    "D3",
+    "GitHub"
+  ],
+  "author": "Matt Jarrett",
+  "license": "MIT",
+  "dependencies": {
+    "react": "~16.4.1",
+    "react-dom": "~16.4.1",
+    "react-scripts": "1.1.4"
+  }
+}
