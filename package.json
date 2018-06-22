@@ -8,7 +8,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "fix-lint": "eslint . --fix",
+    "ci": "npm run lint && npm run test"
   },
   "repository": {
     "type": "git",
@@ -22,8 +25,12 @@
   "author": "Matt Jarrett",
   "license": "MIT",
   "dependencies": {
+    "node-fetch": "~2.1.2",
     "react": "~16.4.1",
     "react-dom": "~16.4.1",
     "react-scripts": "1.1.4"
+  },
+  "devDependencies": {
+    "eslint": "~4.19.1"
   }
 }
