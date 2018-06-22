@@ -1,0 +1,13 @@
+{
+  years: [
+    { year: '2018', total: 567, range: [Object] },
+    { year: '2017', total: 370, range: [Object] },
+    { year: '2016', total: 120, range: [Object] },
+    { year: '2015', total: 1, range: [Object] }
+  ],
+  contributions: [
+    { date: '2018-06-17', count: 0, color: '#ebedf0', intensity: 0 },
+    { date: '2018-06-16', count: 0, color: '#ebedf0', intensity: 0 },
+    { date: '2018-06-15', count: 0, color: '#ebedf0', intensity: 0 }
+  ]
+}
