@@ -2,7 +2,7 @@
   "name": "glimpse",
   "version": "0.1.0",
   "private": true,
-  "description": "React JS web app to show GitHub user metrics on beautiful graphs using D3",
+  "description": "It's a React JS web app to show GitHub user metrics on beautiful graphs using Uber's awesome React VIS library",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -19,7 +19,7 @@
   },
   "keywords": [
     "React",
-    "D3",
+    "React-VIS",
     "GitHub"
   ],
   "author": "Matt Jarrett",
