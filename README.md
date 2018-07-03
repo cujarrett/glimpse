@@ -1,7 +1,8 @@
 # Glimpse (In Development)
 
 ## What's it do?
-It's a React JS web app to show GitHub user metrics on beautiful graphs using D3.
+It's a React JS web app to show GitHub user metrics on beautiful graphs using Uber's awesome
+[React VIS](https://github.com/uber/react-vis/blob/master/README.md) library.
 
 ## Setup
 Setup and use requires [Git](https://git-scm.com/),
