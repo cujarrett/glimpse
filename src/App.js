@@ -1,12 +1,22 @@
 import React, { Component } from "react"
 import "./App.css"
 import { getGitHubUserData } from "./services/github"
+import logo from "./glimpse-logo.png"
 // Disable eslint max-len for imports from react-vis
 // eslint-disable-next-line max-len
 import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, VerticalBarSeries } from "react-vis"
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { width: 0, height: 0 }
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
+  }
+
   async componentDidMount() {
+    this.updateWindowDimensions()
+    window.addEventListener("resize", this.updateWindowDimensions)
+
     const formattedData = []
     const data = await getGitHubUserData("matt-jarrett")
     const contributions = data.contributions.reverse()
@@ -20,31 +30,40 @@ class App extends Component {
     this.setState({ formattedData })
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions)
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: .98 * (window.innerWidth), height: .88 * (window.innerHeight) })
+  }
+
   render() {
     const BarSeries = VerticalBarSeries
 
     return (
-      <div>
-        <div align="center">
-          <h1>{"GitHub Contributions"}</h1>
-        </div>
-        { this.state && this.state.formattedData &&
+      <div className="App">
+        <div className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          { this.state && this.state.formattedData &&
       <div>
         <XYPlot
           xType="ordinal"
-          width={1200}
-          height={500}
+          width={this.state.width}
+          height={this.state.height}
         >
           <VerticalGridLines />
           <HorizontalGridLines />
           <XAxis />
           <YAxis />
           <BarSeries
+            color="purple"
             className="vertical-bar-series-example"
             data={ this.state.formattedData }/>
         </XYPlot>
       </div>
-        }
+          }
+        </div>
       </div>
     )
   }
