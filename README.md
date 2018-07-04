@@ -1,5 +1,7 @@
 # Glimpse (In Development)
 
+![logo](./media/glimpse-logo.png)
+
 ## What's it do?
 It's a React JS web app to show GitHub user metrics on beautiful graphs using Uber's awesome
 [React VIS](https://github.com/uber/react-vis/blob/master/README.md) library.
