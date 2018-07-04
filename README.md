@@ -1,6 +1,6 @@
-# glimpse (In Development)
-
 ![logo](./media/glimpse-logo-with-background.png)
+
+(In Development)
 
 ## What's it do?
 It's a React JS web app to show GitHub user metrics on beautiful graphs using Uber's awesome
