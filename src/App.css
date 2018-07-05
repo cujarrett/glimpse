@@ -3,12 +3,11 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 100px;
 }
 
 .App-header {
-  height: 150px;
+  height: 100px;
   padding: 20px;
   color: white;
 }
@@ -19,4 +18,8 @@
 
 .App-intro {
   font-size: large;
+}
+
+.Content {
+  display: inline-block;
 }
