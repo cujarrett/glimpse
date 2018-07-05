@@ -9,16 +9,40 @@ import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, VerticalB
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { width: 0, height: 0 }
+    this.state = {
+      width: 0,
+      height: 0,
+      message: "",
+      inputValue: "",
+      formattedData: []
+    }
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
 
   async componentDidMount() {
     this.updateWindowDimensions()
     window.addEventListener("resize", this.updateWindowDimensions)
+  }
 
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateWindowDimensions)
+  }
+
+  updateWindowDimensions() {
+    this.setState({ width: .8 * (window.innerWidth), height: .6 * (window.innerHeight) })
+  }
+
+  updateInputValue(event) {
+    this.setState({
+      inputValue: event.target.value,
+      formattedData: [],
+      message: ""
+    })
+  }
+
+  async handleClick() {
     const formattedData = []
-    const data = await getGitHubUserData("matt-jarrett")
+    const data = await getGitHubUserData(this.state.inputValue)
     const contributions = data.contributions.reverse()
 
     for (const contribution of contributions) {
@@ -27,15 +51,10 @@ class App extends Component {
       formattedData.push({ x: contribution.date, y: contribution.count })
     }
 
-    this.setState({ formattedData })
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowDimensions)
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: .98 * (window.innerWidth), height: .88 * (window.innerHeight) })
+    this.setState({
+      formattedData,
+      message: `Having a glimpse at ${this.state.inputValue} GitHub contributions`
+    })
   }
 
   render() {
@@ -45,25 +64,30 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          { this.state && this.state.formattedData &&
-      <div>
-        <XYPlot
-          xType="ordinal"
-          width={this.state.width}
-          height={this.state.height}
-        >
-          <VerticalGridLines />
-          <HorizontalGridLines />
-          <XAxis />
-          <YAxis />
-          <BarSeries
-            color="purple"
-            className="vertical-bar-series-example"
-            data={ this.state.formattedData }/>
-        </XYPlot>
-      </div>
-          }
         </div>
+        <div>
+          <input value={this.state.inputValue} onChange={(event) => this.updateInputValue(event)}/>
+          <button onClick={(event) => this.handleClick(event)}>Search</button>
+          <h2>{this.state.message}</h2>
+        </div>
+        { this.state && this.state.formattedData &&
+          <div className="Content">
+            <XYPlot
+              xType="ordinal"
+              width={this.state.width}
+              height={this.state.height}
+            >
+              <VerticalGridLines />
+              <HorizontalGridLines />
+              <XAxis />
+              <YAxis />
+              <BarSeries
+                color="purple"
+                className="vertical-bar-series-example"
+                data={ this.state.formattedData }/>
+            </XYPlot>
+          </div>
+        }
       </div>
     )
   }
