@@ -19,20 +19,20 @@ class App extends Component {
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
 
-  async componentDidMount() {
+  componentDidMount = async () => {
     this.updateWindowDimensions()
     window.addEventListener("resize", this.updateWindowDimensions)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     window.removeEventListener("resize", this.updateWindowDimensions)
   }
 
-  updateWindowDimensions() {
+  updateWindowDimensions = () => {
     this.setState({ width: .8 * (window.innerWidth), height: .6 * (window.innerHeight) })
   }
 
-  updateInputValue(event) {
+  updateInputValue = (event) => {
     this.setState({
       inputValue: event.target.value,
       formattedData: [],
@@ -40,7 +40,10 @@ class App extends Component {
     })
   }
 
-  async handleClick() {
+  handleClick = async () => {
+    this.setState({
+      message: `Searching ${this.state.inputValue}'s GitHub contributions...`
+    })
     const formattedData = []
     const data = await getGitHubUserData(this.state.inputValue)
     const contributions = data.contributions.reverse()
@@ -53,11 +56,17 @@ class App extends Component {
 
     this.setState({
       formattedData,
-      message: `Having a glimpse at ${this.state.inputValue} GitHub contributions`
+      message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
     })
   }
 
-  render() {
+  handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      this.handleClick()
+    }
+  }
+
+  render = () => {
     const BarSeries = VerticalBarSeries
 
     return (
@@ -66,7 +75,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </div>
         <div>
-          <input value={this.state.inputValue} onChange={(event) => this.updateInputValue(event)}/>
+          <input value={this.state.inputValue}
+            onChange={(event) => this.updateInputValue(event)}
+            onKeyPress={this.handleKeyPress}
+          />
           <button onClick={(event) => this.handleClick(event)}>Search</button>
           <h2>{this.state.message}</h2>
         </div>
