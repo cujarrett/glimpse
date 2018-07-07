@@ -41,22 +41,28 @@ class App extends Component {
   }
 
   handleClick = async () => {
-    this.setState({
-      message: `Searching ${this.state.inputValue}'s GitHub contributions...`
-    })
-    const formattedData = []
-    const contributions = await getGitHubUserData(this.state.inputValue)
+    if (this.state.inputValue !== "") {
+      this.setState({
+        message: `Searching ${this.state.inputValue}'s GitHub contributions...`
+      })
+      const formattedData = []
+      const contributions = await getGitHubUserData(this.state.inputValue)
 
-    for (const contribution of contributions) {
-      // Disable eslint id-length as variable names x and y are normal axis names
-      // eslint-disable-next-line id-length
-      formattedData.push({ x: contribution.date, y: contribution.count })
+      for (const contribution of contributions) {
+        // Disable eslint id-length as variable names x and y are normal axis names
+        // eslint-disable-next-line id-length
+        formattedData.push({ x: contribution.date, y: contribution.count })
+      }
+
+      this.setState({
+        formattedData,
+        message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
+      })
+    } else {
+      this.setState({
+        message: "You just searched for an empty username  ¯\\_(ツ)_/¯"
+      })
     }
-
-    this.setState({
-      formattedData,
-      message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
-    })
   }
 
   handleKeyPress = (event) => {
