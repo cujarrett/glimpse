@@ -25,6 +25,7 @@
   "author": "Matt Jarrett",
   "license": "MIT",
   "dependencies": {
+    "lodash": "~4.17.10",
     "node-fetch": "~2.1.2",
     "react": "~16.4.1",
     "react-dom": "~16.4.1",
