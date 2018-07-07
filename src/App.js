@@ -45,8 +45,7 @@ class App extends Component {
       message: `Searching ${this.state.inputValue}'s GitHub contributions...`
     })
     const formattedData = []
-    const data = await getGitHubUserData(this.state.inputValue)
-    const contributions = data.contributions.reverse()
+    const contributions = await getGitHubUserData(this.state.inputValue)
 
     for (const contribution of contributions) {
       // Disable eslint id-length as variable names x and y are normal axis names
