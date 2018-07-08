@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   updateWindowDimensions = () => {
-    this.setState({ width: .8 * (window.innerWidth), height: .6 * (window.innerHeight) })
+    this.setState({ width: .8 * (window.innerWidth), height: .55 * (window.innerHeight - 20) })
   }
 
   updateInputValue = (event) => {

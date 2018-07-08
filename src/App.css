@@ -11,7 +11,7 @@
 }
 
 .App-logo {
-  max-width:50%;
+  max-width:45%;
   max-height:10%;
   height: auto;
   width:auto;
@@ -71,6 +71,8 @@ h4 {
 
 h3 {
   color: #B4B4B4;
+  -webkit-margin-before: .5em;
+  -webkit-margin-after: .5em;
 }
 
 a {
