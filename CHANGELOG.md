@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ## [Unreleased]
 ### Added
 - Added footer
+- Styling support for mobile
 
 ### Changed
 - Fixed bug in Y Axis when tick was less than 0 with more than two decimal places

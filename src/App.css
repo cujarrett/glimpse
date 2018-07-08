@@ -2,13 +2,25 @@
   text-align: center;
 }
 
+.GitHub-link {
+  width: auto;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: #B4B4B4;
+}
+
 .App-logo {
-  height: 200px;
+  max-width:50%;
+  max-height:10%;
+  height: auto;
+  width:auto;
 }
 
 .App-header {
-  height: 200px;
-  padding: 20px;
+  height: 10%;
+  padding-top:40px;
+  padding-bottom: 20px;
   color: white;
 }
 
@@ -21,15 +33,15 @@
 }
 
 .Input {
-  height:25px;
-  font-size:16pt;
+  height:20px;
+  font-size:14pt;
 }
 
 .Square-button {
   border: 0px solid #ddd;
   background-color: #f0f0f0;
   padding: 3px 12px;
-  font-size: 16pt;
+  font-size: 14pt;
 }
 
 .Square-button:hover {
@@ -49,4 +61,19 @@
   left:0;
   bottom:0;
   right:0;
+}
+
+h4 {
+  color: #601D9A;
+  -webkit-margin-before: .5em;
+  -webkit-margin-after: .5em;
+}
+
+h3 {
+  color: #B4B4B4;
+}
+
+a {
+  color: #B4B4B4;
+  text-decoration:none;
 }

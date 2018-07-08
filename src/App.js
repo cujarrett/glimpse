@@ -85,6 +85,11 @@ class App extends Component {
 
     return (
       <div className="App">
+        <div className="GitHub-link">
+          <a href="https://github.com/matt-jarrett/glimpse">
+            View on GitHub <i className="fa fa-github"/>
+          </a>
+        </div>
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </div>
@@ -132,12 +137,10 @@ class App extends Component {
             </XYPlot>
           </div>
         }
-        <h3><font color="#B4B4B4">{this.state.message}</font></h3>
+        <h3>{this.state.message}</h3>
         <div className="Footer">
           <h4>
-            <font color="#601D9A">
             Made with <i className="fa fa-heart"/>, JavaScript, and <i className="fa fa-github"/>
-            </font>
           </h4>
         </div>
       </div>
