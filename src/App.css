@@ -26,18 +26,18 @@
 }
 
 .Square-button {
-	border: 0px solid #ddd;
-	background-color: #f0f0f0;
+  border: 0px solid #ddd;
+  background-color: #f0f0f0;
   padding: 3px 12px;
   font-size: 16pt;
 }
 
 .Square-button:hover {
-	 background-color: #e5e5e5;
+  background-color: #e5e5e5;
 }
 
 .Square-button:active {
-	 background-color: #ccc;
+  background-color: #ccc;
 }
 
 .Content {
