@@ -14,7 +14,8 @@ class App extends Component {
       height: 0,
       message: "",
       inputValue: "",
-      formattedData: []
+      formattedData: [],
+      legend: []
     }
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
@@ -22,6 +23,7 @@ class App extends Component {
   componentDidMount = async () => {
     this.updateWindowDimensions()
     window.addEventListener("resize", this.updateWindowDimensions)
+    this.nameInput.focus()
   }
 
   componentWillUnmount = () => {
@@ -43,24 +45,32 @@ class App extends Component {
   handleClick = async () => {
     if (this.state.inputValue !== "") {
       this.setState({
+        formattedData: [],
+        legend: [],
         message: `Searching ${this.state.inputValue}'s GitHub contributions...`
       })
-      const formattedData = []
       const contributions = await getGitHubUserData(this.state.inputValue)
 
-      for (const contribution of contributions) {
-        // Disable eslint id-length as variable names x and y are normal axis names
-        // eslint-disable-next-line id-length
-        formattedData.push({ x: contribution.date, y: contribution.count })
-      }
+      if (contributions.length === 0) {
+        this.setState({
+          message: `No GitHub contributions found for ${this.state.inputValue}`
+        })
+      } else {
+        const legend = []
+        legend[0] = contributions[0].x
+        legend[contributions.length] = contributions[contributions.length - 1].x
 
-      this.setState({
-        formattedData,
-        message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
-      })
+        this.setState({
+          formattedData: contributions,
+          legend,
+          message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
+        })
+      }
     } else {
       this.setState({
-        message: "You just searched for an empty username  ¯\\_(ツ)_/¯"
+        formattedData: [],
+        legend: [],
+        message: "You searched for an empty username  ¯\\_(ツ)_/¯"
       })
     }
   }
@@ -80,24 +90,33 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </div>
         <div>
-          <input value={this.state.inputValue}
+          <input
+            ref={(input) => { this.nameInput = input }}
+            value={this.state.inputValue}
             onChange={(event) => this.updateInputValue(event)}
             onKeyPress={this.handleKeyPress}
           />
-          <button onClick={(event) => this.handleClick(event)}>Search</button>
-          <h2>{this.state.message}</h2>
+          <button
+            className="Square-button"
+            onClick={(event) => this.handleClick(event)}>
+              Search
+          </button>
         </div>
-        { this.state && this.state.formattedData &&
+        { this.state.formattedData.length > 0 &&
           <div className="Content">
             <XYPlot
               xType="ordinal"
               width={this.state.width}
               height={this.state.height}
             >
-              <VerticalGridLines />
-              <HorizontalGridLines />
-              <XAxis />
-              <YAxis />
+              <VerticalGridLines/>
+              <HorizontalGridLines style={{ stroke: "#B4B4B4" }}/>
+              <YAxis title="contributions" position="middle"/>
+              <XAxis
+                hideLine
+                left={33}
+                tickFormat={(value) => value.substring(0, 4)}
+                tickValues={this.state.legend}/>
               <BarSeries
                 color="purple"
                 className="vertical-bar-series-example"
@@ -105,6 +124,7 @@ class App extends Component {
             </XYPlot>
           </div>
         }
+        <h2>{this.state.message}</h2>
       </div>
     )
   }
