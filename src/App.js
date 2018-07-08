@@ -90,6 +90,7 @@ class App extends Component {
         </div>
         <div>
           <input
+            className="Input"
             autoFocus
             value={this.state.inputValue}
             onChange={(event) => this.updateInputValue(event)}
@@ -125,13 +126,20 @@ class App extends Component {
                 tickFormat={(value) => value.substring(0, 4)}
                 tickValues={this.state.legend}/>
               <BarSeries
-                color="purple"
+                color="#601D9A"
                 className="vertical-bar-series-example"
                 data={ this.state.formattedData }/>
             </XYPlot>
           </div>
         }
-        <h2>{this.state.message}</h2>
+        <h3><font color="#B4B4B4">{this.state.message}</font></h3>
+        <div className="Footer">
+          <h4>
+            <font color="#601D9A">
+            Made with <i className="fa fa-heart"/>, JavaScript, and <i className="fa fa-github"/>
+            </font>
+          </h4>
+        </div>
       </div>
     )
   }
