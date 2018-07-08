@@ -1,6 +1,6 @@
 {
   "name": "glimpse",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "It's a React JS web app to show GitHub user metrics on beautiful graphs using Uber's awesome React VIS library",
   "main": "index.js",
@@ -25,6 +25,7 @@
   "author": "Matt Jarrett",
   "license": "MIT",
   "dependencies": {
+    "lodash": "~4.17.4",
     "node-fetch": "~2.1.2",
     "react": "~16.4.1",
     "react-dom": "~16.4.1",
