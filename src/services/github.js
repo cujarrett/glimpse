@@ -14,7 +14,9 @@ export const getGitHubUserData = async (userName) => {
   let initialDateFound = false
   for (const contribution of contributions) {
     if (initialDateFound || contribution.count > 0) {
-      correctedInitialDate.push(contribution)
+      // Disable eslint id-length as variable names x and y are normal axis names
+      // eslint-disable-next-line id-length
+      correctedInitialDate.push({ x: contribution.date, y: contribution.count })
       initialDateFound = true
     }
   }
