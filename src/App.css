@@ -20,20 +20,33 @@
   font-size: large;
 }
 
+.Input {
+  height:25px;
+  font-size:16pt;
+}
+
+.Square-button {
+  border: 0px solid #ddd;
+  background-color: #f0f0f0;
+  padding: 3px 12px;
+  font-size: 16pt;
+}
+
+.Square-button:hover {
+  background-color: #e5e5e5;
+}
+
+.Square-button:active {
+  background-color: #ccc;
+}
+
 .Content {
   display: inline-block;
 }
 
-.Square-button {
-	border: 0px solid #ddd;
-	background-color: #f0f0f0;
-	padding: 3px 12px;
-}
-
-.Square-button:hover {
-	 background-color: #e5e5e5;
-}
-
-.Square-button:active {
-	 background-color: #ccc;
+.Footer {
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
 }

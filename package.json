@@ -25,6 +25,7 @@
   "author": "Matt Jarrett",
   "license": "MIT",
   "dependencies": {
+    "font-awesome": "~4.7.0",
     "lodash": "~4.17.4",
     "node-fetch": "~2.1.2",
     "react": "~16.4.1",
