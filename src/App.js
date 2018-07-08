@@ -23,7 +23,6 @@ class App extends Component {
   componentDidMount = async () => {
     this.updateWindowDimensions()
     window.addEventListener("resize", this.updateWindowDimensions)
-    this.nameInput.focus()
   }
 
   componentWillUnmount = () => {
@@ -91,7 +90,7 @@ class App extends Component {
         </div>
         <div>
           <input
-            ref={(input) => { this.nameInput = input }}
+            autoFocus
             value={this.state.inputValue}
             onChange={(event) => this.updateInputValue(event)}
             onKeyPress={this.handleKeyPress}
@@ -111,7 +110,15 @@ class App extends Component {
             >
               <VerticalGridLines/>
               <HorizontalGridLines style={{ stroke: "#B4B4B4" }}/>
-              <YAxis title="contributions" position="middle"/>
+              <YAxis
+                title="contributions"
+                position="middle"
+                tickFormat={(value) => {
+                  if (value < 1) {
+                    return value.toString().substring(1)
+                  }
+                  return value
+                }}/>
               <XAxis
                 hideLine
                 left={33}
