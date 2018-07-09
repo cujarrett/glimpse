@@ -20,7 +20,7 @@ cd glimpse
 npm install
 ```
 
-## Command Line Commands
+## Developer Use
 #### Run Linting
 Finds problematic patterns or code that doesn’t adhere to certain style guidelines
 ```sh
