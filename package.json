@@ -1,6 +1,6 @@
 {
   "name": "glimpse",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "description": "It's a React JS web app to show GitHub user metrics on beautiful graphs using Uber's awesome React VIS library",
   "main": "index.js",

@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [0.3.1] - 2018-07-12
+### Changed
+- Added Babel Polyfill to attempt fix for Internet Explorer not loading bug
+
 ## [0.3.0] - 2018-07-10
 ### Added
 - Added footer
@@ -22,7 +26,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.3.0...master
+[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.3.1...master
+[0.3.1]: https://github.com/matt-jarrett/glimpse/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/matt-jarrett/glimpse/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/matt-jarrett/glimpse/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/matt-jarrett/glimpse/releases/tag/v0.1.0
