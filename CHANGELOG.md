@@ -5,18 +5,23 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [0.4.0] - 2018-07-15
+### Added
+- Check to ensure no future dates are returned on the UI as the consumed
+https://github-contributions-api.now.sh/ returns dates until the end of the current calendar year
+
 ## [0.3.1] - 2018-07-12
-### Changed
-- Added Babel Polyfill to attempt fix for Internet Explorer not loading bug
+### Added
+- Babel Polyfill to attempt fix for Internet Explorer not loading bug
 
 ## [0.3.0] - 2018-07-10
 ### Added
-- Added footer
+- Footer
 - Styling support for mobile
 
 ### Changed
 - Fixed bug in Y Axis when tick was less than 0 with more than two decimal places
-- Changed the app manifest and html name to Glimpse
+- App manifest and html name to Glimpse
 
 ## [0.2.0] - 2018-07-08
 ### Changed
@@ -26,7 +31,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.3.1...master
+[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.4.0...master
+[0.4.0]: https://github.com/matt-jarrett/glimpse/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/matt-jarrett/glimpse/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/matt-jarrett/glimpse/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/matt-jarrett/glimpse/compare/v0.1.0...v0.2.0
