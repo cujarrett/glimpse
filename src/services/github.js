@@ -10,14 +10,24 @@ export const getGitHubUserData = async (userName) => {
   const unique = uniqBy(contributions, "date")
   contributions = unique
 
+  const isDateInPastOrPresent = (date) => {
+    const systemDate = new Date()
+    return systemDate > new Date(date)
+  }
+
   const correctedInitialDate = []
   let initialDateFound = false
   for (const contribution of contributions) {
-    if (initialDateFound || contribution.count > 0) {
-      // Disable eslint id-length as variable names x and y are normal axis names
-      // eslint-disable-next-line id-length
-      correctedInitialDate.push({ x: contribution.date, y: contribution.count })
-      initialDateFound = true
+    const hasContribution = contribution.count > 0
+    const dateInPastOrPresent = isDateInPastOrPresent(contribution.date)
+
+    if (dateInPastOrPresent) {
+      if (initialDateFound || hasContribution) {
+        // Disable eslint id-length as variable names x and y are normal axis names
+        // eslint-disable-next-line id-length
+        correctedInitialDate.push({ x: contribution.date, y: contribution.count })
+        initialDateFound = true
+      }
     }
   }
 
