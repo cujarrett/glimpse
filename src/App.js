@@ -7,7 +7,6 @@ import logo from "./glimpse-logo.png"
 import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, VerticalBarSeries } from "react-vis"
 
 class App extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -31,7 +30,10 @@ class App extends Component {
   }
 
   updateWindowDimensions = () => {
-    this.setState({ width: .8 * (window.innerWidth), height: .55 * (window.innerHeight - 20) })
+    this.setState({
+      width: .90 * (window.innerWidth),
+      height: .55 * (window.innerHeight - 20)
+    })
   }
 
   updateInputValue = (event) => {
@@ -126,24 +128,16 @@ class App extends Component {
                 }}/>
               <XAxis
                 hideLine
+                tickPadding={-2}
+                tickLabelAngle={-90}
                 tickFormat={(value, index) => {
-                  const year = value.substring(0,4)
-
-                  if (this.state.legend.includes(year)) {
-                    console.log("year already exists in legend")
+                  const year = value.substring(0, 4)
+                  if (index === 0) {
+                    this.state.legend.push(year)
+                  } else if (this.state.legend.includes(year)) {
                     return ""
                   } else {
-
-                    console.log(`new year found: ${year} at index: ${index}`)
-
-                    if (index > 20 && this.state.formattedData[index - 20].x.substring(0,4) !== year) {
-                      console.log(`adding ${year} to legend at index ${index}`)
-                      this.state.legend.push(year)
-                    } else {
-                      console.log("year too close to previous index")
-                      return ""
-                    }
-
+                    this.state.legend.push(year)
                     return year
                   }
                 }}/>
