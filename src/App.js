@@ -57,7 +57,15 @@ class App extends Component {
       } else {
         const legend = []
         legend[0] = contributions[0].x
-        legend[contributions.length] = contributions[contributions.length - 1].x
+
+        for (const [index, { x }] of contributions.entries()) {
+          const year = x.substring(0, 4)
+          if (year !== undefined && !legend.includes(year)) {
+            legend[index] = ""+ year
+          } else {
+            legend[index] = ""
+          }
+        }
 
         this.setState({
           formattedData: contributions,
@@ -128,8 +136,11 @@ class App extends Component {
               <XAxis
                 hideLine
                 left={33}
-                tickFormat={(value) => value.substring(0, 4)}
-                tickValues={this.state.legend}/>
+                tickValues={this.state.legend}
+                tickFormat={(value) => {
+                  console.log({value})
+                  return [value]
+                }}/>
               <BarSeries
                 color="#601D9A"
                 className="vertical-bar-series-example"
