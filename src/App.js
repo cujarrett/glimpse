@@ -7,6 +7,7 @@ import logo from "./glimpse-logo.png"
 import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, VerticalBarSeries } from "react-vis"
 
 class App extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -52,24 +53,14 @@ class App extends Component {
 
       if (contributions.length === 0) {
         this.setState({
+          formattedData: [],
+          legend: [],
           message: `No GitHub contributions found for ${this.state.inputValue}`
         })
       } else {
-        const legend = []
-        legend[0] = contributions[0].x
-
-        for (const [index, { x }] of contributions.entries()) {
-          const year = x.substring(0, 4)
-          if (year !== undefined && !legend.includes(year)) {
-            legend[index] = ""+ year
-          } else {
-            legend[index] = ""
-          }
-        }
-
         this.setState({
           formattedData: contributions,
-          legend,
+          legend: [],
           message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
         })
       }
@@ -135,11 +126,26 @@ class App extends Component {
                 }}/>
               <XAxis
                 hideLine
-                left={33}
-                tickValues={this.state.legend}
-                tickFormat={(value) => {
-                  console.log({value})
-                  return [value]
+                tickFormat={(value, index) => {
+                  const year = value.substring(0,4)
+
+                  if (this.state.legend.includes(year)) {
+                    console.log("year already exists in legend")
+                    return ""
+                  } else {
+
+                    console.log(`new year found: ${year} at index: ${index}`)
+
+                    if (index > 20 && this.state.formattedData[index - 20].x.substring(0,4) !== year) {
+                      console.log(`adding ${year} to legend at index ${index}`)
+                      this.state.legend.push(year)
+                    } else {
+                      console.log("year too close to previous index")
+                      return ""
+                    }
+
+                    return year
+                  }
                 }}/>
               <BarSeries
                 color="#601D9A"
