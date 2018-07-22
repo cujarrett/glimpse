@@ -134,9 +134,17 @@ class App extends Component {
                   const year = value.substring(0, 4)
                   if (this.state.legend.includes(year)) {
                     return ""
-                  } else if (this.state.width < 400 && index === 0) {
-                    this.state.legend.push(year)
-                    return ""
+                  } else if (index === 0) {
+                    const smallDisplay = this.state.width < 400
+                    const twentyDaysAfterStartYear = this.state.formattedData[20].x.substring(0, 4)
+                    const gitHubAccountCreatedInLateOfYear = twentyDaysAfterStartYear !== year
+                    if (smallDisplay || gitHubAccountCreatedInLateOfYear) {
+                      this.state.legend.push(year)
+                      return ""
+                    } else {
+                      this.state.legend.push(year)
+                      return year
+                    }
                   } else {
                     this.state.legend.push(year)
                     return year
