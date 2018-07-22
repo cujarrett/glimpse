@@ -30,7 +30,10 @@ class App extends Component {
   }
 
   updateWindowDimensions = () => {
-    this.setState({ width: .8 * (window.innerWidth), height: .55 * (window.innerHeight - 20) })
+    this.setState({
+      width: .90 * (window.innerWidth),
+      height: .55 * (window.innerHeight - 20)
+    })
   }
 
   updateInputValue = (event) => {
@@ -52,16 +55,14 @@ class App extends Component {
 
       if (contributions.length === 0) {
         this.setState({
+          formattedData: [],
+          legend: [],
           message: `No GitHub contributions found for ${this.state.inputValue}`
         })
       } else {
-        const legend = []
-        legend[0] = contributions[0].x
-        legend[contributions.length] = contributions[contributions.length - 1].x
-
         this.setState({
           formattedData: contributions,
-          legend,
+          legend: [],
           message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
         })
       }
@@ -127,9 +128,20 @@ class App extends Component {
                 }}/>
               <XAxis
                 hideLine
-                left={33}
-                tickFormat={(value) => value.substring(0, 4)}
-                tickValues={this.state.legend}/>
+                tickPadding={-2}
+                tickLabelAngle={-90}
+                tickFormat={(value, index) => {
+                  const year = value.substring(0, 4)
+                  if (this.state.legend.includes(year)) {
+                    return ""
+                  } else if (this.state.width < 400 && index === 0) {
+                    this.state.legend.push(year)
+                    return ""
+                  } else {
+                    this.state.legend.push(year)
+                    return year
+                  }
+                }}/>
               <BarSeries
                 color="#601D9A"
                 className="vertical-bar-series-example"

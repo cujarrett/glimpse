@@ -1,6 +1,6 @@
 {
   "name": "glimpse",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "description": "It's a React JS web app to show GitHub user metrics on beautiful graphs using Uber's awesome React VIS library",
   "main": "index.js",
@@ -27,14 +27,14 @@
   "dependencies": {
     "babel-polyfill": "~6.26.0",
     "font-awesome": "~4.7.0",
-    "lodash": "~4.17.4",
+    "lodash": "~4.17.10",
     "node-fetch": "~2.1.2",
     "react": "~16.4.1",
     "react-dom": "~16.4.1",
     "react-scripts": "1.1.4",
-    "react-vis": "~1.9.4"
+    "react-vis": "~1.10.4"
   },
   "devDependencies": {
-    "eslint": "~4.19.1"
+    "eslint": "~5.2.0"
   }
 }
