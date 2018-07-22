@@ -132,9 +132,10 @@ class App extends Component {
                 tickLabelAngle={-90}
                 tickFormat={(value, index) => {
                   const year = value.substring(0, 4)
-                  if (index === 0) {
+                  if (this.state.legend.includes(year)) {
+                    return ""
+                  } else if (this.state.width < 400 && index === 0) {
                     this.state.legend.push(year)
-                  } else if (this.state.legend.includes(year)) {
                     return ""
                   } else {
                     this.state.legend.push(year)
