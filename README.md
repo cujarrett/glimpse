@@ -1,7 +1,7 @@
 ![logo](./media/glimpse-logo.png)
 [![Build Status](https://travis-ci.org/matt-jarrett/glimpse.svg?branch=master)](https://travis-ci.org/matt-jarrett/glimpse)
 
-## [www.glimpse.ninja](http://www.glimpse.ninja/)
+## [www.glimpse.ninja](https://www.glimpse.ninja/)
 
 ## What's it do?
 ![demo](./media/demo.gif)
