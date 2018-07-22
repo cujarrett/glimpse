@@ -5,10 +5,16 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [0.5.1] - 2018-07-21
+### Changed
+- Fixed situation where if someone made a GitHub account in the last 20 days of December the years
+will overlap on the X axis with the next year so I don't display the previous year as the first
+year on the X axis
+
 ## [0.5.0] - 2018-07-21
 ### Changed
-- Added applicable years to X Axis and supports mobile displays when there is tight space along the
-X Axis situations
+- Added applicable years to X axis and supports mobile displays when there is tight space along the
+X axis situations
 
 ## [0.4.0] - 2018-07-15
 ### Added
@@ -36,7 +42,8 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.5.0...master
+[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.5.1...master
+[0.5.1]: https://github.com/matt-jarrett/glimpse/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/matt-jarrett/glimpse/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/matt-jarrett/glimpse/compare/v0.3.1...v0.4.0
 [0.3.1]: https://github.com/matt-jarrett/glimpse/compare/v0.3.0...v0.3.1
