@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [0.5.0] - 2018-07-21
+### Changed
+- Added applicable years to X Axis and supports mobile displays when there is tight space along the
+X Axis situations
+
 ## [0.4.0] - 2018-07-15
 ### Added
 - Check to ensure no future dates are returned on the UI as the consumed
