@@ -6,16 +6,22 @@ import logo from "./glimpse-logo.png"
 // eslint-disable-next-line max-len
 import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, VerticalBarSeries } from "react-vis"
 
+const defaultMessage = "Search any GitHub username for a glimpse at their open source contributions"
+const defaultDemoMessage = "Show me a demo"
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       width: 0,
       height: 0,
-      message: "",
+      canceled: false,
       inputValue: "",
       formattedData: [],
-      legend: []
+      legend: [],
+      message: defaultMessage,
+      demoMessage: defaultDemoMessage,
+      showDemo: true
     }
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
@@ -38,39 +44,51 @@ class App extends Component {
 
   updateInputValue = (event) => {
     this.setState({
+      canceled: true,
       inputValue: event.target.value,
       formattedData: [],
-      message: ""
+      message: defaultMessage,
+      demoMessage: defaultDemoMessage
     })
   }
 
   handleClick = async () => {
     if (this.state.inputValue !== "") {
       this.setState({
+        canceled: false,
         formattedData: [],
         legend: [],
-        message: `Searching ${this.state.inputValue}'s GitHub contributions...`
+        message: `Searching ${this.state.inputValue}'s GitHub contributions...`,
+        demoMessage: ""
       })
       const contributions = await getGitHubUserData(this.state.inputValue)
 
       if (contributions.length === 0) {
-        this.setState({
-          formattedData: [],
-          legend: [],
-          message: `No GitHub contributions found for ${this.state.inputValue}`
-        })
+        if (!this.state.canceled) {
+          this.setState({
+            formattedData: [],
+            legend: [],
+            message: `No GitHub contributions found for ${this.state.inputValue}`,
+            demoMessage: defaultDemoMessage
+          })
+        }
       } else {
-        this.setState({
-          formattedData: contributions,
-          legend: [],
-          message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
-        })
+        if (!this.state.canceled) {
+          this.setState({
+            formattedData: contributions,
+            legend: [],
+            message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`,
+            demoMessage: "",
+            showDemo: false
+          })
+        }
       }
     } else {
       this.setState({
         formattedData: [],
         legend: [],
-        message: "You searched for an empty username  ¯\\_(ツ)_/¯"
+        message: "You searched for an empty username  ¯\\_(ツ)_/¯",
+        demoMessage: defaultDemoMessage
       })
     }
   }
@@ -79,6 +97,15 @@ class App extends Component {
     if (event.key === "Enter") {
       this.handleClick()
     }
+  }
+
+  demo = async () => {
+    await this.setState({
+      inputValue: "matt-jarrett",
+      formattedData: [],
+      message: ""
+    })
+    this.handleClick()
   }
 
   render = () => {
@@ -158,6 +185,12 @@ class App extends Component {
           </div>
         }
         <h3>{this.state.message}</h3>
+        { this.state.showDemo && this.state.demoMessage.length !== "" &&
+          <div>
+            <br/><br/><br/><br/><br/><br/>
+            <h3 onClick={this.demo}>{this.state.demoMessage}</h3>
+          </div>
+        }
         <div className="Footer">
           <h4>
             Made with <i className="fa fa-heart"/>, JavaScript, and <i className="fa fa-github"/>
