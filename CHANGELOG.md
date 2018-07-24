@@ -5,6 +5,16 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [0.6.0] - 2018-07-23
+### Added
+- Demo
+- App context info
+
+### Changed
+- Fixed bug where if the user searched for a username and changed the searched username before the
+results were displayed the results for the uncompleted search would still show up when the search
+completed
+
 ## [0.5.1] - 2018-07-21
 ### Changed
 - Fixed situation where if someone made a GitHub account in the last 20 days of December the years
@@ -42,7 +52,8 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.5.1...master
+[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.6.0...master
+[0.5.1]: https://github.com/matt-jarrett/glimpse/compare/v0.5.1...v0.6.0
 [0.5.1]: https://github.com/matt-jarrett/glimpse/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/matt-jarrett/glimpse/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/matt-jarrett/glimpse/compare/v0.3.1...v0.4.0
