@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Added
 - Ability to share results on social networks and email
 
+### Changed
 - Updates demo username
 
 ## [0.6.0] - 2018-07-23
