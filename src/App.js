@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import "./App.css"
 import { getGitHubUserData } from "./services/github"
 import logo from "./glimpse-logo.png"
+import loading from "./loading.gif"
+import queryString from "query-string"
 // Disable eslint max-len for imports from react-vis
 // eslint-disable-next-line max-len
 import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, VerticalBarSeries } from "react-vis"
@@ -12,16 +14,19 @@ const defaultDemoMessage = "Show me a demo"
 class App extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
       width: 0,
       height: 0,
       canceled: false,
+      usernameInUrl: false,
+      loading: false,
+      showDemo: true,
       inputValue: "",
       formattedData: [],
       legend: [],
       message: defaultMessage,
-      demoMessage: defaultDemoMessage,
-      showDemo: true
+      demoMessage: defaultDemoMessage
     }
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
   }
@@ -29,6 +34,14 @@ class App extends Component {
   componentDidMount = async () => {
     this.updateWindowDimensions()
     window.addEventListener("resize", this.updateWindowDimensions)
+
+    const urlArguments = queryString.parse(window.location.search)
+    const hasUrlArguments = Object.keys(urlArguments).length !== 0
+    if (hasUrlArguments) {
+      await this.setState({ inputValue: urlArguments.username })
+      window.history.pushState("", "Glimpse", "/")
+      this.handleClick()
+    }
   }
 
   componentWillUnmount = () => {
@@ -47,8 +60,7 @@ class App extends Component {
       canceled: true,
       inputValue: event.target.value,
       formattedData: [],
-      message: defaultMessage,
-      demoMessage: defaultDemoMessage
+      message: defaultMessage
     })
   }
 
@@ -56,6 +68,7 @@ class App extends Component {
     if (this.state.inputValue !== "") {
       this.setState({
         canceled: false,
+        loading: true,
         formattedData: [],
         legend: [],
         message: `Searching ${this.state.inputValue}'s GitHub contributions...`,
@@ -66,6 +79,7 @@ class App extends Component {
       if (contributions.length === 0) {
         if (!this.state.canceled) {
           this.setState({
+            loading: false,
             formattedData: [],
             legend: [],
             message: `No GitHub contributions found for ${this.state.inputValue}`,
@@ -75,16 +89,17 @@ class App extends Component {
       } else {
         if (!this.state.canceled) {
           this.setState({
+            loading: false,
             formattedData: contributions,
             legend: [],
             message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`,
-            demoMessage: "",
             showDemo: false
           })
         }
       }
     } else {
       this.setState({
+        loading: false,
         formattedData: [],
         legend: [],
         message: "You searched for an empty username  ¯\\_(ツ)_/¯",
@@ -102,8 +117,7 @@ class App extends Component {
   demo = async () => {
     await this.setState({
       inputValue: "matt-jarrett",
-      formattedData: [],
-      message: ""
+      formattedData: []
     })
     this.handleClick()
   }
@@ -135,6 +149,7 @@ class App extends Component {
               Search
           </button>
         </div>
+        <h3>{this.state.message}</h3>
         { this.state.formattedData.length > 0 &&
           <div className="Content">
             <XYPlot
@@ -182,13 +197,23 @@ class App extends Component {
                 className="vertical-bar-series-example"
                 data={ this.state.formattedData }/>
             </XYPlot>
+            {/* <div className="ShareResults">
+              <h3>Share results:</h3><input type="text" className="ShareResultsUrl" value={`https://glimpse.ninja/?username=${this.state.inputValue}`}/>
+            </div> */}
           </div>
         }
-        <h3>{this.state.message}</h3>
+        { this.state.loading &&
+          <div>
+            <br/><br/><br/><br/><br/><br/>
+            <img src={loading} alt="loading" />
+          </div>
+        }
         { this.state.showDemo && this.state.demoMessage.length !== "" &&
           <div>
             <br/><br/><br/><br/><br/><br/>
-            <h3 onClick={this.demo}>{this.state.demoMessage}</h3>
+            <h3>
+              <a id="clickMe" onClick={this.demo}>{this.state.demoMessage}</a>
+            </h3>
           </div>
         }
         <div className="Footer">
