@@ -17,7 +17,7 @@
 }
 
 .app-logo-small-display {
-  max-width:80%;
+  max-width:70%;
   max-height:10%;
   height: auto;
   width:auto;
@@ -35,14 +35,16 @@
   display: inline-block;
 }
 
-.footer {
+.footer h4{
+  color: #601D9A;
   position:absolute;
   left:0;
   bottom:0;
   right:0;
 }
 
-.footer-small-display {
+.footer-small-display h4{
+  color: #601D9A;
   left:0;
   bottom:0;
   right:0;
@@ -59,6 +61,7 @@
 .input {
   height:20px;
   font-size:14pt;
+  margin-bottom: 10px;
 }
 
 .loading {
@@ -81,14 +84,15 @@
 }
 
 .share-results {
-  padding-top:10px;
-  padding-bottom: 10px;
+  padding-top:15px;
 }
 
-.share-results-url {
-  height:20px;
-  width: 500px;
-  font-size:14pt;
+.share-results h4{
+  margin-bottom: 0px;
+}
+
+.share-results-header.h4 {
+  padding-bottom:0px;
 }
 
 .square-button {
@@ -107,15 +111,15 @@
 }
 
 h4 {
-  color: #601D9A;
-  -webkit-margin-before: .5em;
-  -webkit-margin-after: .5em;
+  color: #B4B4B4;
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
 
 h3 {
   color: #B4B4B4;
-  -webkit-margin-before: .5em;
-  -webkit-margin-after: .5em;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 a {
