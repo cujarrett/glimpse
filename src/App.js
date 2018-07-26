@@ -135,7 +135,7 @@ class App extends Component {
 
   demo = async () => {
     await this.setState({
-      inputValue: "cujarrett",
+      inputValue: "matt-jarrett",
       formattedData: []
     })
     this.handleClick()
