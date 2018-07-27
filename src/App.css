@@ -77,10 +77,11 @@
 
 .network-share-button {
   cursor: pointer;
+  opacity: 0.5;
 }
 
 .network-share-button:hover:not(:active) {
-  opacity: 0.75;
+  opacity: 0.25;
 }
 
 .share-results {
