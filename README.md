@@ -1,8 +1,8 @@
 ![logo](./media/glimpse-logo.png)
+<h1 align="center">A React JS web app to show GitHub user contribution metrics</h2>
+<h3 align="center"><b><a href="https://www.glimpse.ninja/">www.glimpse.ninja</a></h3>
+
 [![Build Status](https://travis-ci.org/matt-jarrett/glimpse.svg?branch=master)](https://travis-ci.org/matt-jarrett/glimpse)
-
-## [www.glimpse.ninja](https://www.glimpse.ninja/)
-
 ## What's it do?
 ![demo](./media/demo.gif)
 It's a React JS web app to show GitHub user metrics on beautiful graphs using Uber's awesome
