@@ -296,7 +296,7 @@ class App extends Component {
                 <EmailShareButton
                   url={shareUrl}
                   subject={title}
-                  body="body"
+                  body={`${title} \n${shareUrl}`}
                   className="network-share-button">
                   <EmailIcon
                     size={32}
