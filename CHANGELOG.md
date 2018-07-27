@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [0.8.1] - 2018-07-27
+### Changed
+- Fixed body of email when sharing results via email
+
 ## [0.8.0] - 2018-07-26
 ### Added
 - Sanitizing of input
@@ -67,7 +71,8 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.8.0...master
+[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.8.1...master
+[0.8.1]: https://github.com/matt-jarrett/glimpse/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/matt-jarrett/glimpse/compare/v0.7.1...v0.8.0
 [0.7.1]: https://github.com/matt-jarrett/glimpse/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/matt-jarrett/glimpse/compare/v0.6.0...v0.7.0
