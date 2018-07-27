@@ -62,7 +62,7 @@ class App extends Component {
       logoStyling = "app-logo-small-display"
     }
 
-    if (windowHeight < 725) {
+    if (windowHeight < 675 && windowWidth > 400) {
       footerStyling = "footer-small-display"
     }
 
@@ -170,7 +170,7 @@ class App extends Component {
               Search
           </button>
         </div>
-        <h3>{this.state.message}</h3>
+        <h4>{this.state.message}</h4>
         { this.state.formattedData.length > 0 &&
           <div className="content">
             <XYPlot
@@ -217,61 +217,65 @@ class App extends Component {
                 color="#601D9A"
                 data={ this.state.formattedData }/>
             </XYPlot>
-            <h3>Share your GitHub contributions!</h3>
-            <div className="network">
-              <FacebookShareButton
-                url={shareUrl}
-                quote={title}
-                className="network-share-button">
-                <FacebookIcon
-                  size={32}
-                  round />
-              </FacebookShareButton>
-            </div>
-            <div className="network">
-              <TwitterShareButton
-                url={shareUrl}
-                title={title}
-                className="network-share-button">
-                <TwitterIcon
-                  size={32}
-                  round />
-              </TwitterShareButton>
-            </div>
-            <div className="network">
-              <LinkedinShareButton
-                url={shareUrl}
-                title={title}
-                windowWidth={750}
-                windowHeight={600}
-                className="network-share-button">
-                <LinkedinIcon
-                  size={32}
-                  round />
-              </LinkedinShareButton>
-            </div>
-            <div className="network">
-              <RedditShareButton
-                url={shareUrl}
-                title={title}
-                windowWidth={660}
-                windowHeight={460}
-                className="network-share-button">
-                <RedditIcon
-                  size={32}
-                  round />
-              </RedditShareButton>
-            </div>
-            <div className="network">
-              <EmailShareButton
-                url={shareUrl}
-                subject={title}
-                body="body"
-                className="network-share-button">
-                <EmailIcon
-                  size={32}
-                  round />
-              </EmailShareButton>
+            <div className="share-results">
+              <div className="share-results-header">
+                <h4>Share your GitHub contributions!</h4>
+              </div>
+              <div className="network">
+                <FacebookShareButton
+                  url={shareUrl}
+                  quote={title}
+                  className="network-share-button">
+                  <FacebookIcon
+                    size={32}
+                    round />
+                </FacebookShareButton>
+              </div>
+              <div className="network">
+                <TwitterShareButton
+                  url={shareUrl}
+                  title={title}
+                  className="network-share-button">
+                  <TwitterIcon
+                    size={32}
+                    round />
+                </TwitterShareButton>
+              </div>
+              <div className="network">
+                <LinkedinShareButton
+                  url={shareUrl}
+                  title={title}
+                  windowWidth={750}
+                  windowHeight={600}
+                  className="network-share-button">
+                  <LinkedinIcon
+                    size={32}
+                    round />
+                </LinkedinShareButton>
+              </div>
+              <div className="network">
+                <RedditShareButton
+                  url={shareUrl}
+                  title={title}
+                  windowWidth={660}
+                  windowHeight={460}
+                  className="network-share-button">
+                  <RedditIcon
+                    size={32}
+                    round />
+                </RedditShareButton>
+              </div>
+              <div className="network">
+                <EmailShareButton
+                  url={shareUrl}
+                  subject={title}
+                  body="body"
+                  className="network-share-button">
+                  <EmailIcon
+                    size={32}
+                    round />
+                </EmailShareButton>
+              </div>
             </div>
           </div>
         }
@@ -284,9 +288,9 @@ class App extends Component {
         { this.state.showDemo && this.state.demoMessage.length !== "" &&
           <div>
             <br/><br/><br/><br/><br/><br/>
-            <h3>
+            <h4>
               <a className="clickable" onClick={this.demo}>{this.state.demoMessage}</a>
-            </h3>
+            </h4>
           </div>
         }
         <div className={this.state.footerStyling}>
