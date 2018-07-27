@@ -5,7 +5,11 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
-## [0.7.1] - 2018-07-27
+## [0.8.0] - 2018-07-26
+### Added
+- Sanitizing of input
+
+## [0.7.1] - 2018-07-26
 ### Changed
 - Styling on small displays and mobile
 
@@ -63,7 +67,8 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.7.1...master
+[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.8.0...master
+[0.8.0]: https://github.com/matt-jarrett/glimpse/compare/v0.7.1...v0.8.0
 [0.7.1]: https://github.com/matt-jarrett/glimpse/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/matt-jarrett/glimpse/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/matt-jarrett/glimpse/compare/v0.5.1...v0.6.0
