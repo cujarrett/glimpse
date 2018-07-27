@@ -83,7 +83,23 @@ class App extends Component {
     })
   }
 
+  sanatizeInput = () => {
+    let inputValue = this.state.inputValue
+    inputValue = inputValue.replace("#", "")
+    inputValue = inputValue.replace("%", "")
+    inputValue = inputValue.replace("\\", "")
+    inputValue = inputValue.replace("/", "")
+    inputValue = inputValue.replace(".", "")
+    inputValue = inputValue.replace("?", "")
+
+    this.setState({
+      inputValue
+    })
+  }
+
   handleClick = async () => {
+    this.sanatizeInput()
+
     if (this.state.inputValue !== "") {
       this.setState({
         canceled: false,
@@ -93,15 +109,26 @@ class App extends Component {
         message: `Searching ${this.state.inputValue}'s GitHub contributions...`,
         demoMessage: ""
       })
-      const contributions = await getGitHubUserData(this.state.inputValue)
+
+      let contributions = []
+      try {
+        contributions = await getGitHubUserData(this.state.inputValue)
+      } catch (error) {
+        contributions.length = 0
+      }
 
       if (contributions.length === 0) {
         if (!this.state.canceled) {
+          const username = this.state.inputValue
+          let message = `No GitHub contributions found for ${this.state.inputValue}`
+          if (!username) {
+            message = "No GitHub contributions found"
+          }
           this.setState({
             loading: false,
             formattedData: [],
             legend: [],
-            message: `No GitHub contributions found for ${this.state.inputValue}`,
+            message,
             demoMessage: defaultDemoMessage
           })
         }
