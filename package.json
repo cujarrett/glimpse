@@ -1,6 +1,6 @@
 {
   "name": "glimpse",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": true,
   "description": "A React JS web app to show GitHub user contribution metrics",
   "main": "index.js",
