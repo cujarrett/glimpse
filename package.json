@@ -1,8 +1,8 @@
 {
   "name": "glimpse",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "private": true,
-  "description": "It's a React JS web app to show GitHub user metrics on beautiful graphs using Uber's awesome React VIS library",
+  "description": "A React JS web app to show GitHub user contribution metrics",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
