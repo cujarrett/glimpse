@@ -13,6 +13,9 @@ Setup and use requires [Git](https://git-scm.com/),
 [Node JS (8.X.X or later)](https://nodejs.org/en/), and a text editor such as
 [VS Code](https://code.visualstudio.com/).
 
+If you're on a Mac, I'd suggest using [Homebrew](https://brew.sh/) for installing the required
+software listed in Setup.
+
 #### Cloning & Dependency Installations
 ```sh
 git clone https://github.com/matt-jarrett/glimpse.git
@@ -48,8 +51,7 @@ npm run ci
 #### Start local server to see app during development
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+The page will reload if you make edits. You will also see any lint errors in the console.
 ```sh
 npm run start
 ```
