@@ -1,17 +1,17 @@
 import React, { Component } from "react"
-import "./App.css"
-import { getGitHubUserData } from "./services/github"
-import logo from "./glimpse-logo.png"
-import loading from "./loading.gif"
 import queryString from "query-string"
 // Disable eslint max-len for imports from react-vis and react-share
 // eslint-disable-next-line max-len
 import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, VerticalBarSeries } from "react-vis"
 // eslint-disable-next-line max-len
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, RedditShareButton, EmailShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon } from "react-share"
+import { getGitHubUserData } from "./services/github"
+import { isString, stringContainsValidCharacters } from "./util"
+import "./App.css"
+import logo from "./glimpse-logo.png"
+import loading from "./loading.gif"
 
 const defaultMessage = "Search any GitHub username for a glimpse at their open source contributions"
-const defaultDemoMessage = "Show me a demo"
 
 class App extends Component {
   constructor(props) {
@@ -21,14 +21,13 @@ class App extends Component {
       width: 0,
       height: 0,
       canceled: false,
-      usernameInUrl: false,
       loading: false,
       showDemo: true,
       inputValue: "",
       formattedData: [],
       legend: [],
       message: defaultMessage,
-      demoMessage: defaultDemoMessage,
+      demoMessage: "Show me a demo",
       logoStyling: "app-logo",
       footerStyling: "footer"
     }
@@ -40,11 +39,18 @@ class App extends Component {
     window.addEventListener("resize", this.updateWindowDimensions)
 
     const urlArguments = queryString.parse(window.location.search)
-    const hasUrlArguments = Object.keys(urlArguments).length !== 0
-    if (hasUrlArguments) {
-      await this.setState({ inputValue: urlArguments.username })
+    const username = urlArguments.username
+
+    if (username) {
+      const usernameIsString = isString(username)
+      const usernameContainsValidCharacters = stringContainsValidCharacters(username)
+      if (usernameIsString && usernameContainsValidCharacters) {
+        await this.setState({ inputValue: username })
+        this.handleClick()
+      }
+    }
+    if (urlArguments) {
       window.history.pushState("", "Glimpse", "/")
-      this.handleClick()
     }
   }
 
@@ -61,7 +67,6 @@ class App extends Component {
     if (windowWidth < 400) {
       logoStyling = "app-logo-small-display"
     }
-
     if (windowHeight < 675 && windowWidth > 400) {
       footerStyling = "footer-small-display"
     }
@@ -79,78 +84,48 @@ class App extends Component {
       canceled: true,
       inputValue: event.target.value,
       formattedData: [],
+      legend: [],
       message: defaultMessage
     })
   }
 
-  sanatizeInput = () => {
-    let inputValue = this.state.inputValue
-    inputValue = inputValue.replace("#", "")
-    inputValue = inputValue.replace("%", "")
-    inputValue = inputValue.replace("\\", "")
-    inputValue = inputValue.replace("/", "")
-    inputValue = inputValue.replace(".", "")
-    inputValue = inputValue.replace("?", "")
-
-    this.setState({
-      inputValue
-    })
-  }
-
   handleClick = async () => {
-    this.sanatizeInput()
+    this.setState({
+      canceled: false,
+      showDemo: false,
+      loading: true,
+      formattedData: [],
+      legend: [],
+      message: `Searching ${this.state.inputValue}'s GitHub contributions`
+    })
 
-    if (this.state.inputValue !== "") {
-      this.setState({
-        canceled: false,
-        loading: true,
-        formattedData: [],
-        legend: [],
-        message: `Searching ${this.state.inputValue}'s GitHub contributions...`,
-        demoMessage: ""
-      })
+    const noResultsFound = {
+      loading: false,
+      showDemo: true,
+      message: "No GitHub contributions found"
+    }
 
-      let contributions = []
-      try {
-        contributions = await getGitHubUserData(this.state.inputValue)
-      } catch (error) {
-        contributions.length = 0
-      }
+    try {
+      const inputNotEmpty = this.state.inputValue.length > 0
 
-      if (contributions.length === 0) {
-        if (!this.state.canceled) {
-          const username = this.state.inputValue
-          let message = `No GitHub contributions found for ${this.state.inputValue}`
-          if (!username) {
-            message = "No GitHub contributions found"
-          }
+      if (inputNotEmpty) {
+        const contributions = await getGitHubUserData(this.state.inputValue)
+        const notCanceled = !this.state.canceled
+        const hasContributions = contributions.length > 0
+
+        if (notCanceled && hasContributions) {
           this.setState({
             loading: false,
-            formattedData: [],
-            legend: [],
-            message,
-            demoMessage: defaultDemoMessage
+            showDemo: false,
+            formattedData: contributions,
+            message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
           })
         }
       } else {
-        if (!this.state.canceled) {
-          this.setState({
-            loading: false,
-            formattedData: contributions,
-            legend: [],
-            message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`,
-            showDemo: false
-          })
-        }
+        this.setState(noResultsFound)
       }
-    } else {
-      this.setState({
-        loading: false,
-        formattedData: [],
-        legend: [],
-        message: "You searched for an empty username  ¯\\_(ツ)_/¯",
-        demoMessage: defaultDemoMessage
-      })
+    } catch (error) {
+      this.setState(noResultsFound)
     }
   }
 
@@ -161,20 +136,17 @@ class App extends Component {
   }
 
   demo = async () => {
-    await this.setState({
-      inputValue: "matt-jarrett",
-      formattedData: []
-    })
+    await this.setState({ inputValue: "matt-jarrett" })
     this.handleClick()
   }
 
   render = () => {
     const BarSeries = VerticalBarSeries
     const shareUrl = `https://www.glimpse.ninja/?username=${this.state.inputValue}`
-    const title = "Check out my #GitHub contributions via Glimpse!"
+    const title = "Check out my #GitHub contributions via Glimpse"
 
     return (
-      <div className="app">
+      <div className="main">
         <div className="github-link">
           <a href="https://github.com/matt-jarrett/glimpse">
             View on GitHub <i className="fa fa-github"/>
@@ -246,7 +218,7 @@ class App extends Component {
             </XYPlot>
             <div className="share-results">
               <div className="share-results-header">
-                <h4>Share your GitHub contributions!</h4>
+                <h4>Share your GitHub contributions</h4>
               </div>
               <div className="network">
                 <FacebookShareButton
@@ -312,7 +284,7 @@ class App extends Component {
             <img src={loading} alt="loading" />
           </div>
         }
-        { this.state.showDemo && this.state.demoMessage.length !== "" &&
+        { this.state.showDemo &&
           <div>
             <br/><br/><br/><br/><br/><br/>
             <h4>
