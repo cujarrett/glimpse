@@ -82,6 +82,7 @@ class App extends Component {
   updateInputValue = (event) => {
     this.setState({
       canceled: true,
+      loading: false,
       inputValue: event.target.value,
       formattedData: [],
       legend: [],
@@ -107,8 +108,9 @@ class App extends Component {
 
     try {
       const inputNotEmpty = this.state.inputValue.length > 0
+      const userNameValid = stringContainsValidCharacters(this.state.inputValue)
 
-      if (inputNotEmpty) {
+      if (inputNotEmpty && userNameValid) {
         const contributions = await getGitHubUserData(this.state.inputValue)
         const notCanceled = !this.state.canceled
         const hasContributions = contributions.length > 0
@@ -120,6 +122,8 @@ class App extends Component {
             formattedData: contributions,
             message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
           })
+        } else {
+          this.setState(noResultsFound)
         }
       } else {
         this.setState(noResultsFound)
