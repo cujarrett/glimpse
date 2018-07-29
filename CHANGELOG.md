@@ -5,6 +5,12 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [0.8.3] - 2018-07-27
+### Changed
+- Hardening against url parameters and search input to only allow alpha numeric and hyphen as to
+follow GitHub rules
+- Fixed bug where the app would continue to load when no results were found
+
 ## [0.8.2] - 2018-07-27
 ### Added
 - Hardening against url parameters and search input
@@ -75,7 +81,8 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.8.2...master
+[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.8.3...master
+[0.8.3]: https://github.com/matt-jarrett/glimpse/compare/v0.8.2...v0.8.3
 [0.8.2]: https://github.com/matt-jarrett/glimpse/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/matt-jarrett/glimpse/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/matt-jarrett/glimpse/compare/v0.7.1...v0.8.0
