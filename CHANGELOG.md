@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Changed
 - Hardening against url parameters and search input to only allow alpha numeric and hyphen as to
 follow GitHub rules
+- Fixed bug where the app would continue to load when no results were found
 
 ## [0.8.2] - 2018-07-27
 ### Added
