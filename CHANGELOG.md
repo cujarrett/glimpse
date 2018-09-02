@@ -5,6 +5,11 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [0.9.0] - 2018-09-01
+### Changed
+- Demo username
+- Updated GitHub username and links
+
 ## [0.8.4] - 2018-07-27
 ### Changed
 - Downgraded `query-string` to 5.1.1 for IE support
@@ -85,19 +90,20 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/matt-jarrett/glimpse/compare/v0.8.4...master
-[0.8.4]: https://github.com/matt-jarrett/glimpse/compare/v0.8.3...v0.8.4
-[0.8.3]: https://github.com/matt-jarrett/glimpse/compare/v0.8.2...v0.8.3
-[0.8.2]: https://github.com/matt-jarrett/glimpse/compare/v0.8.1...v0.8.2
-[0.8.1]: https://github.com/matt-jarrett/glimpse/compare/v0.8.0...v0.8.1
-[0.8.0]: https://github.com/matt-jarrett/glimpse/compare/v0.7.1...v0.8.0
-[0.7.1]: https://github.com/matt-jarrett/glimpse/compare/v0.7.0...v0.7.1
-[0.7.0]: https://github.com/matt-jarrett/glimpse/compare/v0.6.0...v0.7.0
-[0.6.0]: https://github.com/matt-jarrett/glimpse/compare/v0.5.1...v0.6.0
-[0.5.1]: https://github.com/matt-jarrett/glimpse/compare/v0.5.0...v0.5.1
-[0.5.0]: https://github.com/matt-jarrett/glimpse/compare/v0.4.0...v0.5.0
-[0.4.0]: https://github.com/matt-jarrett/glimpse/compare/v0.3.1...v0.4.0
-[0.3.1]: https://github.com/matt-jarrett/glimpse/compare/v0.3.0...v0.3.1
-[0.3.0]: https://github.com/matt-jarrett/glimpse/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/matt-jarrett/glimpse/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/matt-jarrett/glimpse/releases/tag/v0.1.0
+[Unreleased]: https://github.com/cujarrett/glimpse/compare/v0.9.0...master
+[0.9.0]: https://github.com/cujarrett/glimpse/compare/v0.8.4...v0.9.0
+[0.8.4]: https://github.com/cujarrett/glimpse/compare/v0.8.3...v0.8.4
+[0.8.3]: https://github.com/cujarrett/glimpse/compare/v0.8.2...v0.8.3
+[0.8.2]: https://github.com/cujarrett/glimpse/compare/v0.8.1...v0.8.2
+[0.8.1]: https://github.com/cujarrett/glimpse/compare/v0.8.0...v0.8.1
+[0.8.0]: https://github.com/cujarrett/glimpse/compare/v0.7.1...v0.8.0
+[0.7.1]: https://github.com/cujarrett/glimpse/compare/v0.7.0...v0.7.1
+[0.7.0]: https://github.com/cujarrett/glimpse/compare/v0.6.0...v0.7.0
+[0.6.0]: https://github.com/cujarrett/glimpse/compare/v0.5.1...v0.6.0
+[0.5.1]: https://github.com/cujarrett/glimpse/compare/v0.5.0...v0.5.1
+[0.5.0]: https://github.com/cujarrett/glimpse/compare/v0.4.0...v0.5.0
+[0.4.0]: https://github.com/cujarrett/glimpse/compare/v0.3.1...v0.4.0
+[0.3.1]: https://github.com/cujarrett/glimpse/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/cujarrett/glimpse/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/cujarrett/glimpse/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/cujarrett/glimpse/releases/tag/v0.1.0
