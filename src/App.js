@@ -140,7 +140,7 @@ class App extends Component {
   }
 
   demo = async () => {
-    await this.setState({ inputValue: "matt-jarrett" })
+    await this.setState({ inputValue: "cujarrett" })
     this.handleClick()
   }
 
@@ -152,7 +152,7 @@ class App extends Component {
     return (
       <div className="main">
         <div className="github-link">
-          <a href="https://github.com/matt-jarrett/glimpse">
+          <a href="https://github.com/cujarrett/glimpse">
             View on GitHub <i className="fa fa-github"/>
           </a>
         </div>
