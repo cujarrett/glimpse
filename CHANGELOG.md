@@ -90,7 +90,8 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/cujarrett/glimpse/compare/v0.8.4...master
+[Unreleased]: https://github.com/cujarrett/glimpse/compare/v0.9.0...master
+[0.9.0]: https://github.com/cujarrett/glimpse/compare/v0.8.4...v0.9.0
 [0.8.4]: https://github.com/cujarrett/glimpse/compare/v0.8.3...v0.8.4
 [0.8.3]: https://github.com/cujarrett/glimpse/compare/v0.8.2...v0.8.3
 [0.8.2]: https://github.com/cujarrett/glimpse/compare/v0.8.1...v0.8.2
