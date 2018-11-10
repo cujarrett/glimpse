@@ -292,7 +292,12 @@ class App extends Component {
           <div>
             <br/><br/><br/><br/><br/><br/>
             <h4>
-              <a className="clickable" onClick={this.demo}>{this.state.demoMessage}</a>
+              <button
+                type="button"
+                className="clickable"
+                onClick={this.demo}>
+                  {this.state.demoMessage}
+                </button>
             </h4>
           </div>
         }
