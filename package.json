@@ -28,15 +28,21 @@
     "babel-polyfill": "~6.26.0",
     "font-awesome": "~4.7.0",
     "lodash": "~4.17.10",
-    "node-fetch": "~2.1.2",
-    "query-string": "~5.1.1",
-    "react": "~16.4.1",
-    "react-dom": "~16.4.1",
+    "node-fetch": "~2.2.1",
+    "query-string": "~6.2.0",
+    "react": "~16.6.1",
+    "react-dom": "~16.6.1",
     "react-scripts": "~2.1.1",
-    "react-share": "~2.2.0",
-    "react-vis": "~1.10.4"
+    "react-share": "~2.3.1",
+    "react-vis": "~1.11.4"
   },
   "devDependencies": {
-    "eslint": "~5.2.0"
-  }
+    "eslint": "~5.6.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
