@@ -5,6 +5,10 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+## [0.10.0] - 2018-11-10
+### Changed
+- Updated dependencies
+
 ## [0.9.0] - 2018-09-01
 ### Changed
 - Demo username
@@ -90,7 +94,8 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/cujarrett/glimpse/compare/v0.9.0...master
+[Unreleased]: https://github.com/cujarrett/glimpse/compare/v0.10.0...master
+[0.10.0]: https://github.com/cujarrett/glimpse/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/cujarrett/glimpse/compare/v0.8.4...v0.9.0
 [0.8.4]: https://github.com/cujarrett/glimpse/compare/v0.8.3...v0.8.4
 [0.8.3]: https://github.com/cujarrett/glimpse/compare/v0.8.2...v0.8.3
