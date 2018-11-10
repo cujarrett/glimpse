@@ -18,6 +18,13 @@ module.exports = {
     },
     "sourceType": "module"
   },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "16.6.1"
+    }
+  },
   "rules": {
     "array-callback-return": [
       "error"
