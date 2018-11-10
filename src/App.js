@@ -296,8 +296,8 @@ class App extends Component {
                 type="button"
                 className="clickable"
                 onClick={this.demo}>
-                  {this.state.demoMessage}
-                </button>
+                {this.state.demoMessage}
+              </button>
             </h4>
           </div>
         }
