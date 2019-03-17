@@ -1,6 +1,6 @@
 workflow "CI/CD" {
   on = "push"
-  resolves = ["Lint", "Dependency Audit"]
+  resolves = ["Lint"]
 }
 
 action "Build" {
@@ -12,10 +12,4 @@ action "Lint" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
   needs = ["Build"]
   runs = "npm run lint"
-}
-
-action "Dependency Audit" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
-  needs = ["Build"]
-  runs = "npm audit"
 }
