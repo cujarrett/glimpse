@@ -12,8 +12,8 @@
   },
   "keywords": [
     "React",
-    "React-VIS",
-    "GitHub"
+    "GitHub",
+    "Metrics"
   ],
   "heroku-run-build-script": true,
   "scripts": {
