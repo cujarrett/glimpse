@@ -27,6 +27,8 @@
     "heroku-postbuild": "echo Skip build on Heroku"
   },
   "dependencies": {
+    "@material-ui/core": "~3.9.2",
+    "@material-ui/icons": "~3.0.2",
     "babel-polyfill": "~6.26.0",
     "font-awesome": "~4.7.0",
     "lodash": "~4.17.10",

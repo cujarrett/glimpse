@@ -43,15 +43,14 @@ clickable:hover,
 }
 
 .footer h4{
-  color: #601D9A;
+  color: #B4B4B4;
   position:absolute;
   left:0;
   bottom:0;
   right:0;
 }
 
-.footer-small-display h4{
-  color: #601D9A;
+.footer-small-display h4 {
   left:0;
   bottom:0;
   right:0;
@@ -66,9 +65,23 @@ clickable:hover,
 }
 
 .input {
-  height:20px;
-  font-size:14pt;
-  margin-bottom: 15px;
+  margin-top: auto;
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 300px;
+}
+
+.search-text {
+  text-align: left;
+  padding-left: 12px;
+  width: 220px;
+}
+
+.search-button {
+  text-align: right;
+  padding-right: 10px;
+  margin: 10px;
 }
 
 .loading {
@@ -123,12 +136,16 @@ clickable:hover,
 }
 
 h4 {
-  color: #B4B4B4;
+  color: #bcbcbc;
   margin-top: 0px;
   margin-bottom: 5px;
 }
 
 a {
-  color: #B4B4B4;
+  color: #bcbcbc;
   text-decoration:none;
+}
+
+text {
+  fill: #bcbcbc;
 }

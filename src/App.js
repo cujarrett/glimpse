@@ -5,11 +5,21 @@ import queryString from "query-string"
 import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, VerticalBarSeries } from "react-vis"
 // eslint-disable-next-line max-len
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, RedditShareButton, EmailShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon } from "react-share"
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+import DirectionsIcon from '@material-ui/icons/Directions';
+
 import { getGitHubUserData } from "./services/github"
 import { isString, stringContainsValidCharacters } from "./util"
 import "./App.css"
 import logo from "./glimpse-logo.png"
-import loading from "./loading.gif"
+import loading from "./loading.svg"
 
 const defaultMessage = "Search any GitHub username for a glimpse at their open source contributions"
 
@@ -157,21 +167,23 @@ class App extends Component {
           </a>
         </div>
         <div className="app-header">
-          <img src={logo} className={this.state.logoStyling} alt="logo" />
+          <a href="https://glimpse.ninja"><img src={logo} className={this.state.logoStyling} alt="logo" /></a>
         </div>
-        <div>
-          <input
-            className="input"
-            autoFocus
-            value={this.state.inputValue}
-            onChange={(event) => this.updateInputValue(event)}
-            onKeyPress={this.handleKeyPress}
-          />
-          <button
-            className="square-button"
-            onClick={(event) => this.handleClick(event)}>
-              Search
-          </button>
+        <div className="input">
+          <Paper elevation={1}>
+            <InputBase
+              className="search-text" autoFocus
+              value={this.state.inputValue}
+              onChange={(event) => this.updateInputValue(event)}
+              onKeyPress={this.handleKeyPress}
+            />
+            <IconButton
+              className="search-button icon-button"
+              aria-label="Search"
+              onClick={(event) => this.handleClick(event)}>
+              <SearchIcon />
+            </IconButton>
+          </Paper>
         </div>
         <h4>{this.state.message}</h4>
         { this.state.formattedData.length > 0 &&
@@ -182,8 +194,9 @@ class App extends Component {
               height={this.state.height}
             >
               <VerticalGridLines/>
-              <HorizontalGridLines style={{ stroke: "#B4B4B4" }}/>
+              <HorizontalGridLines style={{ stroke: "#616161" }}/>
               <YAxis
+                style={{ text: {fill: "#bcbcbc"} }}
                 title="contributions"
                 position="middle"
                 tickFormat={(value) => {
@@ -193,6 +206,7 @@ class App extends Component {
                   return value
                 }}/>
               <XAxis
+                style={{ text: {fill: "#bcbcbc"} }}
                 hideLine
                 tickPadding={-2}
                 tickLabelAngle={-90}
@@ -217,7 +231,7 @@ class App extends Component {
                   }
                 }}/>
               <BarSeries
-                color="#601D9A"
+                color="#FFF"
                 data={ this.state.formattedData }/>
             </XYPlot>
             <div className="share-results">
