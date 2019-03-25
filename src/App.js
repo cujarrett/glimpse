@@ -194,9 +194,9 @@ class App extends Component {
               height={this.state.height}
             >
               <VerticalGridLines/>
-              <HorizontalGridLines style={{ stroke: "#616161" }}/>
+              <HorizontalGridLines style={{ stroke: "#e1e3e6" }}/>
               <YAxis
-                style={{ text: {fill: "#bcbcbc"} }}
+                style={{ text: {fill: "#686d75"} }}
                 title="contributions"
                 position="middle"
                 tickFormat={(value) => {
@@ -206,7 +206,7 @@ class App extends Component {
                   return value
                 }}/>
               <XAxis
-                style={{ text: {fill: "#bcbcbc"} }}
+                style={{ text: {fill: "#686d75"} }}
                 hideLine
                 tickPadding={-2}
                 tickLabelAngle={-90}
@@ -231,7 +231,8 @@ class App extends Component {
                   }
                 }}/>
               <BarSeries
-                color="#FFF"
+                animation
+                color="#4f9647"
                 data={ this.state.formattedData }/>
             </XYPlot>
             <div className="share-results">

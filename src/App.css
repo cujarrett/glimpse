@@ -28,7 +28,7 @@
   margin: 0;
   padding: 0;
   font-size: 12pt;
-  color: #B4B4B4;
+  color: #686d75;
   font-family: sans-serif;
   font-weight: bold;
 }
@@ -43,7 +43,7 @@ clickable:hover,
 }
 
 .footer h4{
-  color: #B4B4B4;
+  color: #4f9647;
   position:absolute;
   left:0;
   bottom:0;
@@ -61,7 +61,7 @@ clickable:hover,
   position: absolute;
   right: 10px;
   top: 10px;
-  color: #B4B4B4;
+  color: #686d75;
 }
 
 .input {
@@ -76,6 +76,7 @@ clickable:hover,
   text-align: left;
   padding-left: 12px;
   width: 220px;
+  font-size: 1.2em;
 }
 
 .search-button {
@@ -136,16 +137,16 @@ clickable:hover,
 }
 
 h4 {
-  color: #bcbcbc;
+  color: #686d75;
   margin-top: 0px;
   margin-bottom: 5px;
 }
 
 a {
-  color: #bcbcbc;
+  color: #686d75;
   text-decoration:none;
 }
 
 text {
-  fill: #bcbcbc;
+  fill: #686d75;
 }
