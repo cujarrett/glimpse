@@ -1,19 +1,11 @@
 import React, { Component } from "react"
 import queryString from "query-string"
-// Disable eslint max-len for imports from react-vis and react-share
-// eslint-disable-next-line max-len
-import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, VerticalBarSeries } from "react-vis"
 // eslint-disable-next-line max-len
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, RedditShareButton, EmailShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon } from "react-share"
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import DirectionsIcon from '@material-ui/icons/Directions';
+import Paper from "@material-ui/core/Paper"
+import InputBase from "@material-ui/core/InputBase"
+import IconButton from "@material-ui/core/IconButton"
+import SearchIcon from "@material-ui/icons/Search"
 
 import { getGitHubUserData } from "./services/github"
 import { isString, stringContainsValidCharacters } from "./util"
@@ -68,7 +60,7 @@ class App extends Component {
     window.removeEventListener("resize", this.updateWindowDimensions)
   }
 
-  updateWindowDimensions = () => {
+  updateWindowDimensions = async () => {
     const windowWidth = window.innerWidth
     const windowHeight = window.innerHeight
     let logoStyling = "app-logo"
@@ -155,7 +147,6 @@ class App extends Component {
   }
 
   render = () => {
-    const BarSeries = VerticalBarSeries
     const shareUrl = `https://www.glimpse.ninja/?username=${this.state.inputValue}`
     const title = "Check out my #GitHub contributions via Glimpse"
 
@@ -188,53 +179,9 @@ class App extends Component {
         <h4>{this.state.message}</h4>
         { this.state.formattedData.length > 0 &&
           <div className="content">
-            <XYPlot
-              xType="ordinal"
-              width={this.state.width}
-              height={this.state.height}
-            >
-              <VerticalGridLines/>
-              <HorizontalGridLines style={{ stroke: "#e1e3e6" }}/>
-              <YAxis
-                style={{ text: {fill: "#686d75"} }}
-                title="contributions"
-                position="middle"
-                tickFormat={(value) => {
-                  if (value < 1) {
-                    return value.toString().substring(1)
-                  }
-                  return value
-                }}/>
-              <XAxis
-                style={{ text: {fill: "#686d75"} }}
-                hideLine
-                tickPadding={-2}
-                tickLabelAngle={-90}
-                tickFormat={(value, index) => {
-                  const year = value.substring(0, 4)
-                  if (this.state.legend.includes(year)) {
-                    return ""
-                  } else if (index === 0) {
-                    const smallDisplay = this.state.width < 400
-                    const twentyDaysAfterStartYear = this.state.formattedData[20].x.substring(0, 4)
-                    const gitHubAccountCreatedInLateOfYear = twentyDaysAfterStartYear !== year
-                    if (smallDisplay || gitHubAccountCreatedInLateOfYear) {
-                      this.state.legend.push(year)
-                      return ""
-                    } else {
-                      this.state.legend.push(year)
-                      return year
-                    }
-                  } else {
-                    this.state.legend.push(year)
-                    return year
-                  }
-                }}/>
-              <BarSeries
-                animation
-                color="#4f9647"
-                data={ this.state.formattedData }/>
-            </XYPlot>
+
+
+
             <div className="share-results">
               <div className="share-results-header">
                 <h4>Share your GitHub contributions</h4>

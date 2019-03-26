@@ -37,8 +37,7 @@
     "react": "~16.8.1",
     "react-dom": "~16.8.1",
     "react-scripts": "~2.1.5",
-    "react-share": "~2.4.0",
-    "react-vis": "~1.11.4"
+    "react-share": "~2.4.0"
   },
   "devDependencies": {
     "eslint": "5.12.0"
