@@ -1,1 +1,9 @@
-<svg width="100px"  height="100px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-rolling" style="background: none;"><circle cx="50" cy="50" fill="none" ng-attr-stroke="{{config.color}}" ng-attr-stroke-width="{{config.width}}" ng-attr-r="{{config.radius}}" ng-attr-stroke-dasharray="{{config.dasharray}}" stroke="#4f9647" stroke-width="10" r="35" stroke-dasharray="164.93361431346415 56.97787143782138" transform="rotate(203.949 50 50)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></circle></svg>
+<svg class="lds-blocks" width="75px"  height="75px"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;"><rect x="10" y="10" width="35" height="35" fill="#cce295">
+  <animate attributeName="fill" values="#8fc679;#cce295;#cce295" keyTimes="0;0.25;1" dur="1s" repeatCount="indefinite" begin="0s" calcMode="discrete"></animate>
+</rect><rect x="55" y="10" width="35" height="35" fill="#cce295">
+  <animate attributeName="fill" values="#8fc679;#cce295;#cce295" keyTimes="0;0.25;1" dur="1s" repeatCount="indefinite" begin="0.25s" calcMode="discrete"></animate>
+</rect><rect x="10" y="55" width="35" height="35" fill="#cce295">
+  <animate attributeName="fill" values="#8fc679;#cce295;#cce295" keyTimes="0;0.25;1" dur="1s" repeatCount="indefinite" begin="0.75s" calcMode="discrete"></animate>
+</rect><rect x="55" y="55" width="35" height="35" fill="#cce295">
+  <animate attributeName="fill" values="#8fc679;#cce295;#cce295" keyTimes="0;0.25;1" dur="1s" repeatCount="indefinite" begin="0.5s" calcMode="discrete"></animate>
+</rect></svg>

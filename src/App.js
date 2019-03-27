@@ -6,6 +6,7 @@ import Paper from "@material-ui/core/Paper"
 import InputBase from "@material-ui/core/InputBase"
 import IconButton from "@material-ui/core/IconButton"
 import SearchIcon from "@material-ui/icons/Search"
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from "recharts"
 
 import { getGitHubUserData } from "./services/github"
 import { isString, stringContainsValidCharacters } from "./util"
@@ -150,6 +151,31 @@ class App extends Component {
     const shareUrl = `https://www.glimpse.ninja/?username=${this.state.inputValue}`
     const title = "Check out my #GitHub contributions via Glimpse"
 
+    // const data = [
+    //   {name: 'Page A', uv: 4000, pv: 2400, amt: 2400},
+    //   {name: 'Page B', uv: 3000, pv: 1398, amt: 2210},
+    //   {name: 'Page C', uv: 2000, pv: 9800, amt: 2290},
+    //   {name: 'Page D', uv: 2780, pv: 3908, amt: 2000},
+    //   {name: 'Page E', uv: 1890, pv: 4800, amt: 2181},
+    //   {name: 'Page F', uv: 2390, pv: 3800, amt: 2500},
+    //   {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
+    // ]
+
+    const data = [
+      {name: "january", "2016": 200, "2017": 322, "2018": 352},
+      {name: "february", "2016": 20, "2017": 240, "2018": 276},
+      {name: "march", "2016": 100, "2017": 182, "2018": 186},
+      {name: "april", "2016": 100, "2017": 230, "2018": 308},
+      {name: "may", "2016": 200, "2017": 301, "2018": 208},
+      {name: "june", "2016": 333, "2017": 422, "2018": 100},
+      {name: "july", "2016": 281, "2017": 188, "2018": 291},
+      {name: "august", "2016": 52, "2017": 278, "2018": 388},
+      {name: "september", "2016": 511, "2017": 301, "2018": 307},
+      {name: "october", "2016": 555, "2017": 201, "2018": 222},
+      {name: "november", "2016": 231, "2017": 488, "2018": 107},
+      {name: "december", "2016": 482, "2017": 409, "2018": 209}
+    ]
+
     return (
       <div className="main">
         <div className="github-link">
@@ -180,7 +206,16 @@ class App extends Component {
         { this.state.formattedData.length > 0 &&
           <div className="content">
 
-
+            <LineChart width={this.state.width} height={this.state.height} data={data} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+              <XAxis dataKey="name"/>
+              <YAxis/>
+              <CartesianGrid strokeDasharray="3 3"/>
+              <Tooltip/>
+              <Legend />
+              <Line type="monotone" dataKey="2016" stroke="#ff1744" activeDot={{r: 8}}/>
+              <Line type="monotone" dataKey="2017" stroke="#3d5afe" />
+              <Line type="monotone" dataKey="2018" stroke="#1de9b6" />
+            </LineChart>
 
             <div className="share-results">
               <div className="share-results-header">

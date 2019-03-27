@@ -43,7 +43,7 @@ clickable:hover,
 }
 
 .footer h4{
-  color: #4f9647;
+  color: #8fc679;
   position:absolute;
   left:0;
   bottom:0;
@@ -51,6 +51,7 @@ clickable:hover,
 }
 
 .footer-small-display h4 {
+  color: #8fc679;
   left:0;
   bottom:0;
   right:0;
