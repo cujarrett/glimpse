@@ -28,7 +28,7 @@
   margin: 0;
   padding: 0;
   font-size: 12pt;
-  color: #686d75;
+  color: #9799a0;
   font-family: sans-serif;
   font-weight: bold;
 }
@@ -36,6 +36,10 @@
 clickable:hover,
 .link-button:focus {
   text-decoration: none;
+}
+
+body {
+  background-color: #171f29;
 }
 
 .content {
@@ -62,7 +66,7 @@ clickable:hover,
   position: absolute;
   right: 10px;
   top: 10px;
-  color: #686d75;
+  color: #9799a0;
 }
 
 .input {
@@ -138,16 +142,29 @@ clickable:hover,
 }
 
 h4 {
-  color: #686d75;
+  color: #9799a0;
   margin-top: 0px;
   margin-bottom: 5px;
 }
 
 a {
-  color: #686d75;
+  color: #9799a0;
+  text-decoration:none;
+}
+
+li {
+  color: #9799a0;
   text-decoration:none;
 }
 
 text {
-  fill: #686d75;
+  fill: #9799a0;
+}
+
+.line-chart-lines {
+  stroke-width: 5
+}
+
+.page-wrap {
+  background: #171f29;
 }
