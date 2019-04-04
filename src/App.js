@@ -8,7 +8,7 @@ import IconButton from "@material-ui/core/IconButton"
 import SearchIcon from "@material-ui/icons/Search"
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from "recharts"
 
-import { getGitHubUserData } from "./services/github"
+import { getGitHubContributions } from "./integrations/github.js"
 import { isString, stringContainsValidCharacters } from "./util"
 import "./App.css"
 import logo from "./glimpse-logo.png"
@@ -27,7 +27,7 @@ class App extends Component {
       loading: false,
       showDemo: true,
       inputValue: "",
-      formattedData: [],
+      contributions: [],
       legend: [],
       message: defaultMessage,
       demoMessage: "Show me a demo",
@@ -87,7 +87,7 @@ class App extends Component {
       canceled: true,
       loading: false,
       inputValue: event.target.value,
-      formattedData: [],
+      contributions: [],
       legend: [],
       message: defaultMessage
     })
@@ -98,7 +98,7 @@ class App extends Component {
       canceled: false,
       showDemo: false,
       loading: true,
-      formattedData: [],
+      contributions: [],
       legend: [],
       message: `Searching ${this.state.inputValue}'s GitHub contributions`
     })
@@ -114,7 +114,7 @@ class App extends Component {
       const userNameValid = stringContainsValidCharacters(this.state.inputValue)
 
       if (inputNotEmpty && userNameValid) {
-        const contributions = await getGitHubUserData(this.state.inputValue)
+        const contributions = await getGitHubContributions(this.state.inputValue)
         const notCanceled = !this.state.canceled
         const hasContributions = contributions.length > 0
 
@@ -122,7 +122,7 @@ class App extends Component {
           this.setState({
             loading: false,
             showDemo: false,
-            formattedData: contributions,
+            contributions: contributions,
             message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
           })
         } else {
@@ -151,21 +151,6 @@ class App extends Component {
     const shareUrl = `https://www.glimpse.ninja/?username=${this.state.inputValue}`
     const title = "Check out my #GitHub contributions via Glimpse"
 
-    const data = [
-      {name: "January", "2016": 200, "2017": 322, "2018": 352},
-      {name: "February", "2016": 20, "2017": 240, "2018": 276},
-      {name: "March", "2016": 100, "2017": 182, "2018": 186},
-      {name: "April", "2016": 100, "2017": 230, "2018": 308},
-      {name: "May", "2016": 200, "2017": 301, "2018": 208},
-      {name: "June", "2016": 333, "2017": 422, "2018": 100},
-      {name: "July", "2016": 281, "2017": 188, "2018": 291},
-      {name: "August", "2016": 52, "2017": 278, "2018": 388},
-      {name: "September", "2016": 511, "2017": 301, "2018": 307},
-      {name: "October", "2016": 555, "2017": 201, "2018": 222},
-      {name: "November", "2016": 231, "2017": 488, "2018": 107},
-      {name: "December", "2016": 482, "2017": 409, "2018": 209}
-    ]
-
     return (
       <div className="main">
         <div className="github-link">
@@ -193,19 +178,23 @@ class App extends Component {
           </Paper>
         </div>
         <h4>{this.state.message}</h4>
-        { this.state.formattedData.length > 0 &&
+        { this.state.contributions.length > 0 &&
           <div className="content">
 
-            <LineChart width={this.state.width} height={this.state.height} data={data} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-              <XAxis dataKey="name"/>
-              <YAxis/>
-              <CartesianGrid strokeDasharray="3 3"/>
-              <Tooltip/>
-              <Legend />
-              <Line type="monotone" dataKey="2016" stroke="#ff1744" activeDot={{r: 8}}/>
-              <Line type="monotone" dataKey="2017" stroke="#3d5afe" />
-              <Line type="monotone" dataKey="2018" stroke="#1de9b6" />
-            </LineChart>
+            <div>
+              <LineChart width={this.state.width} height={this.state.height} data={this.state.contributions} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                <XAxis dataKey="name"/>
+                <YAxis/>
+                <CartesianGrid strokeDasharray="0" stroke="#33363f"/>
+                <Tooltip contentStyle={{ backgroundColor: "#171f29", color: "#FFF" }} />
+                <Legend/>
+                <Line type="monotone" dataKey="2015" stroke="#ff1744" strokeWidth="5" />
+                <Line type="monotone" dataKey="2016" stroke="#3d5afe" strokeWidth="5" />
+                <Line type="monotone" dataKey="2017" stroke="#1de9b6" strokeWidth="5" />
+                <Line type="monotone" dataKey="2018" stroke="#ffea00" strokeWidth="5" />
+                <Line type="monotone" dataKey="2019" stroke="#d500f9" strokeWidth="5" activeDot={{r: 8}}/>
+              </LineChart>
+            </div>
 
             <div className="share-results">
               <div className="share-results-header">
