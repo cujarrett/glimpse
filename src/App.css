@@ -38,10 +38,6 @@ clickable:hover,
   text-decoration: none;
 }
 
-body {
-  background-color: #171f29;
-}
-
 .content {
   display: inline-block;
 }
@@ -96,6 +92,8 @@ body {
 
 .main {
   text-align: center;
+  min-height: 100vh;
+  background-color: #1e2835;
 }
 
 .network {
@@ -163,8 +161,4 @@ text {
 
 .line-chart-lines {
   stroke-width: 5
-}
-
-.page-wrap {
-  background: #171f29;
 }
