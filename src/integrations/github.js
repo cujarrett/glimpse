@@ -31,8 +31,8 @@ export const getGitHubContributions = async (userName) => {
     }
   }
 
+  // Push contribution data into months object
   const contributions = response.contributions
-
   const months = { "01": [], "02": [], "03": [], "04": [], "05": [], "06": [], "07": [], "08": [], "09": [], "10": [], "11": [], "12": [] }
 
   for (const contribution of contributions) {
@@ -44,7 +44,6 @@ export const getGitHubContributions = async (userName) => {
       year,
       count
     })
-
   }
 
   for (let month of Object.keys(months)) {
@@ -56,56 +55,13 @@ export const getGitHubContributions = async (userName) => {
     }
   }
 
-  // const removeFuture = (month) => {
-  //   const filteredMonth = {}
+  const date = new Date()
+  const year = date.getFullYear()
+  const month = date.getMonth()
 
-  //   for (const )
-  // }
-
-  // const temp = output.filter((item) => removeFuture(item))
-
-  console.log(JSON.stringify(output, null, "  "))
+  for (let monthIndex = month + 1; monthIndex < 11; monthIndex++) {
+    delete output[monthIndex][year]
+  }
 
   return output
 }
-
-
-// const temp = async () => {
-//   const output = await getGitHubContributions("cujarrett")
-//   console.log(output)
-// }
-
-// temp()
-
-// const getRecentEvents = async (userName) => {
-
-//   let userHasMoreEvents = true
-//   let pageNumber = 1
-//   const userEvents = []
-
-//   while (userHasMoreEvents) {
-//     console.log({pageNumber})
-//     const url = `https://api.github.com/users/${userName}/events?page=${pageNumber}`
-//     let response = await fetch(url)
-//     response = await response.json()
-//     console.log(response)
-//     pageNumber++
-
-//     if (response === [] || response.message === "In order to keep the API fast for everyone, pagination is limited for this resource. Check the rel=last link relation in the Link response header to see how far back you can traverse.") {
-//       userHasMoreEvents = false
-//     }
-
-//     if (response.message.startsWith("API rate limit exceeded")) {
-//       throw Error ("GitHub Event API limit exceeded.")
-//     }
-//   }
-
-//   console.log(userEvents)
-//   return userEvents
-// }
-
-// const temp = async () => {
-//   getRecentEvents("cujarrett")
-// }
-
-// temp()
