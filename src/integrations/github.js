@@ -9,58 +9,96 @@ export const getGitHubContributions = async (userName) => {
     return 0
   }
 
-  let output = [
-    { name: "January" },
-    { name: "February" },
-    { name: "March" },
-    { name: "April" },
-    { name: "May" },
-    { name: "June" },
-    { name: "July" },
-    { name: "August" },
-    { name: "September" },
-    { name: "October" },
-    { name: "November" },
-    { name: "December" }
+  const yearColors = [
+    "#ff5722",
+    "#ff9800",
+    "#ffc107",
+    "#ffeb3b",
+    "#cddc39",
+    "#8bc34a",
+    "#4caf50",
+    "#009688",
+    "#00bcd4",
+    "#03a9f4",
+    "#2196f3",
+    "#3f51b5",
+    "#673ab7",
+    "#9c27b0",
+    "#e91e63",
+    "#f44336"
   ]
+  let yearAnimationDelay = 0
 
-  // Seed output with 0's for all years active
-  for (const month of output) {
-    for (const { year } of response.years) {
-      month[year] = 0
-    }
+  const output = []
+
+  const years = response.years.reverse()
+  const contributions = response.contributions
+
+  // Seed years in output
+  for (const { year } of years) {
+    const color = yearColors.pop()
+    output.push({
+      name: year,
+      data: [
+        { category: "January", value: 0 },
+        { category: "February", value: 0 },
+        { category: "March", value: 0 },
+        { category: "April", value: 0 },
+        { category: "May", value: 0 },
+        { category: "June", value: 0 },
+        { category: "July", value: 0 },
+        { category: "August", value: 0 },
+        { category: "September", value: 0 },
+        { category: "October", value: 0 },
+        { category: "November", value: 0 },
+        { category: "December", value: 0 }
+      ],
+      color,
+      yearAnimationDelay
+    })
+    yearAnimationDelay += 700
   }
 
-  // Push contribution data into months object
-  const contributions = response.contributions
-  const months = { "01": [], "02": [], "03": [], "04": [], "05": [], "06": [], "07": [], "08": [], "09": [], "10": [], "11": [], "12": [] }
-
+  // Add month totals to years
   for (const contribution of contributions) {
-    const month = contribution.date.substring(5, 7)
-    const year = contribution.date.substring(0, 4)
+    const contrbutionMonth = contribution.date.substring(5, 7) - 1
+    const contrbutionYear = contribution.date.substring(0, 4)
     const count = contribution.count
 
-    months[month].push({
-      year,
-      count
-    })
-  }
-
-  for (let month of Object.keys(months)) {
-    const years = months[month]
-
-    for (const year of years) {
-      const priorYearCount = output[Number(month - 1)][year.year]
-      output[Number(month - 1)][year.year] = priorYearCount + year.count
+    for (const year of output) {
+      if (year.name === contrbutionYear) {
+        year.data[contrbutionMonth].value = year.data[contrbutionMonth].value + count
+      }
     }
   }
 
-  const date = new Date()
-  const year = date.getFullYear()
-  const month = date.getMonth()
+  // Remove months of year pior to first ever contribution
+  let noContributionsYet = true
+  for (const year of output) {
+    if (year.name === years[0].year) {
+      for (const month of year.data) {
+        if (month.value === 0 && noContributionsYet) {
+          month.value = null
+        } else {
+          noContributionsYet = false
+        }
+      }
+    }
+  }
 
-  for (let monthIndex = month + 1; monthIndex < 11; monthIndex++) {
-    delete output[monthIndex][year]
+  // Remove future months from current year
+  const date = new Date()
+  const currentYear = date.getFullYear().toString()
+  const currentMonth = date.getMonth()
+
+  for (const year of output) {
+    if (year.name === currentYear) {
+      // console.log(year.data)
+      for (let monthIndex = currentMonth + 1; monthIndex < 12; monthIndex++) {
+        year.data[monthIndex].value = null
+      }
+      break
+    }
   }
 
   return output

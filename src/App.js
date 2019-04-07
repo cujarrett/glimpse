@@ -6,7 +6,7 @@ import Paper from "@material-ui/core/Paper"
 import InputBase from "@material-ui/core/InputBase"
 import IconButton from "@material-ui/core/IconButton"
 import SearchIcon from "@material-ui/icons/Search"
-import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from "recharts"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts"
 
 import { getGitHubContributions } from "./integrations/github.js"
 import { isString, stringContainsValidCharacters } from "./util"
@@ -159,7 +159,9 @@ class App extends Component {
           </a>
         </div>
         <div className="app-header">
-          <a href="https://glimpse.ninja"><img src={logo} className={this.state.logoStyling} alt="logo" /></a>
+          <a href="https://glimpse.ninja">
+            <img src={logo} className={this.state.logoStyling} alt="logo" />
+          </a>
         </div>
         <div className="input">
           <Paper elevation={1}>
@@ -182,17 +184,26 @@ class App extends Component {
           <div className="content">
 
             <div>
-              <LineChart width={this.state.width} height={this.state.height} data={this.state.contributions} margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-                <XAxis dataKey="name"/>
-                <YAxis/>
+              <LineChart
+                width={this.state.width}
+                height={this.state.height}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                <XAxis dataKey="category" type="category" allowDuplicatedCategory={false} />
+                <YAxis dataKey="value"/>
                 <CartesianGrid strokeDasharray="0" stroke="#33363f"/>
-                <Tooltip contentStyle={{ backgroundColor: "#171f29", color: "#FFF" }} />
+                <Tooltip contentStyle={{ backgroundColor: "#171f29", color: "#9799a0" }} />
                 <Legend/>
-                <Line type="monotone" dataKey="2015" stroke="#ff1744" strokeWidth="5" />
-                <Line type="monotone" dataKey="2016" stroke="#3d5afe" strokeWidth="5" />
-                <Line type="monotone" dataKey="2017" stroke="#1de9b6" strokeWidth="5" />
-                <Line type="monotone" dataKey="2018" stroke="#ffea00" strokeWidth="5" />
-                <Line type="monotone" dataKey="2019" stroke="#d500f9" strokeWidth="5" activeDot={{r: 8}}/>
+                {this.state.contributions.map((year) => (
+                  <Line
+                    type="monotone"
+                    strokeWidth="5"
+                    stroke={year.color}
+                    animationBegin={year.yearAnimationDelay}
+                    connectNulls={true} dataKey="value"
+                    data={year.data}
+                    name={year.name}
+                    key={year.name} />
+                ))}
               </LineChart>
             </div>
 
@@ -259,14 +270,12 @@ class App extends Component {
           </div>
         }
         { this.state.loading &&
-          <div>
-            <br/><br/><br/><br/><br/><br/>
+          <div className="lowered-content">
             <img src={loading} alt="loading" />
           </div>
         }
         { this.state.showDemo &&
-          <div>
-            <br/><br/><br/><br/><br/><br/>
+          <div className="lowered-content">
             <h4>
               <button
                 type="button"
