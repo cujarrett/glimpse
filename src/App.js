@@ -155,7 +155,7 @@ class App extends Component {
       <div className="main">
         <div className="github-link">
           <a href="https://github.com/cujarrett/glimpse">
-            View on GitHub <i className="fa fa-github"/>
+          <i className="fa fa-star"/> on GitHub <i className="fa fa-github"/>
           </a>
         </div>
         <div className="app-header">
