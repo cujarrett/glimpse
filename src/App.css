@@ -70,14 +70,14 @@ clickable:hover,
   margin-bottom: 30px;
   margin-right: auto;
   margin-left: auto;
-  width: 300px;
+  width: 200px;
 }
 
 .search-text {
   text-align: left;
-  padding-left: 12px;
-  width: 220px;
-  font-size: 1.2em;
+  padding: 8px 0 0px;
+  width: 120px;
+  box-sizing: border-box;
 }
 
 .search-button {
