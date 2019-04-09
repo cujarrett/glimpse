@@ -155,7 +155,7 @@ class App extends Component {
       <div className="main">
         <div className="github-link">
           <a href="https://github.com/cujarrett/glimpse">
-          <i className="fa fa-star"/> on GitHub <i className="fa fa-github"/>
+          <i className="fa fa-star"/> on GitHub
           </a>
         </div>
         <div className="app-header">
@@ -164,20 +164,22 @@ class App extends Component {
           </a>
         </div>
         <div className="input">
-          <Paper elevation={1}>
-            <InputBase
-              className="search-text" autoFocus
-              value={this.state.inputValue}
-              onChange={(event) => this.updateInputValue(event)}
-              onKeyPress={this.handleKeyPress}
-            />
-            <IconButton
-              className="search-button icon-button"
-              aria-label="Search"
-              onClick={(event) => this.handleClick(event)}>
-              <SearchIcon />
-            </IconButton>
-          </Paper>
+          <div className="input-color">
+            <Paper elevation={1}>
+              <InputBase
+                className="search-text" autoFocus
+                value={this.state.inputValue}
+                onChange={(event) => this.updateInputValue(event)}
+                onKeyPress={this.handleKeyPress}
+              />
+              <IconButton
+                className="search-button icon-button"
+                aria-label="Search"
+                onClick={(event) => this.handleClick(event)}>
+                <SearchIcon />
+              </IconButton>
+            </Paper>
+          </div>
         </div>
         <h4>{this.state.message}</h4>
         { this.state.contributions.length > 0 &&
