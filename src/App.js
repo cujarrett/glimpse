@@ -1,18 +1,16 @@
 import React, { Component } from "react"
 import queryString from "query-string"
-// eslint-disable-next-line max-len
-import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, RedditShareButton, EmailShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon } from "react-share"
-import Paper from "@material-ui/core/Paper"
-import InputBase from "@material-ui/core/InputBase"
-import IconButton from "@material-ui/core/IconButton"
-import SearchIcon from "@material-ui/icons/Search"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts"
 
 import { getGitHubContributions } from "./integrations/github.js"
 import { isString, stringContainsValidCharacters } from "./util"
 import "./App.css"
-import logo from "./glimpse-logo.png"
-import loading from "./loading.svg"
+
+// --
+import { Header } from "./components/header/index.js"
+import { SearchBar } from "./components/search-bar/index.js"
+import { MessageBar } from "./components/message-bar/index.js"
+import { Content } from "./components/content/index.js"
+import { Footer } from "./components/footer/index.js"
 
 const defaultMessage = "Search any GitHub username for a glimpse at their open source contributions"
 
@@ -148,151 +146,13 @@ class App extends Component {
   }
 
   render = () => {
-    const shareUrl = `https://www.glimpse.ninja/?username=${this.state.inputValue}`
-    const title = "Check out my #GitHub contributions via Glimpse"
-
     return (
       <div className="main">
-        <div className="github-link">
-          <a href="https://github.com/cujarrett/glimpse">
-          <i className="fa fa-star"/> on GitHub
-          </a>
-        </div>
-        <div className="app-header">
-          <a href="https://glimpse.ninja">
-            <img src={logo} className={this.state.logoStyling} alt="logo" />
-          </a>
-        </div>
-        <div className="input">
-          <div className="input-color">
-            <Paper elevation={1}>
-              <InputBase
-                className="search-text" autoFocus
-                value={this.state.inputValue}
-                onChange={(event) => this.updateInputValue(event)}
-                onKeyPress={this.handleKeyPress}
-              />
-              <IconButton
-                className="search-button icon-button"
-                aria-label="Search"
-                onClick={(event) => this.handleClick(event)}>
-                <SearchIcon />
-              </IconButton>
-            </Paper>
-          </div>
-        </div>
-        <h4>{this.state.message}</h4>
-        { this.state.contributions.length > 0 &&
-          <div className="content">
-
-            <div>
-              <LineChart
-                width={this.state.width}
-                height={this.state.height}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                <XAxis dataKey="category" type="category" allowDuplicatedCategory={false} />
-                <YAxis dataKey="value"/>
-                <CartesianGrid strokeDasharray="0" stroke="#33363f"/>
-                <Tooltip contentStyle={{ backgroundColor: "#171f29", color: "#9799a0" }} />
-                <Legend/>
-                {this.state.contributions.map((year) => (
-                  <Line
-                    type="monotone"
-                    strokeWidth="5"
-                    stroke={year.color}
-                    animationBegin={year.yearAnimationDelay}
-                    connectNulls={true} dataKey="value"
-                    data={year.data}
-                    name={year.name}
-                    key={year.name} />
-                ))}
-              </LineChart>
-            </div>
-
-            <div className="share-results">
-              <div className="share-results-header">
-                <h4>Share your GitHub contributions</h4>
-              </div>
-              <div className="network">
-                <FacebookShareButton
-                  url={shareUrl}
-                  quote={title}
-                  className="network-share-button">
-                  <FacebookIcon
-                    size={32}
-                    round />
-                </FacebookShareButton>
-              </div>
-              <div className="network">
-                <TwitterShareButton
-                  url={shareUrl}
-                  title={title}
-                  className="network-share-button">
-                  <TwitterIcon
-                    size={32}
-                    round />
-                </TwitterShareButton>
-              </div>
-              <div className="network">
-                <LinkedinShareButton
-                  url={shareUrl}
-                  title={title}
-                  windowWidth={750}
-                  windowHeight={600}
-                  className="network-share-button">
-                  <LinkedinIcon
-                    size={32}
-                    round />
-                </LinkedinShareButton>
-              </div>
-              <div className="network">
-                <RedditShareButton
-                  url={shareUrl}
-                  title={title}
-                  windowWidth={660}
-                  windowHeight={460}
-                  className="network-share-button">
-                  <RedditIcon
-                    size={32}
-                    round />
-                </RedditShareButton>
-              </div>
-              <div className="network">
-                <EmailShareButton
-                  url={shareUrl}
-                  subject={title}
-                  body={`${title} \n${shareUrl}`}
-                  className="network-share-button">
-                  <EmailIcon
-                    size={32}
-                    round />
-                </EmailShareButton>
-              </div>
-            </div>
-          </div>
-        }
-        { this.state.loading &&
-          <div className="lowered-content">
-            <img src={loading} alt="loading" />
-          </div>
-        }
-        { this.state.showDemo &&
-          <div className="lowered-content">
-            <h4>
-              <button
-                type="button"
-                className="clickable"
-                onClick={this.demo}>
-                {this.state.demoMessage}
-              </button>
-            </h4>
-          </div>
-        }
-        <div className={this.state.footerStyling}>
-          <h4>
-            Made with <i className="fa fa-heart"/>, JavaScript, and <i className="fa fa-github"/>
-          </h4>
-        </div>
+        <Header/>
+        <SearchBar/>
+        <MessageBar/>
+        <Content/>
+        <Footer/>
       </div>
     )
   }
