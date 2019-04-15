@@ -3,8 +3,8 @@ import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, RedditSha
 import React from "react"
 import "./style.css"
 
-export const ShareResults = () => {
-  const shareUrl = `https://www.glimpse.ninja/?username=${this.state.inputValue}`
+export const ShareResults = (props) => {
+  const shareUrl = `https://www.glimpse.ninja/?username=${props.inputValue}`
   const title = "Check out my #GitHub contributions via Glimpse"
 
   return (

@@ -6,13 +6,13 @@ import { Loading } from "./loading/index.js"
 import { ShareResults } from "./share-results/index.js"
 import { Timeline } from "./timeline/index.js"
 
-export const Content = () => {
+export const Content = (props) => {
   return (
     <div className="content">
-      <DemoButton/>
+      <DemoButton setInput={props.setInput} handleClick={props.handleClick}/>
       <Loading/>
-      <ShareResults/>
-      <Timeline/>
+      <ShareResults input={props.input}/>
+      <Timeline width={props.width} height={props.height} contributions={props.contributions}/>
     </div>
   )
 }

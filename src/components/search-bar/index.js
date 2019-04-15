@@ -6,19 +6,30 @@ import SearchIcon from "@material-ui/icons/Search"
 
 import "./style.css"
 
-export const SearchBar = () => {
+export const SearchBar = (props) => {
+
+  const updateInput = (event) => {
+    props.setInput(event.target.value)
+  }
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      props.handleClick()
+    }
+  }
+
   return (
     <div className="input">
       <Paper elevation={1}>
         <InputBase
           className="search-text" autoFocus
-          value={this.state.inputValue}
-          onChange={(event) => this.updateInputValue(event)}
-          onKeyPress={this.handleKeyPress} />
+          value={props.input}
+          onChange={(event) => updateInput(event)}
+          onKeyPress={handleKeyPress} />
         <IconButton
-          className="search-button icon-button"
+          className="search-button"
           aria-label="Search"
-          onClick={(event) => this.handleClick(event)}>
+          onClick={(event) => props.handleClick(event)}>
           <SearchIcon />
         </IconButton>
       </Paper>

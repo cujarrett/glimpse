@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import "./style.css"
 
-export const MessageBar = () => {
+export const MessageBar = (props) => {
   return (
     <message-bar>
-      <h4>{this.state.message}</h4>
+      <h4>{props.message}</h4>
     </message-bar>
   )
 }

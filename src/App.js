@@ -1,65 +1,34 @@
-import React, { Component } from "react"
-import queryString from "query-string"
+import React, { useState, useEffect } from "react"
 
-import { getGitHubContributions } from "./integrations/github.js"
-import { isString, stringContainsValidCharacters } from "./util"
-import "./App.css"
-
-// --
 import { Header } from "./components/header/index.js"
 import { SearchBar } from "./components/search-bar/index.js"
 import { MessageBar } from "./components/message-bar/index.js"
 import { Content } from "./components/content/index.js"
 import { Footer } from "./components/footer/index.js"
 
-const defaultMessage = "Search any GitHub username for a glimpse at their open source contributions"
+import { getGitHubContributions } from "./integrations/github.js"
 
-class App extends Component {
-  constructor(props) {
-    super(props)
+import "./App.css"
 
-    this.state = {
-      width: 0,
-      height: 0,
-      canceled: false,
-      loading: false,
-      showDemo: true,
-      inputValue: "",
-      contributions: [],
-      legend: [],
-      message: defaultMessage,
-      demoMessage: "Show me a demo",
-      logoStyling: "app-logo",
-      footerStyling: "footer"
-    }
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
+const Glimpse = () => {
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
+  const [canceled, setCanceled] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [showDemo, setShowDemo] = useState(true)
+  const [input, setInput] = useState("")
+  const [contributions, setContributions] = useState([])
+  const [message, setMessage] = useState("Search any GitHub username for a glimpse at their open source contributions")
+  const [logoStyling, setLogoStyling] = useState("app-logo")
+  const [footerStyling, setFooterStyling] = useState("footer")
+
+  const handleClick = async () => {
+    console.log({input})
+    const contributions = await getGitHubContributions(input)
+    setContributions(contributions)
   }
 
-  componentDidMount = async () => {
-    this.updateWindowDimensions()
-    window.addEventListener("resize", this.updateWindowDimensions)
-
-    const urlArguments = queryString.parse(window.location.search)
-    const username = urlArguments.username
-
-    if (username) {
-      const usernameIsString = isString(username)
-      const usernameContainsValidCharacters = stringContainsValidCharacters(username)
-      if (usernameIsString && usernameContainsValidCharacters) {
-        await this.setState({ inputValue: username })
-        this.handleClick()
-      }
-    }
-    if (urlArguments) {
-      window.history.pushState("", "Glimpse", "/")
-    }
-  }
-
-  componentWillUnmount = () => {
-    window.removeEventListener("resize", this.updateWindowDimensions)
-  }
-
-  updateWindowDimensions = async () => {
+  useEffect(() => {
     const windowWidth = window.innerWidth
     const windowHeight = window.innerHeight
     let logoStyling = "app-logo"
@@ -72,90 +41,21 @@ class App extends Component {
       footerStyling = "footer-small-display"
     }
 
-    this.setState({
-      width: .90 * (windowWidth),
-      height: .50 * (windowHeight - 20),
-      logoStyling,
-      footerStyling
-    })
-  }
+    setWidth(.9 * window.innerWidth)
+    setHeight(.5 * window.innerHeight - 20)
+    setLogoStyling(logoStyling)
+    setFooterStyling(footerStyling)
+  })
 
-  updateInputValue = (event) => {
-    this.setState({
-      canceled: true,
-      loading: false,
-      inputValue: event.target.value,
-      contributions: [],
-      legend: [],
-      message: defaultMessage
-    })
-  }
-
-  handleClick = async () => {
-    this.setState({
-      canceled: false,
-      showDemo: false,
-      loading: true,
-      contributions: [],
-      legend: [],
-      message: `Searching ${this.state.inputValue}'s GitHub contributions`
-    })
-
-    const noResultsFound = {
-      loading: false,
-      showDemo: true,
-      message: "No GitHub contributions found"
-    }
-
-    try {
-      const inputNotEmpty = this.state.inputValue.length > 0
-      const userNameValid = stringContainsValidCharacters(this.state.inputValue)
-
-      if (inputNotEmpty && userNameValid) {
-        const contributions = await getGitHubContributions(this.state.inputValue)
-        const notCanceled = !this.state.canceled
-        const hasContributions = contributions.length > 0
-
-        if (notCanceled && hasContributions) {
-          this.setState({
-            loading: false,
-            showDemo: false,
-            contributions: contributions,
-            message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
-          })
-        } else {
-          this.setState(noResultsFound)
-        }
-      } else {
-        this.setState(noResultsFound)
-      }
-    } catch (error) {
-      this.setState(noResultsFound)
-    }
-  }
-
-  handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      this.handleClick()
-    }
-  }
-
-  demo = async () => {
-    await this.setState({ inputValue: "cujarrett" })
-    this.handleClick()
-  }
-
-  render = () => {
-    return (
-      <div className="main">
-        <Header/>
-        <SearchBar/>
-        <MessageBar/>
-        <Content/>
-        <Footer/>
-      </div>
-    )
-  }
+  return (
+    <div className="main">
+      <Header logoStyling={logoStyling}/>
+      <SearchBar input={input} setInput={setInput} setContributions={setContributions} handleClick={handleClick}/>
+      <MessageBar message={message}/>
+      <Content width={width} height={height} contributions={contributions} setInput={setInput} handleClick={handleClick}/>
+      <Footer footerStyling={footerStyling}/>
+    </div>
+  )
 }
 
-export default App
+export default Glimpse

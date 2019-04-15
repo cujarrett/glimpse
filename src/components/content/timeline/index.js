@@ -2,19 +2,19 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "r
 import React from "react"
 import "./style.css"
 
-export const Timeline = () => {
+export const Timeline = (props) => {
   return (
     <div className="content">
       <LineChart
-        width={this.state.width}
-        height={this.state.height}
+        width={props.width}
+        height={props.height}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <XAxis dataKey="category" type="category" allowDuplicatedCategory={false} />
         <YAxis dataKey="value"/>
         <CartesianGrid strokeDasharray="0" stroke="#33363f"/>
         <Tooltip contentStyle={{ backgroundColor: "#171f29", color: "#9799a0" }} />
         <Legend/>
-        {this.state.contributions.map((year) => (
+        {props.contributions.map((year) => (
           <Line
             type="monotone"
             strokeWidth="5"

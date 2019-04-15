@@ -1,9 +1,9 @@
 import React from "react"
 import "./style.css"
 
-export const Footer = () => {
+export const Footer = (props) => {
   return (
-    <div className={this.state.footerStyling}>
+    <div className={props.footerStyling}>
       <h4>
         Made with <i className="fa fa-heart"/>, JavaScript, and <i className="fa fa-github"/>
       </h4>
