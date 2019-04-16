@@ -3,6 +3,7 @@ const fetch = require("node-fetch")
 export const getGitHubContributions = async (userName) => {
   console.log(userName)
   const url = `https://github-contributions-api.now.sh/v1/${userName}`
+  console.log({url})
   let response = await fetch(url)
   console.log(response)
   response = await response.json()

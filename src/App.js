@@ -23,8 +23,10 @@ const Glimpse = () => {
   const [footerStyling, setFooterStyling] = useState("footer")
 
   const handleClick = async () => {
-    console.log({input})
+    setShowDemo(false)
+    setLoading(true)
     const contributions = await getGitHubContributions(input)
+    setLoading(false)
     setContributions(contributions)
   }
 
@@ -50,9 +52,9 @@ const Glimpse = () => {
   return (
     <div className="main">
       <Header logoStyling={logoStyling}/>
-      <SearchBar input={input} setInput={setInput} setContributions={setContributions} handleClick={handleClick}/>
+      <SearchBar input={input} setInput={setInput} setContributions={setContributions} handleClick={handleClick} loading={loading}/>
       <MessageBar message={message}/>
-      <Content width={width} height={height} contributions={contributions} setInput={setInput} handleClick={handleClick}/>
+      <Content width={width} height={height} loading={loading} contributions={contributions} input={input} setInput={setInput} handleClick={handleClick}/>
       <Footer footerStyling={footerStyling}/>
     </div>
   )

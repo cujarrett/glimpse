@@ -3,7 +3,9 @@ import "./style.css"
 
 export const DemoButton = (props) => {
   const demo = async () => {
-    props.setInput("cujarrett")
+    console.log(`props.input: ${props.input}`)
+    await props.setInput("cujarrett")
+    console.log(`props.input: ${props.input}`)
     props.handleClick()
   }
 
