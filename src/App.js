@@ -55,7 +55,7 @@ const Glimpse = () => {
       <Header logoStyling={logoStyling}/>
       <SearchBar input={input} setInput={setInput} setContributions={setContributions} handleClick={handleClick} loading={loading}/>
       <MessageBar message={message}/>
-      <Content width={width} height={height} showDemo={showDemo} loading={loading} contributions={contributions} input={input} setInput={setInput} handleClick={handleClick}/>
+      <Content width={width} height={height} loading={loading} showDemo={showDemo} contributions={contributions} input={input} setInput={setInput} handleClick={handleClick}/>
       <Footer footerStyling={footerStyling}/>
     </div>
   )

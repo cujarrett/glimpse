@@ -47,18 +47,6 @@ clickable:hover,
   opacity: 1;
 }
 
-.share-results {
-  padding-top:15px;
-}
-
-.share-results h4{
-  margin-bottom: 0px;
-}
-
-.share-results-header.h4 {
-  padding-bottom:0px;
-}
-
 .square-button {
   border: 0px solid #ddd;
   background-color: #f0f0f0;

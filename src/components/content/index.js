@@ -11,8 +11,8 @@ export const Content = (props) => {
     <div className="content">
       <DemoButton input={props.input} setInput={props.setInput} handleClick={props.handleClick} showDemo={props.showDemo}/>
       <Loading loading={props.loading}/>
-      <Timeline width={props.width} height={props.height} contributions={props.contributions}/>
-      <ShareResults input={props.input}/>
+      <Timeline width={props.width} height={props.height} contributions={props.contributions} loading={props.loading}/>
+      <ShareResults input={props.input} contributions={props.contributions}/>
     </div>
   )
 }
