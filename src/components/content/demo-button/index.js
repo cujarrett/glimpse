@@ -4,6 +4,7 @@ import "./style.css"
 
 export const DemoButton = (props) => {
   const demo = async () => {
+    props.setInput("cujarrett")
     props.handleClick("cujarrett")
   }
 
