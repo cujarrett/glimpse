@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import "./style.css"
 
 export const MessageBar = (props) => {
@@ -7,4 +8,8 @@ export const MessageBar = (props) => {
       <h4>{props.message}</h4>
     </message-bar>
   )
+}
+
+MessageBar.propTypes = {
+  message: PropTypes.string
 }

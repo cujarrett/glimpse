@@ -1,9 +1,9 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts"
 import React from "react"
+import PropTypes from "prop-types"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts"
 import "./style.css"
 
 export const Timeline = (props) => {
-  console.log(props.canceled)
   return (
     <div name="timeline">
       {props.contributions.length > 0 && !props.canceled &&
@@ -33,4 +33,11 @@ export const Timeline = (props) => {
       }
     </div>
   )
+}
+
+Timeline.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number,
+  canceled: PropTypes.bool,
+  contributions: PropTypes.array
 }

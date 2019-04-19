@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import "./style.css"
 import logo from "./glimpse-logo.png"
 
@@ -13,4 +14,8 @@ export const Header = (props) => {
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  logoStyling: PropTypes.string
 }

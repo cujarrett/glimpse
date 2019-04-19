@@ -1,6 +1,7 @@
+import React from "react"
+import PropTypes from "prop-types"
 // eslint-disable-next-line max-len
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, RedditShareButton, EmailShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon } from "react-share"
-import React from "react"
 import "./style.css"
 
 export const ShareResults = (props) => {
@@ -9,7 +10,7 @@ export const ShareResults = (props) => {
 
   return (
     <div name="share-results">
-    {props.contributions.length > 0 &&
+      {props.contributions.length > 0 &&
       <div className="share-results-top-padding">
         <div className="share-results-header">
           <h4>Share your GitHub contributions</h4>
@@ -40,7 +41,12 @@ export const ShareResults = (props) => {
           </EmailShareButton>
         </div>
       </div>
-    }
+      }
     </div>
   )
+}
+
+ShareResults.propTypes = {
+  inputValue: PropTypes.string,
+  contributions: PropTypes.array
 }

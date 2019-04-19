@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import "./style.css"
 
 import { DemoButton } from "./demo-button/index.js"
@@ -15,4 +16,16 @@ export const Content = (props) => {
       <ShareResults input={props.input} contributions={props.contributions}/>
     </div>
   )
+}
+
+Content.propTypes = {
+  setInput: PropTypes.func,
+  handleClick: PropTypes.func,
+  contributions: PropTypes.array,
+  input: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+  showDemo: PropTypes.bool,
+  loading: PropTypes.bool,
+  canceled: PropTypes.bool
 }

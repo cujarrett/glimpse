@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Paper from "@material-ui/core/Paper"
 import InputBase from "@material-ui/core/InputBase"
 import IconButton from "@material-ui/core/IconButton"
@@ -7,7 +8,6 @@ import SearchIcon from "@material-ui/icons/Search"
 import "./style.css"
 
 export const SearchBar = (props) => {
-
   const updateInput = (event) => {
     props.setContributions([])
     props.setCanceled(true)
@@ -38,4 +38,14 @@ export const SearchBar = (props) => {
       </Paper>
     </div>
   )
+}
+
+SearchBar.propTypes = {
+  setContributions: PropTypes.func,
+  setCanceled: PropTypes.func,
+  setLoading: PropTypes.func,
+  setInput: PropTypes.func,
+  handleClick: PropTypes.func,
+  input: PropTypes.string
+
 }

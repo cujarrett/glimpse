@@ -1,16 +1,15 @@
 import React from "react"
+import PropTypes from "prop-types"
 import "./style.css"
 
 export const DemoButton = (props) => {
   const demo = async () => {
-    console.log(`props.input: ${props.input}`)
     await props.setInput("cujarrett")
-    console.log(`props.input: ${props.input}`)
     props.handleClick()
   }
 
   return (
-    <div name="show-demo">
+    <div name="demo-button">
       { props.showDemo &&
       <div className="lowered-content">
         <h4>
@@ -22,4 +21,10 @@ export const DemoButton = (props) => {
       }
     </div>
   )
+}
+
+DemoButton.propTypes = {
+  setInput: PropTypes.func,
+  handleClick: PropTypes.func,
+  showDemo: PropTypes.bool
 }

@@ -7,6 +7,7 @@ import { Content } from "./components/content/index.js"
 import { Footer } from "./components/footer/index.js"
 
 import { getGitHubContributions } from "./integrations/github.js"
+import { isString, stringContainsValidCharacters } from "./util"
 
 import "./App.css"
 
@@ -23,13 +24,27 @@ const Glimpse = () => {
   const [footerStyling, setFooterStyling] = useState("footer")
 
   const handleClick = async () => {
-    setContributions([])
-    setCanceled(false)
-    setShowDemo(false)
-    setLoading(true)
-    const contributions = await getGitHubContributions(input)
-    setLoading(false)
-    setContributions(contributions)
+    const inputNotAString = !isString(input)
+    const emptyInput = input === ""
+    const inputHasInvalidCharacters = !stringContainsValidCharacters(input)
+
+    if (emptyInput || inputNotAString || inputHasInvalidCharacters) {
+      setLoading(false)
+      setMessage("No GitHub contributions found")
+    } else {
+      setContributions([])
+      setCanceled(false)
+      setShowDemo(false)
+      setLoading(true)
+      const contributions = await getGitHubContributions(input)
+      setLoading(false)
+      setMessage(`A glimpse at ${input}'s GitHub contributions`)
+      setContributions(contributions)
+
+      if (contributions === 0) {
+        setMessage("No GitHub contributions found")
+      }
+    }
   }
 
   useEffect(() => {
@@ -54,9 +69,25 @@ const Glimpse = () => {
   return (
     <div className="main">
       <Header logoStyling={logoStyling}/>
-      <SearchBar input={input} setInput={setInput} setContributions={setContributions} handleClick={handleClick} setLoading={setLoading} loading={loading} setCanceled={setCanceled}/>
-      <MessageBar message={message}/>
-      <Content width={width} height={height} loading={loading} showDemo={showDemo} contributions={contributions} input={input} setInput={setInput} handleClick={handleClick} canceled={canceled}/>
+      <SearchBar
+        input={input}
+        setInput={setInput}
+        setContributions={setContributions}
+        handleClick={handleClick}
+        setLoading={setLoading}
+        loading={loading}
+        setCanceled={setCanceled} />
+      <MessageBar message={message} />
+      <Content
+        width={width}
+        height={height}
+        loading={loading}
+        showDemo={showDemo}
+        contributions={contributions}
+        input={input}
+        setInput={setInput}
+        handleClick={handleClick}
+        canceled={canceled} />
       <Footer footerStyling={footerStyling}/>
     </div>
   )

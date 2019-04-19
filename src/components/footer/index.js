@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import "./style.css"
 
 export const Footer = (props) => {
@@ -9,4 +10,8 @@ export const Footer = (props) => {
       </h4>
     </div>
   )
+}
+
+Footer.propTypes = {
+  footerStyling: PropTypes.string
 }
