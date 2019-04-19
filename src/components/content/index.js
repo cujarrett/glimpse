@@ -10,10 +10,20 @@ import { Timeline } from "./timeline/index.js"
 export const Content = (props) => {
   return (
     <div className="content">
-      <DemoButton input={props.input} setInput={props.setInput} handleClick={props.handleClick} showDemo={props.showDemo}/>
-      <Loading loading={props.loading}/>
-      <Timeline width={props.width} height={props.height} contributions={props.contributions} canceled={props.canceled}/>
-      <ShareResults input={props.input} contributions={props.contributions}/>
+      <DemoButton
+        input={props.input}
+        setInput={props.setInput}
+        handleClick={props.handleClick}
+        showDemo={props.showDemo} />
+      <Loading loading={props.loading} />
+      <Timeline
+        width={props.width}
+        height={props.height}
+        contributions={props.contributions}
+        canceled={props.canceled} />
+      <ShareResults
+        input={props.input}
+        contributions={props.contributions} />
     </div>
   )
 }

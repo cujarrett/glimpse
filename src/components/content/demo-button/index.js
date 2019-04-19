@@ -4,8 +4,7 @@ import "./style.css"
 
 export const DemoButton = (props) => {
   const demo = async () => {
-    await props.setInput("cujarrett")
-    props.handleClick()
+    props.handleClick("cujarrett")
   }
 
   return (

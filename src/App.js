@@ -23,26 +23,28 @@ const Glimpse = () => {
   const [logoStyling, setLogoStyling] = useState("app-logo")
   const [footerStyling, setFooterStyling] = useState("footer")
 
-  const handleClick = async () => {
-    const inputNotAString = !isString(input)
-    const emptyInput = input === ""
-    const inputHasInvalidCharacters = !stringContainsValidCharacters(input)
+  const handleClick = async (username = input) => {
+    const inputNotAString = !isString(username)
+    const emptyInput = username === ""
+    const inputHasInvalidCharacters = !stringContainsValidCharacters(username)
 
     if (emptyInput || inputNotAString || inputHasInvalidCharacters) {
       setLoading(false)
       setMessage("No GitHub contributions found")
+      setShowDemo(true)
     } else {
       setContributions([])
       setCanceled(false)
       setShowDemo(false)
       setLoading(true)
-      const contributions = await getGitHubContributions(input)
+      const contributions = await getGitHubContributions(username)
       setLoading(false)
-      setMessage(`A glimpse at ${input}'s GitHub contributions`)
+      setMessage(`A glimpse at ${username}'s GitHub contributions`)
       setContributions(contributions)
 
       if (contributions === 0) {
         setMessage("No GitHub contributions found")
+        setShowDemo(true)
       }
     }
   }
