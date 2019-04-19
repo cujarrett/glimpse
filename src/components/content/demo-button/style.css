@@ -1,0 +1,22 @@
+.clickable {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  font-size: 12pt;
+  color: #9799a0;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+clickable:hover,
+.link-button:focus {
+  text-decoration: none;
+}
+
+.lowered-content {
+  padding-top: 10em;
+}

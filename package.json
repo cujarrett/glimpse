@@ -19,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "nyc --reporter=lcov tape test/**/*.js | tap-spec && nyc report",
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "fix-lint": "eslint . --fix",
@@ -40,7 +40,11 @@
     "recharts": "~1.5.0"
   },
   "devDependencies": {
-    "eslint": "5.12.0"
+    "eslint": "5.12.0",
+    "nyc": "~14.0.0",
+    "statman-stopwatch": "~2.8.2",
+    "tap-spec": "~5.0.0",
+    "tape-async": "~2.3.0"
   },
   "browserslist": [
     ">0.2%",
