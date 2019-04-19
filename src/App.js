@@ -24,6 +24,7 @@ const Glimpse = () => {
 
   const handleClick = async () => {
     setContributions([])
+    setCanceled(false)
     setShowDemo(false)
     setLoading(true)
     const contributions = await getGitHubContributions(input)
@@ -53,9 +54,9 @@ const Glimpse = () => {
   return (
     <div className="main">
       <Header logoStyling={logoStyling}/>
-      <SearchBar input={input} setInput={setInput} setContributions={setContributions} handleClick={handleClick} loading={loading}/>
+      <SearchBar input={input} setInput={setInput} setContributions={setContributions} handleClick={handleClick} setLoading={setLoading} loading={loading} setCanceled={setCanceled}/>
       <MessageBar message={message}/>
-      <Content width={width} height={height} loading={loading} showDemo={showDemo} contributions={contributions} input={input} setInput={setInput} handleClick={handleClick}/>
+      <Content width={width} height={height} loading={loading} showDemo={showDemo} contributions={contributions} input={input} setInput={setInput} handleClick={handleClick} canceled={canceled}/>
       <Footer footerStyling={footerStyling}/>
     </div>
   )

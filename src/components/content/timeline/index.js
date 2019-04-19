@@ -3,10 +3,10 @@ import React from "react"
 import "./style.css"
 
 export const Timeline = (props) => {
-  console.log(props.contributions)
+  console.log(props.canceled)
   return (
     <div name="timeline">
-      {props.contributions.length > 0 &&
+      {props.contributions.length > 0 && !props.canceled &&
       <div className="content">
         <LineChart
           width={props.width}

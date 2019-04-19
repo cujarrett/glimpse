@@ -9,6 +9,9 @@ import "./style.css"
 export const SearchBar = (props) => {
 
   const updateInput = (event) => {
+    props.setContributions([])
+    props.setCanceled(true)
+    props.setLoading(false)
     props.setInput(event.target.value)
   }
 
