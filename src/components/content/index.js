@@ -9,10 +9,10 @@ import { Timeline } from "./timeline/index.js"
 export const Content = (props) => {
   return (
     <div className="content">
-      <DemoButton input={props.input} setInput={props.setInput} handleClick={props.handleClick}/>
+      <DemoButton input={props.input} setInput={props.setInput} handleClick={props.handleClick} showDemo={props.showDemo}/>
       <Loading loading={props.loading}/>
-      <ShareResults input={props.input}/>
       <Timeline width={props.width} height={props.height} contributions={props.contributions}/>
+      <ShareResults input={props.input}/>
     </div>
   )
 }

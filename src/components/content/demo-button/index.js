@@ -10,12 +10,16 @@ export const DemoButton = (props) => {
   }
 
   return (
-    <div className="lowered-content">
-      <h4>
-        <button type="button" className="clickable" onClick={demo}>
-          Show me a demo
-        </button>
-      </h4>
+    <div name="show-demo">
+      { props.showDemo &&
+      <div className="lowered-content">
+        <h4>
+          <button type="button" className="clickable" onClick={demo}>
+            Show me a demo
+          </button>
+        </h4>
+      </div>
+      }
     </div>
   )
 }
