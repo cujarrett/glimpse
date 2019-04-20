@@ -1,0 +1,20 @@
+.input {
+  margin-top: auto;
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 200px;
+}
+
+.search-button {
+  text-align: right;
+  padding-right: 10px;
+  margin: 10px;
+}
+
+.search-text {
+  text-align: left;
+  padding: 8px 0 0px;
+  width: 120px;
+  box-sizing: border-box;
+}

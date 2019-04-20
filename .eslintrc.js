@@ -96,8 +96,10 @@ module.exports = {
     ],
     "indent": [
       "error",
-      2
+      2,
+      { "ignoredNodes": ["JSXElement"] }
     ],
+    "react/jsx-indent": ["error", 2],
     "keyword-spacing": [
       "error",
       {
@@ -119,7 +121,7 @@ module.exports = {
     "max-len": [
       "error",
       {
-        "code": 100
+        "code": 130
       }
     ],
     "new-cap": [

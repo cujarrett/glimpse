@@ -1,45 +1,46 @@
 {
   "name": "glimpse",
-  "version": "0.10.1",
+  "version": "0.11.0",
+  "author": "Matt Jarrett",
+  "license": "MIT",
   "private": true,
   "description": "A React JS web app to show GitHub user contribution metrics",
   "main": "index.js",
-  "heroku-run-build-script": true,
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "lint": "eslint .",
-    "fix-lint": "eslint . --fix",
-    "ci": "npm run lint && npm run test",
-    "heroku-postbuild": "echo Skip build on Heroku"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cujarrett/glimpse.git"
   },
   "keywords": [
     "React",
-    "React-VIS",
-    "GitHub"
+    "GitHub",
+    "Metrics"
   ],
-  "author": "Matt Jarrett",
-  "license": "MIT",
+  "heroku-run-build-script": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom --no-watch",
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "fix-lint": "eslint . --fix",
+    "ci": "npm run lint && npm run test",
+    "heroku-postbuild": "echo Skip build on Heroku"
+  },
   "dependencies": {
+    "@material-ui/core": "~3.9.3",
+    "@material-ui/icons": "~3.0.2",
     "babel-polyfill": "~6.26.0",
     "font-awesome": "~4.7.0",
-    "lodash": "~4.17.10",
     "node-fetch": "~2.3.0",
-    "query-string": "~6.2.0",
-    "react": "~16.8.1",
-    "react-dom": "~16.8.1",
+    "query-string": "~6.4.2",
+    "react": "~16.8.6",
+    "react-dom": "~16.8.6",
     "react-scripts": "~2.1.5",
     "react-share": "~2.4.0",
-    "react-vis": "~1.11.4"
+    "recharts": "~1.5.0"
   },
   "devDependencies": {
-    "eslint": "~5.12.0"
+    "eslint": "5.12.0"
   },
   "browserslist": [
     ">0.2%",

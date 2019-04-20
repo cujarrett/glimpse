@@ -1,0 +1,14 @@
+.footer h4{
+  color: #4994da;
+  position:absolute;
+  left:0;
+  bottom:0;
+  right:0;
+}
+
+.footer-small-display h4 {
+  color: #4994da;
+  left:0;
+  bottom:0;
+  right:0;
+}

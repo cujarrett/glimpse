@@ -1,64 +1,56 @@
-import React, { Component } from "react"
+import React, { useState, useEffect } from "react"
 import queryString from "query-string"
-// Disable eslint max-len for imports from react-vis and react-share
-// eslint-disable-next-line max-len
-import { XYPlot, XAxis, YAxis, HorizontalGridLines, VerticalGridLines, VerticalBarSeries } from "react-vis"
-// eslint-disable-next-line max-len
-import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, RedditShareButton, EmailShareButton, FacebookIcon, TwitterIcon, LinkedinIcon, RedditIcon, EmailIcon } from "react-share"
-import { getGitHubUserData } from "./services/github"
+
+import { Header } from "./components/header/index.js"
+import { SearchBar } from "./components/search-bar/index.js"
+import { MessageBar } from "./components/message-bar/index.js"
+import { Content } from "./components/content/index.js"
+import { Footer } from "./components/footer/index.js"
+
+import { getGitHubContributions } from "./integrations/github.js"
 import { isString, stringContainsValidCharacters } from "./util"
+
 import "./App.css"
-import logo from "./glimpse-logo.png"
-import loading from "./loading.gif"
 
-const defaultMessage = "Search any GitHub username for a glimpse at their open source contributions"
+const Glimpse = () => {
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
+  const [canceled, setCanceled] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [showDemo, setShowDemo] = useState(true)
+  const [input, setInput] = useState("")
+  const [contributions, setContributions] = useState([])
+  const [message, setMessage] = useState("Search any GitHub username for a glimpse at their open source contributions")
+  const [logoStyling, setLogoStyling] = useState("app-logo")
+  const [footerStyling, setFooterStyling] = useState("footer")
 
-class App extends Component {
-  constructor(props) {
-    super(props)
+  const handleClick = async (username = input) => {
+    const inputNotAString = !isString(username)
+    const emptyInput = username === ""
+    const inputHasInvalidCharacters = !stringContainsValidCharacters(username)
 
-    this.state = {
-      width: 0,
-      height: 0,
-      canceled: false,
-      loading: false,
-      showDemo: true,
-      inputValue: "",
-      formattedData: [],
-      legend: [],
-      message: defaultMessage,
-      demoMessage: "Show me a demo",
-      logoStyling: "app-logo",
-      footerStyling: "footer"
-    }
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this)
-  }
+    if (emptyInput || inputNotAString || inputHasInvalidCharacters) {
+      setLoading(false)
+      setMessage("No GitHub contributions found")
+      setShowDemo(true)
+    } else {
+      setContributions([])
+      setCanceled(false)
+      setShowDemo(false)
+      setLoading(true)
+      const contributions = await getGitHubContributions(username)
+      setLoading(false)
+      setMessage(`A glimpse at ${username}'s GitHub contributions`)
+      setContributions(contributions)
 
-  componentDidMount = async () => {
-    this.updateWindowDimensions()
-    window.addEventListener("resize", this.updateWindowDimensions)
-
-    const urlArguments = queryString.parse(window.location.search)
-    const username = urlArguments.username
-
-    if (username) {
-      const usernameIsString = isString(username)
-      const usernameContainsValidCharacters = stringContainsValidCharacters(username)
-      if (usernameIsString && usernameContainsValidCharacters) {
-        await this.setState({ inputValue: username })
-        this.handleClick()
+      if (contributions === 0) {
+        setMessage("No GitHub contributions found")
+        setShowDemo(true)
       }
     }
-    if (urlArguments) {
-      window.history.pushState("", "Glimpse", "/")
-    }
   }
 
-  componentWillUnmount = () => {
-    window.removeEventListener("resize", this.updateWindowDimensions)
-  }
-
-  updateWindowDimensions = () => {
+  const handleResize = () => {
     const windowWidth = window.innerWidth
     const windowHeight = window.innerHeight
     let logoStyling = "app-logo"
@@ -71,244 +63,59 @@ class App extends Component {
       footerStyling = "footer-small-display"
     }
 
-    this.setState({
-      width: .90 * (windowWidth),
-      height: .50 * (windowHeight - 20),
-      logoStyling,
-      footerStyling
-    })
+    setWidth(.9 * window.innerWidth)
+    setHeight(.5 * window.innerHeight - 20)
+    setLogoStyling(logoStyling)
+    setFooterStyling(footerStyling)
   }
 
-  updateInputValue = (event) => {
-    this.setState({
-      canceled: true,
-      loading: false,
-      inputValue: event.target.value,
-      formattedData: [],
-      legend: [],
-      message: defaultMessage
-    })
-  }
-
-  handleClick = async () => {
-    this.setState({
-      canceled: false,
-      showDemo: false,
-      loading: true,
-      formattedData: [],
-      legend: [],
-      message: `Searching ${this.state.inputValue}'s GitHub contributions`
-    })
-
-    const noResultsFound = {
-      loading: false,
-      showDemo: true,
-      message: "No GitHub contributions found"
-    }
-
-    try {
-      const inputNotEmpty = this.state.inputValue.length > 0
-      const userNameValid = stringContainsValidCharacters(this.state.inputValue)
-
-      if (inputNotEmpty && userNameValid) {
-        const contributions = await getGitHubUserData(this.state.inputValue)
-        const notCanceled = !this.state.canceled
-        const hasContributions = contributions.length > 0
-
-        if (notCanceled && hasContributions) {
-          this.setState({
-            loading: false,
-            showDemo: false,
-            formattedData: contributions,
-            message: `A glimpse at ${this.state.inputValue}'s GitHub contributions`
-          })
-        } else {
-          this.setState(noResultsFound)
-        }
-      } else {
-        this.setState(noResultsFound)
+  useEffect(() => {
+    const urlArguments = queryString.parse(window.location.search)
+    const username = urlArguments.username
+    if (username) {
+      const usernameIsString = isString(username)
+      const usernameContainsValidCharacters = stringContainsValidCharacters(username)
+      if (usernameIsString && usernameContainsValidCharacters) {
+        setInput(username)
+        handleClick(username)
       }
-    } catch (error) {
-      this.setState(noResultsFound)
     }
-  }
-
-  handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      this.handleClick()
+    if (urlArguments) {
+      window.history.pushState("", "Glimpse", "/")
     }
-  }
 
-  demo = async () => {
-    await this.setState({ inputValue: "cujarrett" })
-    this.handleClick()
-  }
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
-  render = () => {
-    const BarSeries = VerticalBarSeries
-    const shareUrl = `https://www.glimpse.ninja/?username=${this.state.inputValue}`
-    const title = "Check out my #GitHub contributions via Glimpse"
-
-    return (
-      <div className="main">
-        <div className="github-link">
-          <a href="https://github.com/cujarrett/glimpse">
-            View on GitHub <i className="fa fa-github"/>
-          </a>
-        </div>
-        <div className="app-header">
-          <img src={logo} className={this.state.logoStyling} alt="logo" />
-        </div>
-        <div>
-          <input
-            className="input"
-            autoFocus
-            value={this.state.inputValue}
-            onChange={(event) => this.updateInputValue(event)}
-            onKeyPress={this.handleKeyPress}
-          />
-          <button
-            className="square-button"
-            onClick={(event) => this.handleClick(event)}>
-              Search
-          </button>
-        </div>
-        <h4>{this.state.message}</h4>
-        { this.state.formattedData.length > 0 &&
-          <div className="content">
-            <XYPlot
-              xType="ordinal"
-              width={this.state.width}
-              height={this.state.height}
-            >
-              <VerticalGridLines/>
-              <HorizontalGridLines style={{ stroke: "#B4B4B4" }}/>
-              <YAxis
-                title="contributions"
-                position="middle"
-                tickFormat={(value) => {
-                  if (value < 1) {
-                    return value.toString().substring(1)
-                  }
-                  return value
-                }}/>
-              <XAxis
-                hideLine
-                tickPadding={-2}
-                tickLabelAngle={-90}
-                tickFormat={(value, index) => {
-                  const year = value.substring(0, 4)
-                  if (this.state.legend.includes(year)) {
-                    return ""
-                  } else if (index === 0) {
-                    const smallDisplay = this.state.width < 400
-                    const twentyDaysAfterStartYear = this.state.formattedData[20].x.substring(0, 4)
-                    const gitHubAccountCreatedInLateOfYear = twentyDaysAfterStartYear !== year
-                    if (smallDisplay || gitHubAccountCreatedInLateOfYear) {
-                      this.state.legend.push(year)
-                      return ""
-                    } else {
-                      this.state.legend.push(year)
-                      return year
-                    }
-                  } else {
-                    this.state.legend.push(year)
-                    return year
-                  }
-                }}/>
-              <BarSeries
-                color="#601D9A"
-                data={ this.state.formattedData }/>
-            </XYPlot>
-            <div className="share-results">
-              <div className="share-results-header">
-                <h4>Share your GitHub contributions</h4>
-              </div>
-              <div className="network">
-                <FacebookShareButton
-                  url={shareUrl}
-                  quote={title}
-                  className="network-share-button">
-                  <FacebookIcon
-                    size={32}
-                    round />
-                </FacebookShareButton>
-              </div>
-              <div className="network">
-                <TwitterShareButton
-                  url={shareUrl}
-                  title={title}
-                  className="network-share-button">
-                  <TwitterIcon
-                    size={32}
-                    round />
-                </TwitterShareButton>
-              </div>
-              <div className="network">
-                <LinkedinShareButton
-                  url={shareUrl}
-                  title={title}
-                  windowWidth={750}
-                  windowHeight={600}
-                  className="network-share-button">
-                  <LinkedinIcon
-                    size={32}
-                    round />
-                </LinkedinShareButton>
-              </div>
-              <div className="network">
-                <RedditShareButton
-                  url={shareUrl}
-                  title={title}
-                  windowWidth={660}
-                  windowHeight={460}
-                  className="network-share-button">
-                  <RedditIcon
-                    size={32}
-                    round />
-                </RedditShareButton>
-              </div>
-              <div className="network">
-                <EmailShareButton
-                  url={shareUrl}
-                  subject={title}
-                  body={`${title} \n${shareUrl}`}
-                  className="network-share-button">
-                  <EmailIcon
-                    size={32}
-                    round />
-                </EmailShareButton>
-              </div>
-            </div>
-          </div>
-        }
-        { this.state.loading &&
-          <div>
-            <br/><br/><br/><br/><br/><br/>
-            <img src={loading} alt="loading" />
-          </div>
-        }
-        { this.state.showDemo &&
-          <div>
-            <br/><br/><br/><br/><br/><br/>
-            <h4>
-              <button
-                type="button"
-                className="clickable"
-                onClick={this.demo}>
-                {this.state.demoMessage}
-              </button>
-            </h4>
-          </div>
-        }
-        <div className={this.state.footerStyling}>
-          <h4>
-            Made with <i className="fa fa-heart"/>, JavaScript, and <i className="fa fa-github"/>
-          </h4>
-        </div>
-      </div>
-    )
-  }
+  return (
+    <div className="main">
+      <Header logoStyling={logoStyling}/>
+      <SearchBar
+        input={input}
+        setInput={setInput}
+        setContributions={setContributions}
+        handleClick={handleClick}
+        setLoading={setLoading}
+        loading={loading}
+        setCanceled={setCanceled} />
+      <MessageBar message={message} />
+      <Content
+        width={width}
+        height={height}
+        loading={loading}
+        showDemo={showDemo}
+        contributions={contributions}
+        input={input}
+        setInput={setInput}
+        handleClick={handleClick}
+        canceled={canceled} />
+      <Footer footerStyling={footerStyling}/>
+    </div>
+  )
 }
 
-export default App
+export default Glimpse

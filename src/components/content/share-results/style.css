@@ -1,0 +1,42 @@
+.network {
+  vertical-align: top;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.share-results-top-padding {
+  padding-top:15px;
+}
+
+.share-results h4{
+  margin-bottom: 0px;
+}
+
+.share-results-header.h4 {
+  padding-bottom:0px;
+}
+
+.network-share-button {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.network-share-button:hover:not(:active) {
+  opacity: 1;
+}
+
+.square-button {
+  border: 0px solid #ddd;
+  background-color: #f0f0f0;
+  padding: 3px 12px;
+  font-size: 14pt;
+}
+
+.square-button:hover {
+  background-color: #e5e5e5;
+}
+
+.square-button:active {
+  background-color: #ccc;
+}
