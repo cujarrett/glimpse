@@ -93,7 +93,6 @@ export const getGitHubContributions = async (userName) => {
 
   for (const year of output) {
     if (year.name === currentYear) {
-      // console.log(year.data)
       for (let monthIndex = currentMonth + 1; monthIndex < 12; monthIndex++) {
         year.data[monthIndex].value = null
       }
