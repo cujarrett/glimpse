@@ -47,6 +47,6 @@ export const ShareResults = (props) => {
 }
 
 ShareResults.propTypes = {
-  inputValue: PropTypes.string,
+  input: PropTypes.string,
   contributions: PropTypes.array
 }
