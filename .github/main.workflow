@@ -1,8 +1,6 @@
 workflow "CI/CD" {
   on = "push"
-  resolves = [
-    "Deploy to Heroku"
-  ]
+  resolves = ["Filter for master only"]
 }
 
 action "Build" {
@@ -22,9 +20,16 @@ action "Test" {
   runs = "npm run test"
 }
 
+
+action "Filter for master only" {
+  uses = "actions/bin/filter@3c0b4f0e63ea54ea5df2914b4fabf383368cd0da"
+  needs = ["Lint", "Test"]
+  args = "branch master"
+}
+
 action "Login to Heroku" {
   uses = "actions/heroku@466fea5e8253586a6df75b10e95447b0bfe383c1"
-  needs = ["Lint", "Test"]
+  needs = ["Filter for master only"]
   args = "container:login"
   secrets = ["HEROKU_API_KEY"]
 }
