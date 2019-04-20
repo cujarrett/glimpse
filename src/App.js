@@ -49,7 +49,7 @@ const Glimpse = () => {
     }
   }
 
-  useEffect(() => {
+  const handleResize = () => {
     const windowWidth = window.innerWidth
     const windowHeight = window.innerHeight
     let logoStyling = "app-logo"
@@ -66,7 +66,15 @@ const Glimpse = () => {
     setHeight(.5 * window.innerHeight - 20)
     setLogoStyling(logoStyling)
     setFooterStyling(footerStyling)
-  })
+  }
+
+  useEffect(() => {
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   return (
     <div className="main">
