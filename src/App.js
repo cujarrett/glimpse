@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import queryString from "query-string"
 
 import { Header } from "./components/header/index.js"
 import { SearchBar } from "./components/search-bar/index.js"
@@ -69,6 +70,20 @@ const Glimpse = () => {
   }
 
   useEffect(() => {
+    const urlArguments = queryString.parse(window.location.search)
+    const username = urlArguments.username
+    if (username) {
+      const usernameIsString = isString(username)
+      const usernameContainsValidCharacters = stringContainsValidCharacters(username)
+      if (usernameIsString && usernameContainsValidCharacters) {
+        setInput(username)
+        handleClick(username)
+      }
+    }
+    if (urlArguments) {
+      window.history.pushState("", "Glimpse", "/")
+    }
+
     handleResize()
     window.addEventListener("resize", handleResize)
     return () => {

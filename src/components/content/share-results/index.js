@@ -5,7 +5,7 @@ import { FacebookShareButton, LinkedinShareButton, TwitterShareButton, RedditSha
 import "./style.css"
 
 export const ShareResults = (props) => {
-  const shareUrl = `https://www.glimpse.ninja/?username=${props.inputValue}`
+  const shareUrl = `https://www.glimpse.ninja/?username=${props.input}`
   const title = "Check out my #GitHub contributions via Glimpse"
 
   return (
