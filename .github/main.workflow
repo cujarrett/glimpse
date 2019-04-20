@@ -1,6 +1,6 @@
 workflow "CI/CD" {
   on = "push"
-  resolves = ["Filter for master only"]
+  resolves = ["Build", "Lint", "Test", "Filter for master only", "Login to Heroku", "Push to Heroku", "Deploy to Heroku"]
 }
 
 action "Build" {
