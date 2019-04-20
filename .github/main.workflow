@@ -1,8 +1,7 @@
 workflow "CI/CD" {
   on = "push"
   resolves = [
-    "Lint",
-    "Deploy to Heroku",
+    "Deploy to Heroku"
   ]
 }
 
