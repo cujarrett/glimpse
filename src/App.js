@@ -25,8 +25,8 @@ const Glimpse = () => {
   const [footerStyling, setFooterStyling] = useState("footer")
 
   const handleClick = async (username = input) => {
+    const emptyInput = input === "" || username === ""
     const inputNotAString = !isString(username)
-    const emptyInput = username === ""
     const inputHasInvalidCharacters = !stringContainsValidCharacters(username)
 
     if (emptyInput || inputNotAString || inputHasInvalidCharacters) {
