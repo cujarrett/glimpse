@@ -32,6 +32,7 @@ export const Content = (props) => {
 Content.propTypes = {
   setInput: PropTypes.func,
   handleClick: PropTypes.func,
+  demo: PropTypes.func,
   contributions: PropTypes.array,
   input: PropTypes.string,
   width: PropTypes.number,
