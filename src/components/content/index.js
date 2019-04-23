@@ -14,7 +14,8 @@ export const Content = (props) => {
         input={props.input}
         setInput={props.setInput}
         handleClick={props.handleClick}
-        showDemo={props.showDemo} />
+        showDemo={props.showDemo}
+        demo={props.demo} />
       <Loading loading={props.loading} />
       <Timeline
         width={props.width}
@@ -31,6 +32,7 @@ export const Content = (props) => {
 Content.propTypes = {
   setInput: PropTypes.func,
   handleClick: PropTypes.func,
+  demo: PropTypes.func,
   contributions: PropTypes.array,
   input: PropTypes.string,
   width: PropTypes.number,

@@ -3,9 +3,6 @@ module.exports.isString = (input) => {
 }
 
 module.exports.stringContainsValidCharacters = (input) => {
-  if (typeof input === "object") {
-    return false
-  }
   if (input === "") {
     return false
   }

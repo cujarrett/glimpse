@@ -25,11 +25,12 @@ const Glimpse = () => {
   const [footerStyling, setFooterStyling] = useState("footer")
 
   const handleClick = async (username = input) => {
-    const emptyInput = input === "" || username === ""
+    const emptyInput = username === ""
     const inputNotAString = !isString(username)
     const inputHasInvalidCharacters = !stringContainsValidCharacters(username)
 
     if (emptyInput || inputNotAString || inputHasInvalidCharacters) {
+      setContributions([])
       setLoading(false)
       setMessage("No GitHub contributions found")
       setShowDemo(true)
@@ -48,6 +49,11 @@ const Glimpse = () => {
         setShowDemo(true)
       }
     }
+  }
+
+  const demo = async () => {
+    setInput("cujarrett")
+    handleClick("cujarrett")
   }
 
   const handleResize = () => {
@@ -112,6 +118,7 @@ const Glimpse = () => {
         input={input}
         setInput={setInput}
         handleClick={handleClick}
+        demo={demo}
         canceled={canceled} />
       <Footer footerStyling={footerStyling}/>
     </div>
