@@ -32,7 +32,7 @@ export const SearchBar = (props) => {
         <IconButton
           className="search-button"
           aria-label="Search"
-          onClick={(event) => props.handleClick(event)}>
+          onClick={() => props.handleClick()}>
           <SearchIcon />
         </IconButton>
       </Paper>

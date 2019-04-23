@@ -14,7 +14,8 @@ export const Content = (props) => {
         input={props.input}
         setInput={props.setInput}
         handleClick={props.handleClick}
-        showDemo={props.showDemo} />
+        showDemo={props.showDemo}
+        demo={props.demo} />
       <Loading loading={props.loading} />
       <Timeline
         width={props.width}
