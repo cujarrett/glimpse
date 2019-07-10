@@ -3,7 +3,9 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [v0.11.3] - 2019-07-09
+### Changed
+- Updates dependencies
 
 ## [v0.11.2] - 2019-04-22
 ### Fixed
@@ -24,7 +26,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [v0.10.0] - 2018-11-10
 ### Changed
-- Updated dependencies
+- Updates dependencies
 
 ## [v0.9.0] - 2018-09-01
 ### Changed
@@ -111,7 +113,7 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
-[Unreleased]: https://github.com/cujarrett/glimpse/compare/v0.11.2...master
+[v0.11.3]: https://github.com/cujarrett/glimpse/compare/v0.11.2...v0.11.3
 [v0.11.2]: https://github.com/cujarrett/glimpse/compare/v0.11.1...v0.11.2
 [v0.11.1]: https://github.com/cujarrett/glimpse/compare/v0.11.0...v0.11.1
 [v0.11.0]: https://github.com/cujarrett/glimpse/compare/v0.10.1...v0.11.0
