@@ -12,3 +12,22 @@
   bottom:0;
   right:0;
 }
+
+.version {
+  color: #0c1824;
+  position:absolute;
+  left:1;
+  bottom:0;
+  right:0;
+  margin-right: .3em;
+  margin-bottom: .3em;
+}
+
+.version-small-display {
+  color: #0c1824;
+  left:1;
+  bottom:0;
+  right:0;
+  margin-right: .3em;
+  margin-bottom: .3em;
+}
