@@ -125,6 +125,7 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
+[v0.12.0]: https://github.com/cujarrett/glimpse/compare/v0.11.4...v0.12.0
 [v0.11.4]: https://github.com/cujarrett/glimpse/compare/v0.11.3...v0.11.4
 [v0.11.3]: https://github.com/cujarrett/glimpse/compare/v0.11.2...v0.11.3
 [v0.11.2]: https://github.com/cujarrett/glimpse/compare/v0.11.1...v0.11.2
