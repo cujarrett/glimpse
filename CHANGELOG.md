@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.13.0] - 2019-12-07
+### Changed
+- Updates dependencies
+- Updates corner link back to source code to animated corner Octocat
+
 ## [v0.12.0] - 2019-10-16
 ### Changed
 - Updates dependencies
@@ -125,6 +130,7 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - Ability to search for user contributions by the enter key
 
+[v0.13.0]: https://github.com/cujarrett/glimpse/compare/v0.12.0...v0.13.0
 [v0.12.0]: https://github.com/cujarrett/glimpse/compare/v0.11.4...v0.12.0
 [v0.11.4]: https://github.com/cujarrett/glimpse/compare/v0.11.3...v0.11.4
 [v0.11.3]: https://github.com/cujarrett/glimpse/compare/v0.11.2...v0.11.3
