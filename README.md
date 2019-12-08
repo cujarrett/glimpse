@@ -1,5 +1,5 @@
 ![logo](./media/glimpse-logo.png)
-<h1 align="center">A React JS web app to show GitHub user contribution metrics</h2>
+<h2 align="center">A React JS web app to show GitHub user contribution metrics</h2>
 <h3 align="center"><b><a href="https://www.glimpse.ninja/">www.glimpse.ninja</a></h3>
 
 [![Build Status](https://travis-ci.org/cujarrett/glimpse.svg?branch=master)](https://travis-ci.org/cujarrett/glimpse)
