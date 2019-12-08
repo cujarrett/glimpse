@@ -19,14 +19,6 @@
   width:auto;
 }
 
-.github-link {
-  width: auto;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  color: #9799a0;
-}
-
 a {
   color: #9799a0;
   text-decoration:none;
