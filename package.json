@@ -1,6 +1,6 @@
 {
   "name": "glimpse",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "author": "Matt Jarrett",
   "license": "MIT",
   "private": true,
@@ -26,20 +26,20 @@
     "ci": "npm run lint && npm run test"
   },
   "dependencies": {
-    "@material-ui/core": "~4.2.0",
-    "@material-ui/icons": "~4.2.1",
+    "@material-ui/core": "~4.8.2",
+    "@material-ui/icons": "~4.5.1",
     "babel-polyfill": "~6.26.0",
     "font-awesome": "~4.7.0",
     "node-fetch": "~2.6.0",
-    "query-string": "~6.8.1",
-    "react": "~16.8.6",
-    "react-dom": "~16.8.6",
-    "react-scripts": "~3.0.1",
-    "react-share": "~3.0.0",
-    "recharts": "~1.6.2"
+    "query-string": "~6.9.0",
+    "react": "~16.12.0",
+    "react-dom": "~16.12.0",
+    "react-scripts": "~3.3.0",
+    "react-share": "~3.0.1",
+    "recharts": "~1.8.5"
   },
   "devDependencies": {
-    "eslint": "~5.16.0"
+    "eslint": "~6.8.0"
   },
   "browserslist": [
     ">0.2%",
