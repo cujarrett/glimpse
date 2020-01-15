@@ -107,7 +107,8 @@ const Glimpse = () => {
         handleClick={handleClick}
         setLoading={setLoading}
         loading={loading}
-        setCanceled={setCanceled} />
+        setCanceled={setCanceled}
+        setMessage={setMessage} />
       <MessageBar message={message} />
       <Content
         width={width}
