@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Changed
 - Updated dependencies
 - Migrated to Circle CI for CI/CD
+- Updates app message logic
 
 ## [v0.13.2] - 2020-01-02
 ### Changed

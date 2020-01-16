@@ -29,10 +29,15 @@ const Glimpse = () => {
     const inputNotAString = !isString(username)
     const inputHasInvalidCharacters = !stringContainsValidCharacters(username)
 
-    if (emptyInput || inputNotAString || inputHasInvalidCharacters) {
+    if (emptyInput) {
       setContributions([])
       setLoading(false)
-      setMessage("No GitHub contributions found")
+      setMessage("Empty search ¯\\_(ツ)_/¯")
+      setShowDemo(true)
+    } else if (inputNotAString || inputHasInvalidCharacters) {
+      setContributions([])
+      setLoading(false)
+      setMessage("Not a valid GitHub username")
       setShowDemo(true)
     } else {
       setContributions([])
@@ -44,8 +49,8 @@ const Glimpse = () => {
       setMessage(`A glimpse at ${username}'s GitHub contributions`)
       setContributions(contributions)
 
-      if (contributions === 0) {
-        setMessage("No GitHub contributions found")
+      if (contributions.length === 0) {
+        setMessage(`${input} isn't a GitHub user`)
         setShowDemo(true)
       }
     }

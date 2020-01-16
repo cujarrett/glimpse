@@ -6,7 +6,7 @@ export const getGitHubContributions = async (userName) => {
   response = await response.json()
 
   if (response.contributions.length === 0) {
-    return 0
+    return []
   }
 
   const yearColors = [
