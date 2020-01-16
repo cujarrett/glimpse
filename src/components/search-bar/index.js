@@ -13,6 +13,11 @@ export const SearchBar = (props) => {
     props.setCanceled(true)
     props.setLoading(false)
     props.setInput(event.target.value)
+    if (event.target.value === "") {
+      props.setMessage("Search any GitHub username for a glimpse at their open source contributions")
+    } else {
+      props.setMessage(`Search for ${event.target.value}'s GitHub contributions`)
+    }
   }
 
   const handleKeyPress = (event) => {
@@ -46,6 +51,6 @@ SearchBar.propTypes = {
   setLoading: PropTypes.func,
   setInput: PropTypes.func,
   handleClick: PropTypes.func,
-  input: PropTypes.string
-
+  input: PropTypes.string,
+  setMessage: PropTypes.func
 }
