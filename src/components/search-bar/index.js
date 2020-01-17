@@ -9,6 +9,7 @@ import "./style.css"
 
 export const SearchBar = (props) => {
   const updateInput = (event) => {
+    window.history.pushState("", "Glimpse", "/")
     props.setContributions([])
     props.setCanceled(true)
     props.setLoading(false)
