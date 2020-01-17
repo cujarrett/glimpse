@@ -19,11 +19,11 @@
 
 .network-share-button {
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .network-share-button:hover:not(:active) {
-  opacity: 1;
+  opacity: .5;
 }
 
 .square-button {
@@ -34,9 +34,9 @@
 }
 
 .square-button:hover {
-  background-color: #e5e5e5;
+  background-color: #ccc;
 }
 
 .square-button:active {
-  background-color: #ccc;
+  background-color: #e5e5e5;
 }
