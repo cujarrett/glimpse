@@ -38,6 +38,8 @@ jobs:
     working_directory: ~/temp
     steps:
       - checkout
+      - restore_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Build Production App
           command: npm run build
