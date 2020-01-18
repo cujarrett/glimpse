@@ -1,5 +1,5 @@
 ![logo](./media/glimpse-logo.png)
-<h2 align="center"><b><a href="https://glimpse.ninja">https://glimpse.ninja</a></h2>
+<h3 align="center"><b><a href="https://glimpse.ninja">https://glimpse.ninja</a></h3>
 
 <p align="center">
   <a href="https://circleci.com/gh/cujarrett/glimpse/tree/master"><img alt="Circle CI" src="https://circleci.com/gh/cujarrett/glimpse/tree/master.svg?style=svg"></a>
