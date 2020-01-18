@@ -1,12 +1,12 @@
 .app-header {
   height: 10%;
   padding-top:20px;
-  padding-bottom: 10px;
+  padding-bottom: 35px;
   color: white;
 }
 
 .app-logo {
-  max-width:45%;
+  max-width:35%;
   max-height:10%;
   height: auto;
   width:auto;

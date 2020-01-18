@@ -9,10 +9,12 @@ import "./style.css"
 
 export const SearchBar = (props) => {
   const updateInput = (event) => {
+    window.history.pushState("", "Glimpse", "/")
     props.setContributions([])
     props.setCanceled(true)
     props.setLoading(false)
     props.setInput(event.target.value)
+    props.setMessage("")
   }
 
   const handleKeyPress = (event) => {
@@ -46,6 +48,6 @@ SearchBar.propTypes = {
   setLoading: PropTypes.func,
   setInput: PropTypes.func,
   handleClick: PropTypes.func,
-  input: PropTypes.string
-
+  input: PropTypes.string,
+  setMessage: PropTypes.func
 }

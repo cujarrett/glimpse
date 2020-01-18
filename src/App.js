@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import queryString from "query-string"
 
 import { Header } from "./components/header/index.js"
 import { SearchBar } from "./components/search-bar/index.js"
@@ -13,12 +12,13 @@ import { isString, stringContainsValidCharacters } from "./util"
 import "./App.css"
 
 const Glimpse = () => {
+  const [initialLoad, setInitialLoad] = useState(true)
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   const [canceled, setCanceled] = useState(false)
   const [loading, setLoading] = useState(false)
   const [showDemo, setShowDemo] = useState(true)
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState(window.location.pathname.substring(1))
   const [contributions, setContributions] = useState([])
   const [message, setMessage] = useState("Search any GitHub username for a glimpse at their open source contributions")
   const [logoStyling, setLogoStyling] = useState("app-logo")
@@ -29,10 +29,15 @@ const Glimpse = () => {
     const inputNotAString = !isString(username)
     const inputHasInvalidCharacters = !stringContainsValidCharacters(username)
 
-    if (emptyInput || inputNotAString || inputHasInvalidCharacters) {
+    if (emptyInput) {
       setContributions([])
       setLoading(false)
-      setMessage("No GitHub contributions found")
+      setMessage("Empty search ¯\\_(ツ)_/¯")
+      setShowDemo(true)
+    } else if (inputNotAString || inputHasInvalidCharacters) {
+      setContributions([])
+      setLoading(false)
+      setMessage("Not a valid GitHub username")
       setShowDemo(true)
     } else {
       setContributions([])
@@ -42,10 +47,11 @@ const Glimpse = () => {
       const contributions = await getGitHubContributions(username)
       setLoading(false)
       setMessage(`A glimpse at ${username}'s GitHub contributions`)
+      window.history.pushState("", "Glimpse", `/${username}`)
       setContributions(contributions)
 
-      if (contributions === 0) {
-        setMessage("No GitHub contributions found")
+      if (contributions.length === 0) {
+        setMessage(`${input} isn't a GitHub user`)
         setShowDemo(true)
       }
     }
@@ -76,26 +82,23 @@ const Glimpse = () => {
   }
 
   useEffect(() => {
-    const urlArguments = queryString.parse(window.location.search)
-    const username = urlArguments.username
-    if (username) {
-      const usernameIsString = isString(username)
-      const usernameContainsValidCharacters = stringContainsValidCharacters(username)
-      if (usernameIsString && usernameContainsValidCharacters) {
-        setInput(username)
-        handleClick(username)
-      }
-    }
-    if (urlArguments) {
-      window.history.pushState("", "Glimpse", "/")
-    }
-
     handleResize()
     window.addEventListener("resize", handleResize)
     return () => {
       window.removeEventListener("resize", handleResize)
     }
   }, [])
+
+  useEffect(() => {
+    if (initialLoad) {
+      setInitialLoad(false)
+      const usernameIsString = isString(input)
+      const usernameContainsValidCharacters = stringContainsValidCharacters(input)
+      if (usernameIsString && usernameContainsValidCharacters) {
+        handleClick()
+      }
+    }
+  }, [initialLoad])
 
   return (
     <div className="main">
@@ -107,7 +110,8 @@ const Glimpse = () => {
         handleClick={handleClick}
         setLoading={setLoading}
         loading={loading}
-        setCanceled={setCanceled} />
+        setCanceled={setCanceled}
+        setMessage={setMessage} />
       <MessageBar message={message} />
       <Content
         width={width}
