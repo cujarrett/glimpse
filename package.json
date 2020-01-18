@@ -20,7 +20,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --watchAll=false",
-    "eject": "react-scripts eject",
     "lint": "eslint .",
     "fix-lint": "eslint . --fix",
     "ci": "npm run lint && npm run test"
