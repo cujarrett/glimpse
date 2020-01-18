@@ -5,7 +5,7 @@
    |
   <strong><a href="#setup">Setup</a></strong>
    |
-   <strong><a href="#running-lintingtests">Running linting/tests</a></strong>
+   <strong><a href="#running-lintingtests">Running Linting/Tests</a></strong>
    |
    <strong><a href="#build-for-production">Build for Production</a></strong>
 </p>
