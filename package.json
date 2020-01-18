@@ -15,7 +15,6 @@
     "GitHub",
     "Metrics"
   ],
-  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -41,5 +40,6 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "homepage": "."
 }
