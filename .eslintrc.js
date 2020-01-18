@@ -9,6 +9,9 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended"
   ],
+  "plugins": [
+    "react", "react-hooks"
+  ],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 8,

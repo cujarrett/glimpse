@@ -1,0 +1,85 @@
+version: 2.1
+
+jobs:
+
+  build-for-test:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run:
+          name: Install & Cache Dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+  test:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Audit Dependencies
+          command: npm audit
+      - run:
+          name: Lint Code
+          command: npm run lint
+      - run:
+          name: Run Tests
+          command: npm run test
+
+  build-for-production:
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Build Production App
+          command: npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+
+  deploy:
+    docker:
+      - image: circleci/python:3.7.6
+    steps:
+      - attach_workspace:
+          at: ./
+      - run:
+          name: Install AWS CLI
+          command: sudo pip install awscli
+      - deploy:
+          name: Deploy to AWS S3 & CloudFront
+          command: |
+            aws s3 sync build s3://$BUCKET_NAME --delete \
+            && \
+            aws cloudfront create-invalidation --distribution-id=$DISTRIBUTION_ID --paths="/*"
+
+workflows:
+  version: 2
+  cicd:
+    jobs:
+      - build-for-test
+      - test:
+          requires:
+            - build-for-test
+      - build-for-production:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - build-for-production
+          filters:
+            branches:
+              only: master

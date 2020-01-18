@@ -9,15 +9,12 @@ import "./style.css"
 
 export const SearchBar = (props) => {
   const updateInput = (event) => {
+    window.history.pushState("", "Glimpse", "/")
     props.setContributions([])
     props.setCanceled(true)
     props.setLoading(false)
     props.setInput(event.target.value)
-    if (event.target.value === "") {
-      props.setMessage("Search any GitHub username for a glimpse at their open source contributions")
-    } else {
-      props.setMessage(`Search for ${event.target.value}'s GitHub contributions`)
-    }
+    props.setMessage("")
   }
 
   const handleKeyPress = (event) => {

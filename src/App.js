@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import queryString from "query-string"
 
 import { Header } from "./components/header/index.js"
 import { SearchBar } from "./components/search-bar/index.js"
@@ -18,7 +17,7 @@ const Glimpse = () => {
   const [canceled, setCanceled] = useState(false)
   const [loading, setLoading] = useState(false)
   const [showDemo, setShowDemo] = useState(true)
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState(window.location.pathname.substring(1))
   const [contributions, setContributions] = useState([])
   const [message, setMessage] = useState("Search any GitHub username for a glimpse at their open source contributions")
   const [logoStyling, setLogoStyling] = useState("app-logo")
@@ -29,10 +28,15 @@ const Glimpse = () => {
     const inputNotAString = !isString(username)
     const inputHasInvalidCharacters = !stringContainsValidCharacters(username)
 
-    if (emptyInput || inputNotAString || inputHasInvalidCharacters) {
+    if (emptyInput) {
       setContributions([])
       setLoading(false)
-      setMessage("No GitHub contributions found")
+      setMessage("Empty search ¯\\_(ツ)_/¯")
+      setShowDemo(true)
+    } else if (inputNotAString || inputHasInvalidCharacters) {
+      setContributions([])
+      setLoading(false)
+      setMessage("Not a valid GitHub username")
       setShowDemo(true)
     } else {
       setContributions([])
@@ -42,18 +46,14 @@ const Glimpse = () => {
       const contributions = await getGitHubContributions(username)
       setLoading(false)
       setMessage(`A glimpse at ${username}'s GitHub contributions`)
+      window.history.pushState("", "Glimpse", `/${username}`)
       setContributions(contributions)
 
-      if (contributions === 0) {
-        setMessage("No GitHub contributions found")
+      if (contributions.length === 0) {
+        setMessage(`${input} isn't a GitHub user`)
         setShowDemo(true)
       }
     }
-  }
-
-  const demo = async () => {
-    setInput("cujarrett")
-    handleClick("cujarrett")
   }
 
   const handleResize = () => {
@@ -76,25 +76,22 @@ const Glimpse = () => {
   }
 
   useEffect(() => {
-    const urlArguments = queryString.parse(window.location.search)
-    const username = urlArguments.username
-    if (username) {
-      const usernameIsString = isString(username)
-      const usernameContainsValidCharacters = stringContainsValidCharacters(username)
-      if (usernameIsString && usernameContainsValidCharacters) {
-        setInput(username)
-        handleClick(username)
-      }
-    }
-    if (urlArguments) {
-      window.history.pushState("", "Glimpse", "/")
-    }
-
     handleResize()
     window.addEventListener("resize", handleResize)
     return () => {
       window.removeEventListener("resize", handleResize)
     }
+  }, [])
+
+  // Runs on initial load and if the url has a username in it it will trigger a search (https://glimpse.ninja/foo)
+  useEffect(() => {
+    const usernameIsString = isString(input)
+    const usernameContainsValidCharacters = stringContainsValidCharacters(input)
+    if (usernameIsString && usernameContainsValidCharacters) {
+      handleClick()
+    }
+    // This function only runs on initial load and afterwards it has no need to check dependencies
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -119,7 +116,6 @@ const Glimpse = () => {
         input={input}
         setInput={setInput}
         handleClick={handleClick}
-        demo={demo}
         canceled={canceled} />
       <Footer footerStyling={footerStyling}/>
     </div>
