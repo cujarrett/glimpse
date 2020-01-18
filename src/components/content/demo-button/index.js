@@ -4,7 +4,6 @@ import "./style.css"
 
 export const DemoButton = (props) => {
   const demo = async () => {
-    console.log("demo function running")
     props.setInput("cujarrett")
     props.handleClick("cujarrett")
   }
