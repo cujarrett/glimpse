@@ -35,7 +35,7 @@ jobs:
   build-for-production:
     docker:
       - image: circleci/node:lts
-    working_directory: ~/temp
+    # working_directory: ~/temp
     steps:
       - checkout
       - restore_cache:
