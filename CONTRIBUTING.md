@@ -1,7 +1,9 @@
 ---
 
 <p align="center" class="toc">
-   <strong><a href="#setup">Setup</a></strong>
+   <strong><a href="#where-to-start">Where to Start</a></strong>
+   |
+  <strong><a href="#setup">Setup</a></strong>
    |
    <strong><a href="#running-lintingtests">Running linting/tests</a></strong>
    |
@@ -9,6 +11,15 @@
 </p>
 
 ---
+
+## Where to Start
+Thanks for the interest, really. There are bugs and features in the [issues](https://github.com/cujarrett/glimpse/issues).
+A good place to start is issues with the [beginner-friendly](https://github.com/cujarrett/glimpse/issues?q=is%3Aissue+is%3Aopen+label%3Abeginner-friendly)
+label. I ask that any new features align to the long term vision of the project:
+
+> A simple way on any device to quickly see OSS contributions, info on how the contributions, and how it impacts the larger OSS community
+
+Glimpse is a React JS web app using web services to collect metrics and display that data on beautiful charts.
 
 ## Setup
 Setup and use requires [Git](https://git-scm.com/),

@@ -7,6 +7,10 @@
 
 ## What's it do?
 ![demo](./media/demo.gif)
-It's a React JS web app to show GitHub user metrics on beautiful graphs.
+A simple way on any device to quickly see OSS contributions, info on how the contributions, and how
+it impacts the larger OSS community.
+
+## Want to Contribute?
+Rad, thanks! Check out the [contributing guide](./CONTRIBUTING.md)
 
 Made with :heart:, JavaScript, and GitHub.
