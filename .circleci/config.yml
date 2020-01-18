@@ -53,7 +53,7 @@ jobs:
     # working_directory: ~/temp
     steps:
       - attach_workspace:
-          at: ~/temp
+          at: ./
       - run:
           name: Install AWS CLI
           command: sudo pip install awscli
