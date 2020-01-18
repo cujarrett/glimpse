@@ -57,7 +57,6 @@ const Glimpse = () => {
   }
 
   const handleResize = () => {
-    console.log("handleResize")
     const windowWidth = window.innerWidth
     const windowHeight = window.innerHeight
     let logoStyling = "app-logo"
@@ -77,7 +76,6 @@ const Glimpse = () => {
   }
 
   useEffect(() => {
-    console.log("useEffect Resizing...")
     handleResize()
     window.addEventListener("resize", handleResize)
     return () => {
@@ -87,7 +85,6 @@ const Glimpse = () => {
 
   // Runs on initial load and if the url has a username in it it will trigger a search (https://glimpse.ninja/foo)
   useEffect(() => {
-    console.log("F")
     const usernameIsString = isString(input)
     const usernameContainsValidCharacters = stringContainsValidCharacters(input)
     if (usernameIsString && usernameContainsValidCharacters) {
