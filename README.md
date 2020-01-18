@@ -7,8 +7,8 @@
 
 ## What's it do?
 ![demo](./media/demo.gif)
-A simple way on any device to quickly see OSS contributions, info on how the contributions, and how
-it impacts the larger OSS community.
+A simple way on any device to quickly see [Open Source Software](https://en.wikipedia.org/wiki/Open-source_software)
+(OSS) contributions, info on how the contributions, and how it impacts the larger OSS community.
 
 ## Want to Contribute?
 Rad, thanks! Check out the [contributing guide](./CONTRIBUTING.md)
