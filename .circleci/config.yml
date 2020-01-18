@@ -59,8 +59,8 @@ jobs:
       - deploy:
           name: Deploy to AWS S3
           command: |
-            aws s3 sync build s3://glimpse.ninja --delete
-
+            aws s3 sync build s3://$BUCKET_NAME --delete
+            aws cloudfront create-invalidation --distribution-id=$DISTRIBUTION_ID --paths="/*"
 workflows:
   version: 2
   cicd:
@@ -76,5 +76,5 @@ workflows:
           requires:
             - build-for-production
           filters:
-            branches:
-              only: master
+            # branches:
+            #   only: master
