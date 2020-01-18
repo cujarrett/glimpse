@@ -5,144 +5,147 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [v0.14.0] - 2020-01-18
 ### Changed
-- Updated dependencies
-- Migrated to Circle CI for CI/CD
-- Updates app message logic
+- :rocket: Migrated to AWS
+- :rocket: Migrated to Circle CI for CI/CD
+- :arrow_up: Updated dependencies
+
+### Fixed
+- :bug: Bug with app message logic
 
 ## [v0.13.2] - 2020-01-02
 ### Changed
-- Reverted updating dependencies
+- :arrow_down: Reverted updating dependencies due to SSL issue
 
 ## [v0.13.1] - 2020-01-01
 ### Changed
-- Updates dependencies
+- :arrow_up: Updates dependencies
 
 ## [v0.13.0] - 2019-12-07
 ### Changed
-- Updates dependencies
-- Updates corner link back to source code to animated corner Octocat
+- :arrow_up: Updates dependencies
+- :sparkles: Updates corner link back to source code to animated corner Octocat
 
 ## [v0.12.0] - 2019-10-16
 ### Changed
-- Updates dependencies
-- Updates CI/CD to latest GitHub Actions (.hcl -> .yml)
+- :arrow_up: Updates dependencies
+- :alien: Updates CI/CD to latest GitHub Actions (.hcl -> .yml)
 
 ### Added
-- Client side version number
+- :sparkles: Client side version number
 
 ## [v0.11.4] - 2019-07-10
 ### Changed
-- Updates dependencies
+- :arrow_up: Updates dependencies
 
 ## [v0.11.3] - 2019-07-09
 ### Changed
-- Updates dependencies
+- :arrow_up: Updates dependencies
 
 ## [v0.11.2] - 2019-04-22
 ### Fixed
-- demo search bug
+- :bug: Demo search bug
 
 ## [v0.11.1] - 2019-04-21
 ### Fixed
-- empty search bug
+- :bug: Empty search bug
 
 ## [v0.11.0] - 2019-04-20
 ### Changed
-- Breaks app into components
-- State management via React Hooks
+- :recycle: Breaks app into components
+- :recycle: State management via React Hooks
 
 ## [v0.10.1] - 2019-03-10
 ### Changed
-- build script for Heroku changes
+- :alien: Build script for Heroku changes
 
 ## [v0.10.0] - 2018-11-10
 ### Changed
-- Updates dependencies
+- :arrow_up: Updates dependencies
 
 ## [v0.9.0] - 2018-09-01
 ### Changed
-- Demo username
-- Updated GitHub username and links
+- :recycle: Demo username
+- :recycle: Updated GitHub username and links
 
 ## [v0.8.4] - 2018-07-27
 ### Changed
-- Downgraded `query-string` to 5.1.1 for IE support
+- :arrow_down: Downgraded `query-string` to 5.1.1 to fix IE support
 
 ## [v0.8.3] - 2018-07-27
 ### Changed
-- Hardening against url parameters and search input to only allow alpha numeric and hyphen as to
-follow GitHub rules
-- Fixed bug where the app would continue to load when no results were found
+- :lock: Hardening against url parameters and search input to only allow alpha numeric and hyphen as to
+follow GitHub username rules
+- :bug: Fixed bug where the app would continue to load when no results were found
 
 ## [v0.8.2] - 2018-07-27
 ### Added
-- Hardening against url parameters and search input
+- :lock: Hardening against url parameters and search input
 
 ## [v0.8.1] - 2018-07-27
 ### Changed
-- Fixed body of email when sharing results via email
+- :iphone: Fixed body of email when sharing results via email
 
 ## [v0.8.0] - 2018-07-26
 ### Added
-- Sanitizing of input
+- :lock: Sanitizing of input
 
 ## [v0.7.1] - 2018-07-26
 ### Changed
-- Styling on small displays and mobile
+- :iphone: Styling on small displays and mobile
 
 ## [v0.7.0] - 2018-07-26
 ### Added
-- Ability to share results on social networks and email
+- :sparkles: Ability to share results on social networks and email
 
 ### Changed
-- Demo username
+- :recycle: Demo username
 
 ## [v0.6.0] - 2018-07-23
 ### Added
-- Demo
-- App context info
+- :sparkles: Demo
+- :lipstick: App context info
 
 ### Changed
-- Fixed bug where if the user searched for a username and changed the searched username before the
+- :bug: Fixed bug where if the user searched for a username and changed the searched username before the
 results were displayed the results for the uncompleted search would still show up when the search
 completed
 
 ## [v0.5.1] - 2018-07-21
 ### Changed
-- Fixed situation where if someone made a GitHub account in the last 20 days of December the years
+- :children_crossing: Fixed situation where if someone made a GitHub account in the last 20 days of December the years
 will overlap on the X axis with the next year so I don't display the previous year as the first
 year on the X axis
 
 ## [v0.5.0] - 2018-07-21
 ### Changed
-- Added applicable years to X axis and supports mobile displays when there is tight space along the
+- :iphone: Added applicable years to X axis and supports mobile displays when there is tight space along the
 X axis situations
 
 ## [v0.4.0] - 2018-07-15
 ### Added
-- Check to ensure no future dates are returned on the UI as the consumed
+- :lipstick: Check to ensure no future dates are returned on the UI as the consumed
 https://github-contributions-api.now.sh/ returns dates until the end of the current calendar year
 
 ## [v0.3.1] - 2018-07-12
 ### Added
-- Babel Polyfill to attempt fix for Internet Explorer not loading bug
+- :children_crossing: Babel Polyfill to attempt fix for Internet Explorer not loading bug
 
 ## [v0.3.0] - 2018-07-10
 ### Added
-- Footer
-- Styling support for mobile
+- :lipstick: Footer
+- :iphone: Styling support for mobile
 
 ### Changed
-- Fixed bug in Y Axis when tick was less than 0 with more than two decimal places
-- App manifest and html name to Glimpse
+- :bug: Fixed bug in Y Axis when tick was less than 0 with more than two decimal places
+- :recycle: App manifest and html name to Glimpse
 
 ## [v0.2.0] - 2018-07-08
 ### Changed
-- Refined the look of the data displayed after a search
+- :lipstick: Refined the look of the data displayed after a search
 
 ## [v0.1.0] - 2018-07-06
 ### Added
-- Ability to search for user contributions by the enter key
+- :tada: Ability to search for user contributions by the enter key
 
 [v0.14.0]: https://github.com/cujarrett/glimpse/compare/v0.13.2...v0.14.0
 [v0.13.2]: https://github.com/cujarrett/glimpse/compare/v0.13.1...v0.13.2
