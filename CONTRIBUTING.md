@@ -20,7 +20,8 @@ Thanks for the interest, really. There are bugs and features in the [issues](htt
 A good place to start is issues with the [beginner-friendly](https://github.com/cujarrett/glimpse/issues?q=is%3Aissue+is%3Aopen+label%3Abeginner-friendly)
 label. I ask that any new features align to the long term vision of the project:
 
-> A simple way on any device to quickly see Open Source Software (OSS) contributions, info on how the contributions, and how it impacts the larger OSS community.
+**A simple way on any device to quickly see [Open Source Software](https://en.wikipedia.org/wiki/Open-source_software)
+(OSS) contributions, info on how the contributions, and how it impacts the larger OSS community.**
 
 ## Setup
 Setup and use requires [Git](https://git-scm.com/),
