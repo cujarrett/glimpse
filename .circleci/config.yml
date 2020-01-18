@@ -53,8 +53,8 @@ jobs:
       - image: 'circleci/python:3.7.6'
     # working_directory: ~/temp
     steps:
-      - attach_workspace:
-          at: ~/temp
+      # - attach_workspace:
+      #     at: ~/temp
       - run:
           name: Install AWS CLI
           command: sudo pip install awscli
@@ -62,6 +62,7 @@ jobs:
           name: Deploy to AWS S3 & CloudFront
           command: |
             aws s3 sync build s3://$BUCKET_NAME --delete \
+            && \
             aws cloudfront create-invalidation --distribution-id=$DISTRIBUTION_ID --paths="/*"
 
 workflows:
