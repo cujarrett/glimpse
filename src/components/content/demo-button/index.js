@@ -3,12 +3,18 @@ import PropTypes from "prop-types"
 import "./style.css"
 
 export const DemoButton = (props) => {
+  const demo = async () => {
+    console.log("demo function running")
+    props.setInput("cujarrett")
+    props.handleClick("cujarrett")
+  }
+
   return (
     <div name="demo-button">
       { props.showDemo &&
       <div className="lowered-content">
         <h4>
-          <button type="button" className="clickable" onClick={props.demo}>
+          <button type="button" className="clickable" onClick={demo}>
             Show me a demo
           </button>
         </h4>

@@ -12,7 +12,6 @@ import { isString, stringContainsValidCharacters } from "./util"
 import "./App.css"
 
 const Glimpse = () => {
-  const [initialLoad, setInitialLoad] = useState(true)
   const [width, setWidth] = useState(0)
   const [height, setHeight] = useState(0)
   const [canceled, setCanceled] = useState(false)
@@ -57,12 +56,8 @@ const Glimpse = () => {
     }
   }
 
-  const demo = async () => {
-    setInput("cujarrett")
-    handleClick("cujarrett")
-  }
-
   const handleResize = () => {
+    console.log("handleResize")
     const windowWidth = window.innerWidth
     const windowHeight = window.innerHeight
     let logoStyling = "app-logo"
@@ -82,6 +77,7 @@ const Glimpse = () => {
   }
 
   useEffect(() => {
+    console.log("useEffect Resizing...")
     handleResize()
     window.addEventListener("resize", handleResize)
     return () => {
@@ -89,16 +85,17 @@ const Glimpse = () => {
     }
   }, [])
 
+  // Runs on initial load and if the url has a username in it it will trigger a search (https://glimpse.ninja/foo)
   useEffect(() => {
-    if (initialLoad) {
-      setInitialLoad(false)
-      const usernameIsString = isString(input)
-      const usernameContainsValidCharacters = stringContainsValidCharacters(input)
-      if (usernameIsString && usernameContainsValidCharacters) {
-        handleClick()
-      }
+    console.log("F")
+    const usernameIsString = isString(input)
+    const usernameContainsValidCharacters = stringContainsValidCharacters(input)
+    if (usernameIsString && usernameContainsValidCharacters) {
+      handleClick()
     }
-  }, [initialLoad])
+    // This function only runs on initial load and afterwards it has no need to check dependencies
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="main">
@@ -122,7 +119,6 @@ const Glimpse = () => {
         input={input}
         setInput={setInput}
         handleClick={handleClick}
-        demo={demo}
         canceled={canceled} />
       <Footer footerStyling={footerStyling}/>
     </div>
