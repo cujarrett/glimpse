@@ -75,6 +75,6 @@ workflows:
       - deploy:
           requires:
             - build-for-production
-          filters:
+          # filters:
             # branches:
             #   only: master
