@@ -30,7 +30,7 @@ jobs:
           command: npm run lint
       - run:
           name: Run Tests
-          command: npm run test
+          command: pwd && ls -l && npm run test
 
   build-for-production:
     docker:
@@ -42,7 +42,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Build Production App
-          command: npm run build
+          command: pwd && ls -l && npm run build
       - persist_to_workspace:
           root: .
           paths:
