@@ -4,6 +4,8 @@
    <strong><a href="#setup">Setup</a></strong>
    |
    <strong><a href="#running-lintingtests">Running linting/tests</a></strong>
+   |
+   <strong><a href="#build-for-production">Build for Production</a></strong>
 </p>
 
 ---
@@ -48,7 +50,7 @@ npm run start
 ```
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Builds the app for production to the `build` folder.
+## Build for Production
 It correctly bundles React in production mode and optimizes the build for the best performance.
 The build is minified and the filenames include the hashes.
 ```sh
