@@ -13,4 +13,7 @@ A simple way on any device to quickly see [Open Source Software](https://en.wiki
 ## Want to Contribute?
 Rad, thanks! Check out the [contributing guide](./CONTRIBUTING.md).
 
+## CHANGELOG
+[Glimpse changelog](./CHANGELOG.md)
+
 Made with :heart:, JavaScript, and GitHub.
