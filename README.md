@@ -11,6 +11,6 @@ A simple way on any device to quickly see [Open Source Software](https://en.wiki
 (OSS) contributions, info on how the contributions, and how it impacts the larger OSS community.
 
 ## Want to Contribute?
-Rad, thanks! Check out the [contributing guide](./CONTRIBUTING.md)
+Rad, thanks! Check out the [contributing guide](./CONTRIBUTING.md).
 
 Made with :heart:, JavaScript, and GitHub.
