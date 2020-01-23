@@ -27,7 +27,8 @@ export const SearchBar = (props) => {
     <div className="input">
       <Paper elevation={1}>
         <InputBase
-          className="search-text" autoFocus
+          className="search-text"
+          autoFocus={window.innerWidth > 400}
           value={props.input}
           onChange={(event) => updateInput(event)}
           onKeyPress={handleKeyPress} />
