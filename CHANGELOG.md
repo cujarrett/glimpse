@@ -3,8 +3,9 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.14.1] - 2020-01-22
-### Fixed
+## [v0.14.1] - 2020-02-11
+### Changed
+- :arrow_up: Updates dependencies
 - :bug: Bug on mobile where the search box auto prompted input causing the keyboard to pop up
 
 ## [v0.14.0] - 2020-01-18
