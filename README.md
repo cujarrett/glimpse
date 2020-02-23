@@ -5,10 +5,9 @@
   <a href="https://circleci.com/gh/cujarrett/glimpse/tree/master"><img alt="Circle CI" src="https://circleci.com/gh/cujarrett/glimpse/tree/master.svg?style=svg"></a>
 </p>
 
-## What it is?
+## What is it?
 ![demo](./media/demo.gif)
-A simple way on any device to quickly see [Open Source Software](https://en.wikipedia.org/wiki/Open-source_software)
-(OSS) contributions, info on how the contributions, and how it impacts the larger OSS community.
+A simple way, on any device, to quickly see the frequency of [Open Source Software (OSS)]([Open Source Software](https://en.wikipedia.org/wiki/Open-source_software)) contributions by any GitHub user.
 
 ## How's it work?
 ![design](./media/architecture.jpg)
