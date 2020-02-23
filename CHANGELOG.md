@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.15.0] - 2020-02-23
+### Added
+- :sparkles: link to user's GitHub on any valid search
+
 ## [v0.14.1] - 2020-02-11
 ### Changed
 - :arrow_up: Updates dependencies
@@ -152,6 +156,7 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - :tada: Ability to search for user contributions by the enter key
 
+[v0.15.0]: https://github.com/cujarrett/glimpse/compare/v0.14.1...v0.15.0
 [v0.14.1]: https://github.com/cujarrett/glimpse/compare/v0.14.0...v0.14.1
 [v0.14.0]: https://github.com/cujarrett/glimpse/compare/v0.13.2...v0.14.0
 [v0.13.2]: https://github.com/cujarrett/glimpse/compare/v0.13.1...v0.13.2

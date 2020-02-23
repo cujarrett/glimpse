@@ -106,7 +106,10 @@ const Glimpse = () => {
         loading={loading}
         setCanceled={setCanceled}
         setMessage={setMessage} />
-      <MessageBar message={message} />
+      <MessageBar
+        message={message}
+        contributions={contributions}
+        input={input} />
       <Content
         width={width}
         height={height}
