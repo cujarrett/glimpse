@@ -9,7 +9,7 @@
 ![demo](./media/demo.gif)
 A simple way, on any device, to quickly see the frequency of [Open Source Software (OSS)]([Open Source Software](https://en.wikipedia.org/wiki/Open-source_software)) contributions by any GitHub user.
 
-## How's it work?
+## How does it work?
 ![design](./media/architecture.jpg)
 
 ## Want to Contribute?
