@@ -1,5 +1,5 @@
 .footer h4{
-  color: #4994da;
+  color: #131820;
   position:absolute;
   left:0;
   bottom:0;
@@ -7,14 +7,14 @@
 }
 
 .footer-small-display h4 {
-  color: #4994da;
+  color: #131820;
   left:0;
   bottom:0;
   right:0;
 }
 
 .version {
-  color: #0c1824;
+  color: #131820;
   position:absolute;
   left:1;
   bottom:0;
@@ -24,7 +24,7 @@
 }
 
 .version-small-display {
-  color: #0c1824;
+  color: #131820;
   left:1;
   bottom:0;
   right:0;
