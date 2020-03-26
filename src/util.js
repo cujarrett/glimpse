@@ -1,8 +1,8 @@
-module.exports.isString = (input) => {
+const isString = (input) => {
   return typeof input === "string"
 }
 
-module.exports.stringContainsValidCharacters = (input) => {
+const stringContainsValidCharacters = (input) => {
   if (input === "") {
     return false
   }
@@ -17,3 +17,5 @@ module.exports.stringContainsValidCharacters = (input) => {
   }
   return true
 }
+
+export { isString, stringContainsValidCharacters }
