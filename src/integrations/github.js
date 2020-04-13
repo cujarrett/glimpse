@@ -13,7 +13,7 @@ const getContributions = async (username) => {
 }
 
 const getContributionYears = async (username) => {
-  const contributingYearsRegularExpression = /(?<=year-link-)\d{4}/g
+  const contributionYearsRegularExpression = /(?<=year-link-)\d{4}/g
   let url = `${proxyurl}https://github.com/${username}`
   if (process.env.NODE_ENV === "test") {
     url = url.replace(proxyurl, "")
@@ -23,7 +23,7 @@ const getContributionYears = async (username) => {
     return []
   }
   const data = await response.text()
-  const contributionYears = data.match(contributingYearsRegularExpression)
+  const contributionYears = data.match(contributionYearsRegularExpression)
 
   return contributionYears
 }
