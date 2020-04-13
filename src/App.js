@@ -6,8 +6,8 @@ import { MessageBar } from "./components/message-bar/index.js"
 import { Content } from "./components/content/index.js"
 import { Footer } from "./components/footer/index.js"
 
-import { getGitHubContributions } from "./integrations/github.js"
-import { isString, stringContainsValidCharacters } from "./util"
+import { getContributions } from "./integrations/github.js"
+import { isString, stringContainsValidCharacters } from "./utils/string-utils.js"
 
 import "./App.css"
 
@@ -43,7 +43,7 @@ const Glimpse = () => {
       setCanceled(false)
       setShowDemo(false)
       setLoading(true)
-      const contributions = await getGitHubContributions(username)
+      const contributions = await getContributions(username)
       setLoading(false)
       setMessage(`A glimpse at ${username}'s GitHub contributions`)
       window.history.pushState("", "Glimpse", `/${username}`)

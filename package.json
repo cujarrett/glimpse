@@ -1,6 +1,6 @@
 {
   "name": "glimpse",
-  "version": "0.16.1",
+  "version": "0.17.0",
   "author": "Matt Jarrett",
   "license": "MIT",
   "private": true,
@@ -18,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom --watchAll=false",
+    "test": "NODE_ENV=test react-scripts test --env=jsdom --watchAll=false ----collectCoverage=true",
     "lint": "eslint .",
     "fix-lint": "eslint . --fix",
     "ci": "npm run lint && npm run test"

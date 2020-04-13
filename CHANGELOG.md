@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.17.0] - 2020-04-12
+### Changed
+- :alien: GitHub integration to internal solution as the API I was using was killed
+- :sparkles: App version number now links back to changelog
+
+### Added
+- :white_check_mark: - Tests for GitHub integration
+
 ## [v0.16.1] - 2020-03-26
 ### Changed
 - :arrow_up: Updated dependencies
@@ -168,6 +176,7 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - :tada: Ability to search for user contributions by the enter key
 
+[v0.17.0]: https://github.com/cujarrett/glimpse/compare/v0.16.1...v0.17.0
 [v0.16.1]: https://github.com/cujarrett/glimpse/compare/v0.16.0...v0.16.1
 [v0.16.0]: https://github.com/cujarrett/glimpse/compare/v0.15.1...v0.16.0
 [v0.15.1]: https://github.com/cujarrett/glimpse/compare/v0.15.0...v0.15.1

@@ -1,14 +1,72 @@
-const fetch = require("node-fetch")
+import fetch from "node-fetch"
+const proxyurl = "https://cors-anywhere.herokuapp.com/"
 
-export const getGitHubContributions = async (userName) => {
-  const url = `https://github-contributions-api.now.sh/v1/${userName}`
-  let response = await fetch(url)
-  response = await response.json()
+const getContributions = async (username) => {
+  const contributionYears = await getContributionYears(username)
+  if (!contributionYears) {
+    return []
+  }
+  const rawContributionData = await getRawContributionData(username, contributionYears)
+  const formattedContributionsByYear = await getFormattedContributionsByYear(rawContributionData, contributionYears)
 
-  if (response.contributions.length === 0) {
+  return formattedContributionsByYear
+}
+
+const getContributionYears = async (username) => {
+  const contributionYearsRegularExpression = /(?<=year-link-)\d{4}/g
+  let url = `${proxyurl}https://github.com/${username}`
+  if (process.env.NODE_ENV === "test") {
+    url = url.replace(proxyurl, "")
+  }
+  const response = await fetch(url)
+  if (response.status === 404) {
+    return []
+  }
+  const data = await response.text()
+  const contributionYears = data.match(contributionYearsRegularExpression)
+
+  return contributionYears
+}
+
+const getRawContributionData = async (username, contributionYears) => {
+  const output = []
+  for (const year of contributionYears) {
+    let url = `${proxyurl}https://github.com/users/${username}/contributions?from=${year}-01-01&to=${year}-12-31`
+    if (process.env.NODE_ENV === "test") {
+      url = url.replace(proxyurl, "")
+    }
+    const response = await fetch(url)
+    const data = await response.text()
+    const contributionRegularExpressionPattern = (year) => `(data-count="\\d*".*data-date="${year}-\\d{2}-\\d{2}")`
+    const contributionRegularExpression = new RegExp(contributionRegularExpressionPattern(year), "g")
+    const matches = data.match(contributionRegularExpression)
+    const contributions = matches.map((match) => {
+      return {
+        count: +match.match(/data-count="(\d*)"/)[1],
+        date: match.match(/data-date="(\d{4}-\d{2}-\d{2})"/)[1]
+      }
+    })
+    output.push(...contributions)
+  }
+
+  return output
+}
+
+const getFormattedContributionsByYear = async (contributions) => {
+  if (contributions.length === 0) {
     return []
   }
 
+  let years = []
+  for (const contribution of contributions) {
+    const year = contribution.date.substring(0, 4)
+    if (!years.includes(year)) {
+      years.push(year)
+    }
+  }
+
+  const output = []
+  let yearAnimationDelay = 0
   const yearColors = [
     "#ff5722",
     "#ff9800",
@@ -27,15 +85,11 @@ export const getGitHubContributions = async (userName) => {
     "#e91e63",
     "#f44336"
   ]
-  let yearAnimationDelay = 0
 
-  const output = []
-
-  const years = response.years.reverse()
-  const contributions = response.contributions
+  years = years.reverse()
 
   // Seed years in output
-  for (const { year } of years) {
+  for (const year of years) {
     const color = yearColors.pop()
     output.push({
       name: year,
@@ -61,13 +115,15 @@ export const getGitHubContributions = async (userName) => {
 
   // Add month totals to years
   for (const contribution of contributions) {
-    const contrbutionMonth = contribution.date.substring(5, 7) - 1
     const contrbutionYear = contribution.date.substring(0, 4)
+    const contrbutionMonth = contribution.date.substring(5, 7) - 1
     const count = contribution.count
 
     for (const year of output) {
-      if (year.name === contrbutionYear) {
-        year.data[contrbutionMonth].value = year.data[contrbutionMonth].value + count
+      const yearMatch = year.name === contrbutionYear
+      const hasContributions = count > 0
+      if (yearMatch && hasContributions) {
+        year.data[contrbutionMonth].value += count
       }
     }
   }
@@ -102,3 +158,5 @@ export const getGitHubContributions = async (userName) => {
 
   return output
 }
+
+export { getContributions }
