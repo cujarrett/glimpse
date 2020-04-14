@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.17.1] - 2020-04-12
+## [v0.17.1] - 2020-04-13
 ### Fixed
 - :bug: App not working on Safari and iOS because they don't support lookbehind regexp in JavaScript yet [even though they were passed in ES2018 ¯\\\_(ツ)_/¯](https://github.com/tc39/proposal-regexp-lookbehind)
 
