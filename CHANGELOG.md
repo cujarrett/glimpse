@@ -5,8 +5,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [v0.17.1] - 2020-04-12
 ### Fixed
-- :bug: App not working on Safari and iOS because they don't support lookbehind regexp in JavaScript yet [even though they were passed in ES2018 ¯\_(ツ)_/¯](https://github.com/tc39/proposal-regexp-lookbehind)
--
+- :bug: App not working on Safari and iOS because they don't support lookbehind regexp in JavaScript yet [even though they were passed in ES2018 ¯\\\_(ツ)_/¯](https://github.com/tc39/proposal-regexp-lookbehind)
+
 ## [v0.17.0] - 2020-04-12
 ### Changed
 - :alien: GitHub integration to internal solution as the API I was using was killed
