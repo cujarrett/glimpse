@@ -13,7 +13,7 @@ const getContributions = async (username) => {
 }
 
 const getContributionYears = async (username) => {
-  const contributionYearsRegularExpression = /(?<=year-link-)\d{4}/g
+  const contributionYearsRegularExpression = /year-link-\d{4}/g
   let url = `${proxyurl}https://github.com/${username}`
   if (process.env.NODE_ENV === "test") {
     url = url.replace(proxyurl, "")
@@ -23,7 +23,8 @@ const getContributionYears = async (username) => {
     return []
   }
   const data = await response.text()
-  const contributionYears = data.match(contributionYearsRegularExpression)
+  const matches = data.match(contributionYearsRegularExpression)
+  const contributionYears = matches.map((year) => year.replace("year-link-", ""))
 
   return contributionYears
 }
@@ -115,15 +116,15 @@ const getFormattedContributionsByYear = async (contributions) => {
 
   // Add month totals to years
   for (const contribution of contributions) {
-    const contrbutionYear = contribution.date.substring(0, 4)
-    const contrbutionMonth = contribution.date.substring(5, 7) - 1
+    const contributionYear = contribution.date.substring(0, 4)
+    const contributionMonth = contribution.date.substring(5, 7) - 1
     const count = contribution.count
 
     for (const year of output) {
-      const yearMatch = year.name === contrbutionYear
+      const yearMatch = year.name === contributionYear
       const hasContributions = count > 0
       if (yearMatch && hasContributions) {
-        year.data[contrbutionMonth].value += count
+        year.data[contributionMonth].value += count
       }
     }
   }
