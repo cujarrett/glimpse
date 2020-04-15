@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.18.0] - 2020-04-14
+### Aded
+- :sparkles: Message updating during search
+
 ## [v0.17.1] - 2020-04-13
 ### Fixed
 - :bug: App not working on Safari and iOS because they don't support lookbehind regexp in JavaScript yet [even though they were passed in ES2018 ¯\\\_(ツ)_/¯](https://github.com/tc39/proposal-regexp-lookbehind)
@@ -180,6 +184,7 @@ https://github-contributions-api.now.sh/ returns dates until the end of the curr
 ### Added
 - :tada: Ability to search for user contributions by the enter key
 
+[v0.18.0]: https://github.com/cujarrett/glimpse/compare/v0.17.1...v0.18.0
 [v0.17.1]: https://github.com/cujarrett/glimpse/compare/v0.17.0...v0.17.1
 [v0.17.0]: https://github.com/cujarrett/glimpse/compare/v0.16.1...v0.17.0
 [v0.16.1]: https://github.com/cujarrett/glimpse/compare/v0.16.0...v0.16.1

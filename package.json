@@ -1,6 +1,6 @@
 {
   "name": "glimpse",
-  "version": "0.17.1",
+  "version": "0.18.0",
   "author": "Matt Jarrett",
   "license": "MIT",
   "private": true,
@@ -24,7 +24,7 @@
     "ci": "npm run lint && npm run test"
   },
   "dependencies": {
-    "@material-ui/core": "~4.9.7",
+    "@material-ui/core": "~4.9.10",
     "@material-ui/icons": "~4.9.1",
     "babel-polyfill": "~6.26.0",
     "font-awesome": "~4.7.0",
