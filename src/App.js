@@ -43,6 +43,7 @@ const Glimpse = () => {
       setCanceled(false)
       setShowDemo(false)
       setLoading(true)
+      setMessage(`Searching ${username}'s GitHub contributions`)
       const contributions = await getContributions(username)
       setLoading(false)
       setMessage(`A glimpse at ${username}'s GitHub contributions`)
