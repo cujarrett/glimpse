@@ -5,7 +5,7 @@ import loading from "./loading.svg"
 
 export const Loading = (props) => {
   return (
-    <div name="loading">
+    <div name="loading" data-testid="loading">
       { props.loading &&
       <div className="lowered-content">
         <img src={loading} alt="loading" />

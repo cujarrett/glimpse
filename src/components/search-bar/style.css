@@ -18,3 +18,15 @@
   width: 120px;
   box-sizing: border-box;
 }
+
+.MuiInputBase-input {
+ padding: 16px 0 7px !important;
+}
+
+.MuiInput-underline:before {
+  display: none;
+}
+
+.MuiInput-underline:after {
+  display: none;
+}

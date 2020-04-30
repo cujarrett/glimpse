@@ -9,7 +9,7 @@ export const DemoButton = (props) => {
   }
 
   return (
-    <div name="demo-button">
+    <div name="demo-button" data-testid="demo-button">
       { props.showDemo &&
       <div className="lowered-content">
         <h4>

@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Paper from "@material-ui/core/Paper"
-import InputBase from "@material-ui/core/InputBase"
 import IconButton from "@material-ui/core/IconButton"
 import SearchIcon from "@material-ui/icons/Search"
+import TextField from "@material-ui/core/TextField"
 
 import "./style.css"
 
@@ -26,16 +26,18 @@ export const SearchBar = (props) => {
   return (
     <div className="input">
       <Paper elevation={1}>
-        <InputBase
+        <TextField
           className="search-text"
           autoFocus={window.innerWidth > 400}
           value={props.input}
           onChange={(event) => updateInput(event)}
-          onKeyPress={handleKeyPress} />
+          onKeyPress={handleKeyPress}
+          inputProps={{ "data-testid": "search-input" }} />
         <IconButton
           className="search-button"
           aria-label="Search"
-          onClick={() => props.handleClick()}>
+          onClick={() => props.handleClick()}
+          data-testid="search-button" >
           <SearchIcon />
         </IconButton>
       </Paper>

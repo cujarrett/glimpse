@@ -1,19 +1,33 @@
 import React from "react"
-import { fireEvent, render } from "@testing-library/react"
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react"
 import App from "./App"
 
-test("renders initial message", () => {
-  const { getByText } = render(<App />)
-  const linkElement = getByText(/Search any GitHub username for a glimpse at their open source contributions/i)
-  expect(linkElement).toBeInTheDocument()
+test("Searching for a valid user works as expected", async () => {
+  act(() => {
+    render(<App />)
+  })
+  const message = screen.getByTestId("message")
+  expect(message).toBeInTheDocument()
+  console.log(message.textContent)
+  const searchInput = screen.getByTestId("search-input")
+  act(() => {
+    fireEvent.change(searchInput, { target: { value: "foo" } })
+  })
+  const searchButton = screen.getByTestId("search-button")
+  act(() => {
+    fireEvent.click(searchButton)
+  })
+  const loadingAnimation = screen.getByTestId("loading")
+  expect(loadingAnimation).toBeInTheDocument()
+  const timeline = await screen.getByTestId("timeline")
+  expect(timeline).toBeInTheDocument()
+  console.log(message.textContent)
+  const shareResults = screen.getByTestId("share-results")
+  expect(shareResults).toBeInTheDocument()
+  console.log(message.textContent)
 })
 
-test("demo works as expected", async () => {
-  const { getByText } = render(<App />)
-  // Click button
-  fireEvent.click(getByText(/Show me a demo/i))
-
-  // Wait for page to update with query text
-  const items = await findByText(node, /Item #[0-9]: /)
-  expect(items).toHaveLength(10)
-})
+// TODO - Valid user search
+// TODO - Empty search = Empty search ¯\_(ツ)_/¯
+// TODO - Demo
+// TODO - Invalid user search
