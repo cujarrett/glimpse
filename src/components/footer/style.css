@@ -1,33 +1,31 @@
 .footer h4{
   color: #4994da;
   position:absolute;
-  left:0;
-  bottom:0;
-  right:0;
+  left:0px;
+  bottom:15px;
+  right:0px;
+  margin-bottom:0px;
 }
 
 .footer-small-display h4 {
   color: #4994da;
-  left:0;
-  bottom:0;
-  right:0;
+  left:0px;
+  bottom:15px;
+  right:0px;
+  margin-bottom:0px;
 }
 
 .version a {
   color: #131820;
   position:absolute;
-  left:1;
-  bottom:0;
-  right:0;
-  margin-right: .3em;
-  margin-bottom: .3em;
+  bottom:15px;
+  right:15px;
+  margin-bottom:0px;
 }
 
 .version-small-display {
   color: #131820;
-  left:1;
-  bottom:0;
-  right:0;
-  margin-right: .3em;
-  margin-bottom: .3em;
+  bottom:15px;
+  right:5px;
+  margin-bottom:0px;
 }
