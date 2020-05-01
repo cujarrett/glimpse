@@ -13,7 +13,7 @@ export const DemoButton = (props) => {
       { props.showDemo &&
       <div className="lowered-content">
         <h4>
-          <button type="button" className="clickable" onClick={demo}>
+          <button type="button" className="clickable" data-testid="demo-button" onClick={demo}>
             Show me a demo
           </button>
         </h4>

@@ -7,7 +7,7 @@ export const Timeline = (props) => {
   return (
     <div name="timeline">
       {props.contributions.length > 0 && !props.canceled &&
-      <div className="content">
+      <div className="content" data-testid="timeline">
         <LineChart
           width={props.width}
           height={props.height}

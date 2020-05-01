@@ -9,15 +9,15 @@ export const MessageBar = (props) => {
     const endOfMessage = props.message.substring(props.message.indexOf("GitHub") - 3)
     const userName = props.input
     return (
-      <message-bar>
+      <div data-testid="message">
         <h4>{startOfMessage}<a href={userGitHubUrl} target="_blank" rel="noopener noreferrer">{userName}</a>{endOfMessage}</h4>
-      </message-bar>
+      </div>
     )
   } else {
     return (
-      <message-bar>
-        <h4>{props.message}</h4>
-      </message-bar>
+      <div data-testid="message">
+        <h4 id="message">{props.message}</h4>
+      </div>
     )
   }
 }

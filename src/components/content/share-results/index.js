@@ -11,7 +11,7 @@ export const ShareResults = (props) => {
   return (
     <div name="share-results">
       {props.contributions.length > 0 &&
-      <div className="share-results-top-padding">
+      <div className="share-results-top-padding" data-testid="share-results">
         <div className="share-results-header">
           <h4>Share your GitHub contributions</h4>
         </div>
