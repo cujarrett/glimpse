@@ -1,4 +1,4 @@
-import { getContributions } from "../../src/integrations/github.js"
+import { getContributions } from "./github.js"
 
 let contributions
 

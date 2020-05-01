@@ -3,7 +3,7 @@ const proxyurl = "https://cors-anywhere.herokuapp.com/"
 
 const getContributions = async (username) => {
   const contributionYears = await getContributionYears(username)
-  if (!contributionYears) {
+  if (contributionYears.length === 0) {
     return []
   }
   const rawContributionData = await getRawContributionData(username, contributionYears)
@@ -19,11 +19,11 @@ const getContributionYears = async (username) => {
     url = url.replace(proxyurl, "")
   }
   const response = await fetch(url)
-  if (response.status === 404) {
-    return []
-  }
   const data = await response.text()
   const matches = data.match(contributionYearsRegularExpression)
+  if (!matches) {
+    return []
+  }
   const contributionYears = matches.map((year) => year.replace("year-link-", ""))
 
   return contributionYears
@@ -54,10 +54,6 @@ const getRawContributionData = async (username, contributionYears) => {
 }
 
 const getFormattedContributionsByYear = async (contributions) => {
-  if (contributions.length === 0) {
-    return []
-  }
-
   let years = []
   for (const contribution of contributions) {
     const year = contribution.date.substring(0, 4)
@@ -132,7 +128,7 @@ const getFormattedContributionsByYear = async (contributions) => {
   // Remove months of year pior to first ever contribution
   let noContributionsYet = true
   for (const year of output) {
-    if (year.name === years[0].year) {
+    if (year.name === years[0]) {
       for (const month of year.data) {
         if (month.value === 0 && noContributionsYet) {
           month.value = null

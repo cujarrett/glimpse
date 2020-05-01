@@ -5,7 +5,7 @@ import { version } from "../../../package.json"
 
 export const Footer = (props) => {
   return (
-    <div className={props.footerStyling}>
+    <div className={props.footerStyling} data-testid="footer">
       <h4>
         Made with <i className="fa fa-heart"/>, JavaScript, and <i className="fa fa-github"/>
       </h4>
