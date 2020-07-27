@@ -78,7 +78,7 @@ test("(Integration) GitHub - Expected counts in results", async () => {
   expect(contributions[3].data[0].value).toBe(52)
   expect(contributions[3].data[1].value).toBe(60)
   expect(contributions[3].data[2].value).toBe(8)
-  expect(contributions[3].data[3].value).toBe(30)
+  expect(contributions[3].data[3].value).toBe(29)
   expect(contributions[3].data[4].value).toBe(17)
   expect(contributions[3].data[5].value).toBe(15)
   expect(contributions[3].data[6].value).toBe(210)

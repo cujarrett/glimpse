@@ -1,6 +1,6 @@
 {
   "name": "glimpse",
-  "version": "0.19.1",
+  "version": "0.20.0",
   "author": "Matt Jarrett",
   "license": "MIT",
   "private": true,
@@ -24,7 +24,7 @@
     "ci": "npm run lint && npm run test"
   },
   "dependencies": {
-    "@material-ui/core": "~4.10.2",
+    "@material-ui/core": "~4.11.0",
     "@material-ui/icons": "~4.9.1",
     "babel-polyfill": "~6.26.0",
     "font-awesome": "~4.7.0",
@@ -32,7 +32,7 @@
     "react": "~16.13.1",
     "react-dom": "~16.13.1",
     "react-scripts": "~3.4.1",
-    "react-share": "~4.2.0",
+    "react-share": "~4.2.1",
     "recharts": "~1.8.5"
   },
   "browserslist": [
@@ -43,9 +43,9 @@
   ],
   "homepage": ".",
   "devDependencies": {
-    "@testing-library/jest-dom": "~5.10.1",
-    "@testing-library/react": "~10.3.0",
-    "@testing-library/user-event": "~12.0.7",
+    "@testing-library/jest-dom": "~5.11.1",
+    "@testing-library/react": "~10.4.7",
+    "@testing-library/user-event": "~12.0.15",
     "jest-environment-jsdom-sixteen": "~1.0.3"
   }
 }
