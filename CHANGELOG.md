@@ -1,3 +1,14 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+# [0.21.0](https://github.com/cujarrett/glimpse/compare/v0.20.4...v0.21.0) (2021-01-17)
+
+
+### Features
+
+* **ci/cd:** adds semantic-release ([77aef05](https://github.com/cujarrett/glimpse/commit/77aef05f216ce6b8c70fe5517e2aa8ae3ac81491))
+
 ## [v0.20.4] - 2020-10-21
 ### Changed
 - :arrow_up: Updated dependencies
