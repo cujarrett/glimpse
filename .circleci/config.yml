@@ -47,6 +47,26 @@ jobs:
           paths:
             - build
 
+  release:
+    docker:
+      - image: circleci/node:lts
+    environment:
+      GIT_AUTHOR_NAME: cujarrett
+      GIT_AUTHOR_EMAIL: cujarrett@gmail.com
+      GIT_COMMITTER_NAME: cujarrett
+      GIT_COMMITTER_EMAIL: cujarrett@gmail.com
+    description: "semantic-release"
+    parameters:
+      dry-run:
+        description: "semantic-release --dry-run flag"
+        default: false
+        type: boolean
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: npx semantic-release --branch $CIRCLE_BRANCH --dry-run=<< parameters.dry-run >>
+
   deploy:
     docker:
       - image: circleci/python:3.7.6
@@ -71,15 +91,33 @@ workflows:
       - test:
           requires:
             - build-for-test
-      - build-for-production:
+      - release:
+          name: release-dry-run
+          requires:
+            - test
+          dry-run: true
+          filters:
+            branches:
+              ignore:
+                - master
+      - release:
           requires:
             - test
           filters:
             branches:
-              only: master
+              only:
+                - master
+      - build-for-production:
+          filters:
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
+            branches:
+              ignore: /.*/
       - deploy:
           requires:
             - build-for-production
           filters:
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
             branches:
-              only: master
+              ignore: /.*/
