@@ -40,6 +40,8 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
+          command: npm install --production
+      - run:
           name: Build Production App
           command: npm run build
       - persist_to_workspace:
