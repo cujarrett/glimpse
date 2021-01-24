@@ -33,7 +33,7 @@ module.exports = {
       "error"
     ],
     "array-bracket-spacing": [
-        "error"
+      "error"
     ],
     "arrow-parens": [
       "error",
@@ -234,10 +234,6 @@ module.exports = {
     "prefer-template": [
       "error"
     ],
-    "quote-props": [
-      "error",
-      "as-needed"
-    ],
     "quotes": [
       "error",
       "double"
@@ -289,6 +285,9 @@ module.exports = {
     ],
     "no-trailing-spaces": [
       "error"
+    ],
+    "quote-props": [
+      "off"
     ]
   }
 }

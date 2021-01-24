@@ -32,23 +32,17 @@
     }
   ],
   "dependencies": {
-    "@material-ui/core": "~4.11.0",
-    "@material-ui/icons": "~4.9.1",
+    "@material-ui/core": "~4.11.2",
+    "@material-ui/icons": "~4.11.2",
     "babel-polyfill": "~6.26.0",
     "font-awesome": "~4.7.0",
     "node-fetch": "~2.6.1",
-    "react": "~17.0.0",
-    "react-dom": "~17.0.0",
-    "react-scripts": "~3.4.4",
+    "react": "~17.0.1",
+    "react-dom": "~17.0.1",
+    "react-scripts": "~4.0.1",
     "react-share": "~4.3.1",
-    "recharts": "~1.8.5"
+    "recharts": "~2.0.3"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
   "homepage": ".",
   "devDependencies": {
     "@commitlint/cli": "~11.0.0",
@@ -58,17 +52,23 @@
     "@semantic-release/exec": "~5.0.0",
     "@semantic-release/git": "~9.0.0",
     "@semantic-release/github": "~7.2.0",
-    "@semantic-release/npm": "~7.0.9",
+    "@semantic-release/npm": "~7.0.10",
     "@semantic-release/release-notes-generator": "~9.0.1",
-    "@testing-library/jest-dom": "~5.11.4",
-    "@testing-library/react": "~11.1.0",
-    "@testing-library/user-event": "~12.1.9",
+    "@testing-library/jest-dom": "~5.11.9",
+    "@testing-library/react": "~11.2.3",
+    "@testing-library/user-event": "~12.6.2",
     "commitizen": "~4.2.3",
     "cz-conventional-changelog": "~3.3.0",
     "husky": "~4.3.8",
     "jest-environment-jsdom-sixteen": "~1.0.3",
-    "semantic-release": "~17.3.3"
+    "semantic-release": "~17.3.7"
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
