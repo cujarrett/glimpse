@@ -4,13 +4,11 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 # [0.22.0](https://github.com/cujarrett/glimpse/compare/v0.21.0...v0.22.0) (2021-01-17)
 
-
 ### Features
 
 * **ci/cd:** adds missing dependency install ([57312ab](https://github.com/cujarrett/glimpse/commit/57312ab7b7855266ac64f3630f912521a328a3d9))
 
 # [0.21.0](https://github.com/cujarrett/glimpse/compare/v0.20.4...v0.21.0) (2021-01-17)
-
 
 ### Features
 
