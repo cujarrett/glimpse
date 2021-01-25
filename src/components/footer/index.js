@@ -10,7 +10,7 @@ export const Footer = (props) => {
         Made with <i className="fa fa-heart"/>, JavaScript, and <i className="fa fa-github"/>
       </h4>
       <div className="version">
-        <a href="https://github.com/cujarrett/glimpse/blob/master/CHANGELOG.md">{version}</a>
+        <a href="https://github.com/cujarrett/glimpse/blob/main/CHANGELOG.md">{version}</a>
       </div>
     </div>
   )
