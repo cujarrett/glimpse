@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [0.24.0](https://github.com/cujarrett/glimpse/compare/v0.23.0...v0.24.0) (2021-01-25)
+
+
+### Features
+
+* switches default branch to main ([3033b3e](https://github.com/cujarrett/glimpse/commit/3033b3ecd93d9b8076490af10cebd22a97b964a0))
+
 # [0.23.0](https://github.com/cujarrett/glimpse/compare/v0.22.0...v0.23.0) (2021-01-24)
 
 
