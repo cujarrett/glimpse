@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.24.4](https://github.com/cujarrett/glimpse/compare/v0.24.3...v0.24.4) (2021-02-04)
+
+
+### Bug Fixes
+
+* swap proxy to cors-anywhere ([fb8c33c](https://github.com/cujarrett/glimpse/commit/fb8c33c2547457824f9801aeda7656e02d2ffc9e))
+
 ## [0.24.3](https://github.com/cujarrett/glimpse/compare/v0.24.2...v0.24.3) (2021-02-04)
 
 
