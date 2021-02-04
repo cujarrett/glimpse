@@ -1,5 +1,5 @@
 import fetch from "node-fetch"
-const proxyurl = "https://cors-anywhere.herokuapp.com/"
+const proxyurl = "https://api.codetabs.com/v1/proxy?quest="
 
 const getContributions = async (username) => {
   const contributionYears = await getContributionYears(username)
@@ -18,7 +18,7 @@ const getContributionYears = async (username) => {
   if (process.env.NODE_ENV === "test") {
     url = url.replace(proxyurl, "")
   }
-  const response = await fetch(url, { headers: { "origin": "glimpse.ninja" } })
+  const response = await fetch(url)
   const data = await response.text()
   const matches = data.match(contributionYearsRegularExpression)
   if (!matches) {
@@ -36,7 +36,7 @@ const getRawContributionData = async (username, contributionYears) => {
     if (process.env.NODE_ENV === "test") {
       url = url.replace(proxyurl, "")
     }
-    const response = await fetch(url, { headers: { "origin": "glimpse.ninja" } })
+    const response = await fetch(url)
     const data = await response.text()
     const contributionRegularExpressionPattern = (year) => `(data-count="\\d*".*data-date="${year}-\\d{2}-\\d{2}")`
     const contributionRegularExpression = new RegExp(contributionRegularExpressionPattern(year), "g")
