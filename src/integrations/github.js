@@ -1,5 +1,5 @@
 import fetch from "node-fetch"
-const proxyurl = "https://cors-anywhere.herokuapp.com/"
+const proxyurl = "https://thingproxy.freeboard.io/fetch/"
 
 const getContributions = async (username) => {
   const contributionYears = await getContributionYears(username)
