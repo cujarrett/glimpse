@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.24.3](https://github.com/cujarrett/glimpse/compare/v0.24.2...v0.24.3) (2021-02-04)
+
+
+### Bug Fixes
+
+* swap proxy to thingproxy ([fa2645f](https://github.com/cujarrett/glimpse/commit/fa2645f5d58bcd998d174c00b3cab979a7498073))
+
 ## [0.24.2](https://github.com/cujarrett/glimpse/compare/v0.24.1...v0.24.2) (2021-02-04)
 
 
