@@ -19,7 +19,7 @@
     "commit": "git-cz",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "NODE_ENV=test react-scripts test --env=jest-environment-jsdom-sixteen --watchAll=false ----collectCoverage=true",
+    "test": "NODE_ENV=test react-scripts test --env=jest-environment-jsdom-sixteen --watchAll=false ----collectCoverage=true --detectOpenHandles",
     "lint": "eslint .",
     "fix-lint": "eslint . --fix",
     "ci": "npm run lint && npm run test",
@@ -39,16 +39,16 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "@material-ui/core": "~4.11.2",
+    "@material-ui/core": "~4.11.3",
     "@material-ui/icons": "~4.11.2",
     "babel-polyfill": "~6.26.0",
     "font-awesome": "~4.7.0",
     "node-fetch": "~2.6.1",
     "react": "~17.0.1",
     "react-dom": "~17.0.1",
-    "react-scripts": "~4.0.1",
+    "react-scripts": "~4.0.2",
     "react-share": "~4.3.1",
-    "recharts": "~2.0.3"
+    "recharts": "~2.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "~11.0.0",
@@ -61,8 +61,8 @@
     "@semantic-release/npm": "~7.0.10",
     "@semantic-release/release-notes-generator": "~9.0.1",
     "@testing-library/jest-dom": "~5.11.9",
-    "@testing-library/react": "~11.2.3",
-    "@testing-library/user-event": "~12.6.2",
+    "@testing-library/react": "~11.2.5",
+    "@testing-library/user-event": "~12.6.3",
     "commitizen": "~4.2.3",
     "cz-conventional-changelog": "~3.3.0",
     "husky": "~4.3.8",
