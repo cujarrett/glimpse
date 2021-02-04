@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.24.5](https://github.com/cujarrett/glimpse/compare/v0.24.4...v0.24.5) (2021-02-04)
+
+
+### Bug Fixes
+
+* swap proxy to api.codetabs.com ([160a05b](https://github.com/cujarrett/glimpse/commit/160a05b299066cd23ac08486a4c29b54a34b4164))
+
 ## [0.24.4](https://github.com/cujarrett/glimpse/compare/v0.24.3...v0.24.4) (2021-02-04)
 
 
