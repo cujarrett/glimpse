@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.24.6](https://github.com/cujarrett/glimpse/compare/v0.24.5...v0.24.6) (2021-02-09)
+
+
+### Bug Fixes
+
+* **deps:** bump recharts from 2.0.4 to 2.0.6 ([0d9858f](https://github.com/cujarrett/glimpse/commit/0d9858f0f061e3835a16f9bc8a3602b7dcb55779))
+
 ## [0.24.5](https://github.com/cujarrett/glimpse/compare/v0.24.4...v0.24.5) (2021-02-04)
 
 
