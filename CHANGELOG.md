@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.24.12](https://github.com/cujarrett/glimpse/compare/v0.24.11...v0.24.12) (2021-02-24)
+
+
+### Bug Fixes
+
+* moves to monthly updates ([dcdbed5](https://github.com/cujarrett/glimpse/commit/dcdbed51a291fae532a72af4beea7bd2ed7c5612))
+* updates dependencies ([d25b3ea](https://github.com/cujarrett/glimpse/commit/d25b3eaa5d6c132b10a426cf5f2664b00591350f))
+
 ## [0.24.11](https://github.com/cujarrett/glimpse/compare/v0.24.10...v0.24.11) (2021-02-18)
 
 
