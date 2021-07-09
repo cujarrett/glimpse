@@ -1,4 +1,4 @@
-import { getContributions } from "./github.js"
+import { getContributions } from "./glimpse.js"
 
 let contributions
 
@@ -6,13 +6,13 @@ beforeAll(async () => {
   contributions = await getContributions("cujarrett")
 })
 
-test("(Integration) GitHub - All years data have twelve months", async () => {
+test("(Integration) glimpse - All years data have twelve months", async () => {
   for (const year of contributions) {
     expect(year.data.length).toBe(12)
   }
 })
 
-test("(Integration) GitHub - Expected years exist in results", async () => {
+test("(Integration) glimpse - Expected years exist in results", async () => {
   for (let index = 0; index < contributions.length; index++) {
     let testYear = 2015 + index
     testYear = testYear.toString()
@@ -20,7 +20,7 @@ test("(Integration) GitHub - Expected years exist in results", async () => {
   }
 })
 
-test("(Integration) GitHub - Expected category of months in results", async () => {
+test("(Integration) glimpse - Expected category of months in results", async () => {
   expect(contributions[0].data[0].category).toBe("January")
   expect(contributions[0].data[1].category).toBe("February")
   expect(contributions[0].data[2].category).toBe("March")
