@@ -6,6 +6,8 @@ beforeAll(async () => {
   contributions = await getContributions("cujarrett")
 })
 
+jest.setTimeout(10000)
+
 test("(Integration) glimpse - All years data have twelve months", async () => {
   for (const year of contributions) {
     expect(year.data.length).toBe(12)
