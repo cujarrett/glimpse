@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [0.25.0](https://github.com/cujarrett/glimpse/compare/v0.24.12...v0.25.0) (2021-07-09)
+
+
+### Features
+
+* adds IaC ([54c60fd](https://github.com/cujarrett/glimpse/commit/54c60fdf68a0c13723fb5d4dbef8ed5987172655))
+* migrate to new backend ([#137](https://github.com/cujarrett/glimpse/issues/137)) ([50de585](https://github.com/cujarrett/glimpse/commit/50de585e3c3aac117ad2cbc294d1d77906ee51dc))
+
 ## [0.24.12](https://github.com/cujarrett/glimpse/compare/v0.24.11...v0.24.12) (2021-02-24)
 
 
