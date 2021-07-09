@@ -6,7 +6,7 @@ import { MessageBar } from "./components/message-bar/index.js"
 import { Content } from "./components/content/index.js"
 import { Footer } from "./components/footer/index.js"
 
-import { getContributions } from "./integrations/github.js"
+import { getContributions } from "./integrations/glimpse.js"
 import { isString, stringContainsValidCharacters } from "./utils/string-utils.js"
 
 import "./App.css"

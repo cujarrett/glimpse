@@ -7,7 +7,11 @@ export const Footer = (props) => {
   return (
     <div className={props.footerStyling} data-testid="footer">
       <h4>
-        Made with <i className="fa fa-heart"/>, JavaScript, and <i className="fa fa-github"/>
+        Made by{" "}
+        <a href="https://cujarrett.dev">
+          @cujarrett
+        </a>{" "}
+        with <i className="fa fa-heart" /> and JavaScript
       </h4>
       <div className="version">
         <a href="https://github.com/cujarrett/glimpse/blob/main/CHANGELOG.md">{version}</a>
