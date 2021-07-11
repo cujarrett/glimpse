@@ -14,18 +14,3 @@
   right:0px;
   margin-bottom:0px;
 }
-
-.version a {
-  color: #131820;
-  position:absolute;
-  bottom:15px;
-  right:15px;
-  margin-bottom:0px;
-}
-
-.version-small-display {
-  color: #131820;
-  bottom:15px;
-  right:5px;
-  margin-bottom:0px;
-}
