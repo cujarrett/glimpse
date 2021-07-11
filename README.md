@@ -7,6 +7,8 @@
   <a href="http://commitizen.github.io/cz-cli/"><img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?"></a>
 </p>
 
+<h3 align="center"><b><a href="https://glimpse.ninja">https://glimpse.ninja</a></h3>
+
 ## What is it?
 ![demo](./media/demo.gif)
 A simple way, on any device, to quickly see the frequency of [Open Source Software (OSS)](https://en.wikipedia.org/wiki/Open-source_software) contributions by any GitHub user.
