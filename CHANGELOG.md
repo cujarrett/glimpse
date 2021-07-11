@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [0.27.0](https://github.com/cujarrett/glimpse/compare/v0.26.0...v0.27.0) (2021-07-11)
+
+
+### Features
+
+* adds CODEOWNERS ([a2cdb67](https://github.com/cujarrett/glimpse/commit/a2cdb6772d30316581665be5fb9879714384add7))
+
 # [0.26.0](https://github.com/cujarrett/glimpse/compare/v0.25.0...v0.26.0) (2021-07-11)
 
 
