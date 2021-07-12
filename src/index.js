@@ -3,8 +3,8 @@ import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
 import Glimpse from "./App.js"
-import registerServiceWorker from "./registerServiceWorker"
+import reportWebVitals from "./reportWebVitals"
 import "font-awesome/css/font-awesome.min.css"
 
 ReactDOM.render(<Glimpse />, document.getElementById("root"))
-registerServiceWorker()
+reportWebVitals()
