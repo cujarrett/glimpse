@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [0.30.0](https://github.com/cujarrett/glimpse/compare/v0.29.0...v0.30.0) (2021-07-12)
+
+
+### Features
+
+* removes service worker ([#142](https://github.com/cujarrett/glimpse/issues/142)) ([bf9fc9b](https://github.com/cujarrett/glimpse/commit/bf9fc9b3551e5c9cf5b3f77922a8b88527471124))
+
 # [0.29.0](https://github.com/cujarrett/glimpse/compare/v0.28.0...v0.29.0) (2021-07-12)
 
 
