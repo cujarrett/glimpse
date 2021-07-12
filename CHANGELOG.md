@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [0.29.0](https://github.com/cujarrett/glimpse/compare/v0.28.0...v0.29.0) (2021-07-12)
+
+
+### Features
+
+* updates husky dependency ([#141](https://github.com/cujarrett/glimpse/issues/141)) ([11f973a](https://github.com/cujarrett/glimpse/commit/11f973a796e0edb018ea9f538f2de9f9f90b5257))
+
 # [0.28.0](https://github.com/cujarrett/glimpse/compare/v0.27.0...v0.28.0) (2021-07-11)
 
 
