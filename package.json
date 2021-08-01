@@ -68,7 +68,7 @@
     "commitizen": "~4.2.4",
     "cz-conventional-changelog": "~3.3.0",
     "husky": "~7.0.1",
-    "jest-environment-jsdom-sixteen": "~1.0.3",
+    "jest-environment-jsdom-sixteen": "~2.0.0",
     "semantic-release": "~17.4.4"
   },
   "husky": {
