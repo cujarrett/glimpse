@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.30.3](https://github.com/cujarrett/glimpse/compare/v0.30.2...v0.30.3) (2021-08-02)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @commitlint/cli from 12.1.4 to 13.1.0 ([#145](https://github.com/cujarrett/glimpse/issues/145)) ([8b10849](https://github.com/cujarrett/glimpse/commit/8b1084973ca82981cd9bf59cc5574d0b7acaadd2))
+
 ## [0.30.2](https://github.com/cujarrett/glimpse/compare/v0.30.1...v0.30.2) (2021-08-02)
 
 
