@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.30.2](https://github.com/cujarrett/glimpse/compare/v0.30.1...v0.30.2) (2021-08-02)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump jest-environment-jsdom-sixteen from 1.0.3 to 2.0.0 ([#144](https://github.com/cujarrett/glimpse/issues/144)) ([0bdea3f](https://github.com/cujarrett/glimpse/commit/0bdea3f891c41eb338b40bcbe7f3a755e24e0670))
+
 ## [0.30.1](https://github.com/cujarrett/glimpse/compare/v0.30.0...v0.30.1) (2021-07-22)
 
 
