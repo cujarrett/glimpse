@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.30.5](https://github.com/cujarrett/glimpse/compare/v0.30.4...v0.30.5) (2021-08-02)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @testing-library/user-event from 13.2.0 to 13.2.1 ([#147](https://github.com/cujarrett/glimpse/issues/147)) ([5fbd916](https://github.com/cujarrett/glimpse/commit/5fbd91656d50b21b8e810c53ba1da6954bde9f61))
+
 ## [0.30.4](https://github.com/cujarrett/glimpse/compare/v0.30.3...v0.30.4) (2021-08-02)
 
 
