@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.30.6](https://github.com/cujarrett/glimpse/compare/v0.30.5...v0.30.6) (2021-08-02)
+
+
+### Bug Fixes
+
+* **deps:** bump @material-ui/core from 4.12.2 to 4.12.3 ([#148](https://github.com/cujarrett/glimpse/issues/148)) ([9661768](https://github.com/cujarrett/glimpse/commit/96617685fae42cad61c542f012a7fef7e996b127))
+
 ## [0.30.5](https://github.com/cujarrett/glimpse/compare/v0.30.4...v0.30.5) (2021-08-02)
 
 
