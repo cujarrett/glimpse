@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.30.13](https://github.com/cujarrett/glimpse/compare/v0.30.12...v0.30.13) (2021-09-23)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @semantic-release/github from 8.0.0 to 8.0.1 ([#167](https://github.com/cujarrett/glimpse/issues/167)) ([2438bf8](https://github.com/cujarrett/glimpse/commit/2438bf8466cb89093a3dc406f4e47a2211cf0b34))
+* **deps:** bump node-fetch from 2.6.4 to 2.6.5 ([#166](https://github.com/cujarrett/glimpse/issues/166)) ([95d4c08](https://github.com/cujarrett/glimpse/commit/95d4c08116ebdf898475c27f014d6197a9b4cdeb))
+
 ## [0.30.12](https://github.com/cujarrett/glimpse/compare/v0.30.11...v0.30.12) (2021-09-23)
 
 
