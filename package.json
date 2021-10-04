@@ -63,7 +63,7 @@
     "@semantic-release/npm": "~8.0.0",
     "@semantic-release/release-notes-generator": "~10.0.2",
     "@testing-library/jest-dom": "~5.14.1",
-    "@testing-library/react": "~12.1.0",
+    "@testing-library/react": "~12.1.2",
     "@testing-library/user-event": "~13.2.1",
     "commitizen": "~4.2.4",
     "cz-conventional-changelog": "~3.3.0",
