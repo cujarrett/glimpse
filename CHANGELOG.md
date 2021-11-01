@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.32.9](https://github.com/cujarrett/glimpse/compare/v0.32.8...v0.32.9) (2021-11-01)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @commitlint/config-conventional ([#189](https://github.com/cujarrett/glimpse/issues/189)) ([c1a2dd6](https://github.com/cujarrett/glimpse/commit/c1a2dd6398449227c8f5fe547c306ac905f357cb))
+
 ## [0.32.8](https://github.com/cujarrett/glimpse/compare/v0.32.7...v0.32.8) (2021-11-01)
 
 
