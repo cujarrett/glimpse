@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.32.14](https://github.com/cujarrett/glimpse/compare/v0.32.13...v0.32.14) (2021-11-18)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @commitlint/cli from 14.1.0 to 15.0.0 ([#197](https://github.com/cujarrett/glimpse/issues/197)) ([f26073a](https://github.com/cujarrett/glimpse/commit/f26073a33084eb80c7806cef5634a866cc9ab361))
+* **deps-dev:** bump @commitlint/config-conventional ([#196](https://github.com/cujarrett/glimpse/issues/196)) ([661b6ab](https://github.com/cujarrett/glimpse/commit/661b6ab0d9405474721fb13bbc2f7871e05f24f9))
+* **deps-dev:** bump @semantic-release/github from 8.0.1 to 8.0.2 ([#194](https://github.com/cujarrett/glimpse/issues/194)) ([efe824c](https://github.com/cujarrett/glimpse/commit/efe824c8104e59cea2c5e1e1c1200d80b6b3a595))
+
 ## [0.32.13](https://github.com/cujarrett/glimpse/compare/v0.32.12...v0.32.13) (2021-11-02)
 
 
