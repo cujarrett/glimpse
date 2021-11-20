@@ -15,5 +15,5 @@ test("Searching for an Invalid user works as expected", async () => {
 
   await waitFor(() => {
     expect(message).toHaveTextContent("not-a-valid-user isn't a GitHub user")
-  }, { timeout: 5000, interval: 250 })
+  }, { timeout: 10000, interval: 250 })
 })
