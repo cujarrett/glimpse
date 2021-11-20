@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.32.15](https://github.com/cujarrett/glimpse/compare/v0.32.14...v0.32.15) (2021-11-20)
+
+
+### Bug Fixes
+
+* extends search test timeout ([#198](https://github.com/cujarrett/glimpse/issues/198)) ([674cad4](https://github.com/cujarrett/glimpse/commit/674cad4bed56ce332c48db7e0a790969138933e1))
+
 ## [0.32.14](https://github.com/cujarrett/glimpse/compare/v0.32.13...v0.32.14) (2021-11-18)
 
 
