@@ -2,6 +2,8 @@ import React from "react"
 import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import App from "../src/App.js"
 
+jest.setTimeout(10000)
+
 test("Searching for a valid user works as expected", async () => {
   render(<App />)
   const message = screen.getByTestId("message")
@@ -16,7 +18,7 @@ test("Searching for a valid user works as expected", async () => {
   await waitFor(() => {
     const timeline = screen.getByTestId("timeline")
     expect(timeline).toBeInTheDocument()
-  }, { timeout: 7000, interval: 250 })
+  }, { timeout: 10000, interval: 250 })
 
   expect(message).toHaveTextContent("A glimpse at circa10a's GitHub contributions")
   const shareResults = screen.getByTestId("share-results")
