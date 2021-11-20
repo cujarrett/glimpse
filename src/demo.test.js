@@ -14,7 +14,7 @@ test("Searching for a valid user works as expected", async () => {
   await waitFor(() => {
     const timeline = screen.getByTestId("timeline")
     expect(timeline).toBeInTheDocument()
-  }, { timeout: 5000, interval: 250 })
+  }, { timeout: 7000, interval: 250 })
 
   expect(message).toHaveTextContent("A glimpse at cujarrett's GitHub contributions")
   const shareResults = screen.getByTestId("share-results")
