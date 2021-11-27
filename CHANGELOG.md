@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.32.17](https://github.com/cujarrett/glimpse/compare/v0.32.16...v0.32.17) (2021-11-27)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @semantic-release/commit-analyzer ([#201](https://github.com/cujarrett/glimpse/issues/201)) ([61bc3c6](https://github.com/cujarrett/glimpse/commit/61bc3c638117532531a863beba7baf8fbc100579))
+
 ## [0.32.16](https://github.com/cujarrett/glimpse/compare/v0.32.15...v0.32.16) (2021-11-26)
 
 
