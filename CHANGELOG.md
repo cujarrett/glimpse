@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.33.1](https://github.com/cujarrett/glimpse/compare/v0.33.0...v0.33.1) (2021-12-06)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @testing-library/jest-dom from 5.15.1 to 5.16.0 ([#205](https://github.com/cujarrett/glimpse/issues/205)) ([77b5ce2](https://github.com/cujarrett/glimpse/commit/77b5ce2107e919e9a07a7a1df27ac8d4f475f46e))
+
 # [0.33.0](https://github.com/cujarrett/glimpse/compare/v0.32.18...v0.33.0) (2021-12-01)
 
 
