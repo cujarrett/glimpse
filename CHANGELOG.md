@@ -1,4 +1,14 @@
 # Changelog
+All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.33.5](https://github.com/cujarrett/glimpse/compare/v0.33.4...v0.33.5) (2021-12-24)
+
+
+### Bug Fixes
+
+* updates to react-scripts 5 ([#210](https://github.com/cujarrett/glimpse/issues/210)) ([5d9906a](https://github.com/cujarrett/glimpse/commit/5d9906a8cd72b1ba7375af88a1387df62a827830))
+
+# Changelog
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
