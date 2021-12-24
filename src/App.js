@@ -92,7 +92,6 @@ const Glimpse = () => {
       handleClick()
     }
     // This function only runs on initial load and afterwards it has no need to check dependencies
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

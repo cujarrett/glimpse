@@ -1,10 +1,13 @@
-import "babel-polyfill"
 import React from "react"
 import ReactDOM from "react-dom"
 import "./index.css"
 import Glimpse from "./App.js"
 import reportWebVitals from "./reportWebVitals"
-import "font-awesome/css/font-awesome.min.css"
 
-ReactDOM.render(<Glimpse />, document.getElementById("root"))
+ReactDOM.render(
+  <React.StrictMode>
+    <Glimpse />
+  </React.StrictMode>,
+  document.getElementById("root")
+)
 reportWebVitals()
