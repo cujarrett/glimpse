@@ -10,7 +10,7 @@ jest.setTimeout(10000)
 
 test("(Integration) glimpse - All years data have twelve months", async () => {
   for (const year of contributions) {
-    expect(year.data.length).toBe(12)
+    expect(year.data).toHaveLength(12)
   }
 })
 
@@ -38,17 +38,17 @@ test("(Integration) glimpse - Expected category of months in results", async () 
 })
 
 test("(Integration) GitHub - Expected counts in results", async () => {
-  expect(contributions[0].data[0].value).toBe(null)
-  expect(contributions[0].data[1].value).toBe(null)
-  expect(contributions[0].data[2].value).toBe(null)
-  expect(contributions[0].data[3].value).toBe(null)
-  expect(contributions[0].data[4].value).toBe(null)
-  expect(contributions[0].data[5].value).toBe(null)
-  expect(contributions[0].data[6].value).toBe(null)
-  expect(contributions[0].data[7].value).toBe(null)
-  expect(contributions[0].data[8].value).toBe(null)
-  expect(contributions[0].data[9].value).toBe(null)
-  expect(contributions[0].data[10].value).toBe(null)
+  expect(contributions[0].data[0].value).toBeNull()
+  expect(contributions[0].data[1].value).toBeNull()
+  expect(contributions[0].data[2].value).toBeNull()
+  expect(contributions[0].data[3].value).toBeNull()
+  expect(contributions[0].data[4].value).toBeNull()
+  expect(contributions[0].data[5].value).toBeNull()
+  expect(contributions[0].data[6].value).toBeNull()
+  expect(contributions[0].data[7].value).toBeNull()
+  expect(contributions[0].data[8].value).toBeNull()
+  expect(contributions[0].data[9].value).toBeNull()
+  expect(contributions[0].data[10].value).toBeNull()
   expect(contributions[0].data[11].value).toBe(1)
 
   expect(contributions[1].data[0].value).toBe(0)
