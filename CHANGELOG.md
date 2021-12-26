@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.33.6](https://github.com/cujarrett/glimpse/compare/v0.33.5...v0.33.6) (2021-12-26)
+
+
+### Bug Fixes
+
+* adds font-awesome minified style ([#211](https://github.com/cujarrett/glimpse/issues/211)) ([2ab4bc5](https://github.com/cujarrett/glimpse/commit/2ab4bc5f09d1817d9af8ee25fc7c66c331f6ee48))
+
 ## [0.33.5](https://github.com/cujarrett/glimpse/compare/v0.33.4...v0.33.5) (2021-12-24)
 
 
