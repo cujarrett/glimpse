@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.33.10](https://github.com/cujarrett/glimpse/compare/v0.33.9...v0.33.10) (2021-12-31)
+
+
+### Bug Fixes
+
+* **deps:** bump @babel/preset-react from 7.16.5 to 7.16.7 ([#216](https://github.com/cujarrett/glimpse/issues/216)) ([3d18dfc](https://github.com/cujarrett/glimpse/commit/3d18dfc0059843c556772139a995d90dfde5c5a1))
+
 ## [0.33.9](https://github.com/cujarrett/glimpse/compare/v0.33.8...v0.33.9) (2021-12-31)
 
 
