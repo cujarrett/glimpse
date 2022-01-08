@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.33.12](https://github.com/cujarrett/glimpse/compare/v0.33.11...v0.33.12) (2022-01-08)
+
+
+### Bug Fixes
+
+* **deps:** bump web-vitals from 2.1.2 to 2.1.3 ([#218](https://github.com/cujarrett/glimpse/issues/218)) ([36d6adc](https://github.com/cujarrett/glimpse/commit/36d6adc74f57212ed759b27d31da3d1ce25023f5))
+
 ## [0.33.11](https://github.com/cujarrett/glimpse/compare/v0.33.10...v0.33.11) (2022-01-03)
 
 
