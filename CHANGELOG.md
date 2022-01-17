@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.33.15](https://github.com/cujarrett/glimpse/compare/v0.33.14...v0.33.15) (2022-01-17)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump eslint from 8.6.0 to 8.7.0 ([#221](https://github.com/cujarrett/glimpse/issues/221)) ([6b10265](https://github.com/cujarrett/glimpse/commit/6b10265f023e32943f6b4b2477a4261a8981ad7c))
+
 ## [0.33.14](https://github.com/cujarrett/glimpse/compare/v0.33.13...v0.33.14) (2022-01-17)
 
 
