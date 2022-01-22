@@ -6,6 +6,6 @@ updates:
     interval: "daily"
   commit-message:
       prefix: "fix"
-      include: "scope"
+      include: "monthly"
   reviewers:
     - "cujarrett"
