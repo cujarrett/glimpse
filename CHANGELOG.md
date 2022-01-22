@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [0.35.0](https://github.com/cujarrett/glimpse/compare/v0.34.1...v0.35.0) (2022-01-22)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @babel/core from 7.16.10 to 7.16.12 ([#227](https://github.com/cujarrett/glimpse/issues/227)) ([6f0d4ff](https://github.com/cujarrett/glimpse/commit/6f0d4ff3bfc0a30c5c1632f274ac4261783e6c4c))
+
+
+### Features
+
+* removes dependabot terraform support ([f8a7da8](https://github.com/cujarrett/glimpse/commit/f8a7da8385d84db7ecf22cb72efe635737589c3e))
+
 ## [0.34.1](https://github.com/cujarrett/glimpse/compare/v0.34.0...v0.34.1) (2022-01-21)
 
 
