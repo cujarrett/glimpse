@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.35.4](https://github.com/cujarrett/glimpse/compare/v0.35.3...v0.35.4) (2022-02-04)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @babel/eslint-parser from 7.16.5 to 7.17.0 ([#231](https://github.com/cujarrett/glimpse/issues/231)) ([530389f](https://github.com/cujarrett/glimpse/commit/530389f53ebecec22da89c4ffef049f107dd8093))
+
 ## [0.35.3](https://github.com/cujarrett/glimpse/compare/v0.35.2...v0.35.3) (2022-02-04)
 
 
