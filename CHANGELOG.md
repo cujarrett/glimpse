@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.35.7](https://github.com/cujarrett/glimpse/compare/v0.35.6...v0.35.7) (2022-02-14)
+
+
+### Bug Fixes
+
+* **deps:** bump follow-redirects from 1.14.6 to 1.14.8 ([#235](https://github.com/cujarrett/glimpse/issues/235)) ([1b75872](https://github.com/cujarrett/glimpse/commit/1b75872a113a24683cf55b977436fe96db181555))
+
 ## [0.35.6](https://github.com/cujarrett/glimpse/compare/v0.35.5...v0.35.6) (2022-02-12)
 
 
