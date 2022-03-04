@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.35.12](https://github.com/cujarrett/glimpse/compare/v0.35.11...v0.35.12) (2022-03-04)
+
+
+### Bug Fixes
+
+* updates dependencies ([#245](https://github.com/cujarrett/glimpse/issues/245)) ([ff917d0](https://github.com/cujarrett/glimpse/commit/ff917d0fb0a71e34e6ed12f1722186c4f168c7b4))
+
 ## [0.35.11](https://github.com/cujarrett/glimpse/compare/v0.35.10...v0.35.11) (2022-02-18)
 
 
