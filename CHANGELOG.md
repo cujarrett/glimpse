@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.35.14](https://github.com/cujarrett/glimpse/compare/v0.35.13...v0.35.14) (2022-03-10)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @testing-library/react from 12.1.3 to 12.1.4 ([#247](https://github.com/cujarrett/glimpse/issues/247)) ([979d690](https://github.com/cujarrett/glimpse/commit/979d690d708948bcf4d3e75dd00f49f01b63d93d))
+
 ## [0.35.13](https://github.com/cujarrett/glimpse/compare/v0.35.12...v0.35.13) (2022-03-04)
 
 
