@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.35.17](https://github.com/cujarrett/glimpse/compare/v0.35.16...v0.35.17) (2022-03-16)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @babel/core from 7.17.5 to 7.17.7 ([#250](https://github.com/cujarrett/glimpse/issues/250)) ([af63f05](https://github.com/cujarrett/glimpse/commit/af63f059cadf3496842f83f05a3555489290f706))
+
 ## [0.35.16](https://github.com/cujarrett/glimpse/compare/v0.35.15...v0.35.16) (2022-03-16)
 
 
