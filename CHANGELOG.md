@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.35.18](https://github.com/cujarrett/glimpse/compare/v0.35.17...v0.35.18) (2022-03-16)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump @commitlint/cli from 16.2.1 to 16.2.3 ([#251](https://github.com/cujarrett/glimpse/issues/251)) ([fd24d43](https://github.com/cujarrett/glimpse/commit/fd24d43e5dbf203944503e4b0f1bbec2b460ec80))
+
 ## [0.35.17](https://github.com/cujarrett/glimpse/compare/v0.35.16...v0.35.17) (2022-03-16)
 
 
