@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.35.15](https://github.com/cujarrett/glimpse/compare/v0.35.14...v0.35.15) (2022-03-16)
+
+
+### Bug Fixes
+
+* **deps-dev:** bump eslint-plugin-react from 7.29.3 to 7.29.4 ([#248](https://github.com/cujarrett/glimpse/issues/248)) ([54ac04e](https://github.com/cujarrett/glimpse/commit/54ac04e9bbec51526402d5a88bdf3cb259e602f4))
+
 ## [0.35.14](https://github.com/cujarrett/glimpse/compare/v0.35.13...v0.35.14) (2022-03-10)
 
 
