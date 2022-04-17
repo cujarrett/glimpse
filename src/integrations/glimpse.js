@@ -1,4 +1,4 @@
-import fetch from "node-fetch"
+import fetch from "cross-fetch"
 
 const getContributions = async (username) => {
   const url = `https://api.glimpse.ninja/github?username=${username}`
