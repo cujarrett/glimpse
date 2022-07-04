@@ -16,7 +16,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - uses: actions/setup-node@v2
-      - run: npm ci
+      - run: npm install --force
       - run: npm run lint
       - run: npm run test
       - env:
